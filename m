@@ -1,109 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.16
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794317984;
-	b=krz7nAjBHzJ3lvMJjnNIAGo4O2NW2xwO8GJWvV95zOur3axtINjz7AI49Z68Ch9fGjKQ
-	 RmiolH0GllimdFgEsRSZ+gbC6uuJsjxr6ATxYaDZWHq6CjrJXZnYLNod51sWs5gd5QQP3
-	 vFKRIcp7jH2meeUiA2/EFdQXy/Sg63u5nXRzZQNSqSvVIK2KYFaKcnyy6zbTDLsEnDRFK
-	 4QYMJq1QdAw5J7FvhHV6IZ52asL2vgYEViHPnzIEoGzJeKdn3Zt45tqTj5CEpDEwVID1U
-	 yT8ga6/RWFe+hX5gXMYX7woBmghRuuyn+Uy7bkb3rMAF792w6t6DYu8Loik+MI1ee/A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794317984;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=3ucGLBWgR1TwnI88Y/LWHk8rGerLqW9I501GIdBfKwM=;
-	b=JSRSPqt8kAB/cRWDjcbduevuym+y+1A2bKhJBEOzJkj4guBUMFNA44s2ypvNMX6i+myY
-	 dt0k5n81rSMjTTg3rKfspU6T7qBTaZaXLAIE7GJ2XfZAYkVKQUYHN7VALjrnDnXFWi4al
-	 /BC35XTtISCNsyX78NmavXMszlZl8qwmZFp6e0pYmf/Wp1s0wXPMiPJmRu6/GuUxqWOJ+
-	 EoMGY9haV9MYZuPtITHB1cj9YACnTmdD7Om+5Jj0SeM4LXXW9PzonNM2afeTqERLi3Dj/
-	 3wuieGoOCuCbUNpMnIE6ihUGCQvU++uuYf222f6FROY7e86hvtRDEEYY0VkmsEHf5bg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=StUQuBlY;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.16
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010016.outbound.protection.outlook.com [52.101.201.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.132
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794647566;
+	b=2CnutuCKhOsvCH64ByggfY62lG6fbxErJTux8k/liv5fi5ak/4dlrVmQGDr8V1z0R0pe
+	 f/gvSBuUOCRDs1/hbEQxqM5IzzflZbz/t9RUmPwZifGLoi/HP5ID55JYlcz5N+AvGbBG4
+	 hhw82C3teOiuIcRQW0Xw/u22cnIHe5jr2GOdAiSvJXv3jefwlWv3OftSJwHcFKvx8zTra
+	 jE0JuGSJBCvHhbaSuNXEeqdSogiJPAu4yg9Bto5kZgVkDFIiX2RHYTToCe9trXoz3MZ5L
+	 rzs5w+J5oPnp7gD9WqmSNH5s3kQJt5xA6W+7/jDSiVvNFUm7PfffusXKG3z63dLmUyA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794647566;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=QTbQToynBqwf3n1SZSg1pf/eN+ziaT5I0ox1EckFMS8=;
+	b=arw1KLZJCN48iW0M/Gb18LcSpi23WxOiJ35y1JmfUM32ovZisy6bfvMa89ZhvNbpleXx
+	 GF/Z7Rt0NOTAXKl77EVeM2rbhfnz0rz/uzsIIYzIQiC3DQR/c2N/1ikq+ufZBTG4DOh8R
+	 TXO57sa3qkZv3Aqn8bi1tfxHq+XBLeyIL9rZUq0n0qIJqGBg+BfxbJnoY5ExGPlKyg8Ga
+	 6Zn0PAaUcNrhrtEeLjehNTtBBzIoMJcQ339jsExXLMTeDOdbz94GLGuoEC2eJYKfM/Vuq
+	 oVskNJCnZR/gWzdfQXZYMTQfUq0632b3YbbDMZ1zOrioK8FczFNq5DfNVVGnH6ZBn/Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vN5uXXa7;
+	arc=none smtp.remote-ip=74.125.227.132
+Received: from mail-pj2-f4.google.com (mail-pj2-f4.google.com [74.125.227.132])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84DE3606A325
-	for <ipsec@lists.linux.dev>; Tue, 10 Nov 2026 13:39:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84DE3606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0FFE60A3807
+	for <ipsec@lists.linux.dev>; Sat, 14 Nov 2026 09:12:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0FFE60A3807
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=StUQuBlY
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HTEyvBpbdBJhu3Uqt9YHa3tY17Z9MwxxdhCHDn7HfkGI7zZP9InIChApqFHW9iwDcmYZqWJsUAZDppep8T/+2F2zvu+U4vZCfO9GXE5AECaXprzydN0+7XyCFrt2hZF+jQgh3K19iosypGstCuNRusvzcr+/I2pZ9fRF0fsKfh/z1aUa8QjHXLapf5wHN8KJRNRgFNxMwVxglz3hfuQjFXz2KAWLPvvdQjvrt9jZodaF/n+p24hgR2Hx1mdjgzio50xmwQ+C6PUqelGOIMNmzXBeZxouRbKkyZzpCf54d+SN68dBJ7XGE/am1QUTGcAmlPMC/11kDHE5Muv3voEt4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3ucGLBWgR1TwnI88Y/LWHk8rGerLqW9I501GIdBfKwM=;
- b=JCZdaAFROcdO83IZA/OebhLfgoLzIFxbuiyTxqvn+cZQvb9LGVO9bCOUgTzUpDGdd3nLOIDcghIUAvvh8/E4vX7Q4RfsHeapRPQWPxKb9rKZqTYm4A4o4cq9dd9jvuF1n11djZgz2rbM1LX3BxP8DiPJCf93c+LfbJIdufpMXP/BZRNud5t3dLUy/GWiy2sqXDb0LhJ5v3l1L3xyb4ifD/rjM+wpmTiXnf/XBxwUHjbLv6fM3bfohp/4+0G7tXODD5Z6myhQ9P3/PGmdVhBZFlSY4mLVp/82z4zUhiTRP67pgDmzlcpYUe3oBcH+EnuAXcKh2Dr94OZ7w952IX7Olw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3ucGLBWgR1TwnI88Y/LWHk8rGerLqW9I501GIdBfKwM=;
- b=StUQuBlYN6HNnfo0uaFkuMDX9pY0KmWdJR5V6U6e6re+O/R34C7x09C22A8SjUsgfwujNWjy0jzd3+paVJNpsms9X4NedQXAEjROyGFdJZ/buCI9s7VAqJHspLTszaiIONzidS5pSMZEU2+i5b3mtfXEyEjTE8yPHALh3YshgkzI9tcTWgC+MfANEj3CJpOUndwucV9tA0RTytHwdALUejvAoL+LoIUb3WMnAIwwVgz6By5XelRRY1zEglOjMS6N5fsXg1tokY+OP7fz+UNV9wWN/mbbdHd95YkEKXdJtuSFY5FiRLbn7y7nu7hFthxkktWFOjn4TfD0KoRiT+awpA==
-Received: from CY8P220CA0037.NAMP220.PROD.OUTLOOK.COM (2603:10b6:930:47::7) by
- CH3PR12MB9220.namprd12.prod.outlook.com (2603:10b6:610:198::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.8; Tue, 10 Nov
- 2026 13:39:33 +0000
-Received: from CO1PEPF00012E64.namprd05.prod.outlook.com
- (2603:10b6:930:47:cafe::8e) by CY8P220CA0037.outlook.office365.com
- (2603:10b6:930:47::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.8 via Frontend Transport; Tue, 10
- Nov 2026 13:39:33 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CO1PEPF00012E64.mail.protection.outlook.com (10.167.249.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 10 Nov 2026 13:39:33 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 10 Nov
- 2026 05:39:13 -0800
-Received: from c-237-113-240-247.mtl.labs.mlnx (10.126.231.37) by
- rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 10 Nov 2026 05:39:09 -0800
-From: Cosmin Ratiu <cratiu@nvidia.com>
-To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
-CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>,
-	"Eric Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Shannon Nelson
-	<sln@onemain.com>, Cosmin Ratiu <cratiu@nvidia.com>, Tariq Toukan
-	<tariqt@nvidia.com>
-Subject: [PATCH ipsec] xfrm: replay: Fix late packet handling with ESN crypto offload
-Date: Tue, 10 Nov 2026 15:38:21 +0200
-Message-ID: <20261110133821.2548903-1-cratiu@nvidia.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vN5uXXa7
+Received: by mail-pj2-f4.google.com with SMTP id d9443c01a7336-2e96b8bfb43so5240075ad.0
+        for <ipsec@lists.linux.dev>; Sat, 14 Nov 2026 01:12:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794647565; x=1795252365; darn=lists.linux.dev;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QTbQToynBqwf3n1SZSg1pf/eN+ziaT5I0ox1EckFMS8=;
+        b=vN5uXXa7jGo/E9fnDZUmx5HOdPQ+DacJhcClRuf0qZcoGxMOIAgek0m+NJaxl6a3YP
+         r0SaRIWytNVAuZXMPZ7hjezZkd7IhyruqkCMe1WQ4D0dPEHvG8nWyVrwgRU4UPVIC4ZT
+         Z6l0oSq8Y6cjdOH5/bFWAonbzlUlEZliCpCVtpAfATmnl4DQiT08LNcq87nONXZPnW0d
+         Mdj6UgNrKmNJcLfb25do+VhB8gbgp0It+IOFsnCH13a6zrKrGoxNQLIpU1IG9//mKFJE
+         0RE9haU1+8qDX4cKYR+HwgZQRfNiJN0OCWVdBZY5BO+vQjo+ats9PhkdMakXtBfDPQDE
+         GvOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794647565; x=1795252365;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QTbQToynBqwf3n1SZSg1pf/eN+ziaT5I0ox1EckFMS8=;
+        b=y8LLc3uul3fosT73R0uWdWKSVN2gDhEh990bj6H2++vsCHMG5hYUjppR7Uq4zIRAFU
+         jDfT/iUmwBRXNUvt57TTiKfvTLvelD631VzbiMm0Yi6fECX05kecbjZUq+Cvz9H9s9PF
+         pyaXfcWP4X9I3N21OG4g8a1eHZLjyRVq25nmiLglH8/GMfZmxlq9D1EDlwzGzDoAamz+
+         p9oqIY1IGO+FlFKa+REP514ZML+/fHDPveP3H93T6pz0vJGmQIdNVj59+6FS7/iNNvlB
+         t44p1eGSlTxldicwtRc3F9oBvV1DwwaBX+iKhvMnm4p+JTDzu/tPW1IiT0U1ET/04wkP
+         Mlrg==
+X-Forwarded-Encrypted: i=1; AL+hErEdNS2iRut+yzdwdxN8mJE3Sa5gN92Ue0O0VVBseILt1Eu8hgWkX/f69OVCmHO1bFVnIGui0A==@lists.linux.dev
+X-Gm-Message-State: APuU4Z9owAl8rn4SZ1Rnb8TxjYhoW7wP1FZeUUgmIQjXt0Salo4Y1asE
+	vk3NSY+ny79yCVXELslEe9JpM9XaobKMkIP4faqV03Vul3NsTFlKZFMI
+X-Gm-Gg: AYBFou1b+wiKk64Qtqmy4EZ1T/5k+l6pDriexRmDREGBBBWvqJqBXzuL03DxZQkitgO
+	8xDdKMMBL/ddZukC0Q3tDCkRBt3JTmNEWrmwnx8A2EVmNJTn7wORrglL0ZF1zs3/JRKDY01L9Vi
+	QrITx3Ya1oizAUwckhfD0B6sQcjK91o3lUG9MIlnGvoTi3bZLgC0sKkRhUc0EPFhEk8RSpnMjo7
+	9dLM1Y9Pl6nE5rGxDZglHuwhK8E1WTFGvMhaT7oQxiX8bihsjLuH9Y6mUqD+XQzgWxbiAUtVtdi
+	Id39/okHPRISajwBwPrRSDOjHkn9O3FL6qbI05gBJo9S+4OafUw+WGQL78xvD9OBzH1VvK1Payd
+	06ofUM5IWRtJbBvF0asulTdy9SKwaslRApDm0/UDjl5u0lZmhhfQl6WJbb2PB3n9xL3na4rROFd
+	hC34wbEPZT2g6uVw8PPf3nbnmZlJxtIvbYzpRREhDI3weZZqOp3Wkbe1g5roDICkYN9n22zywoM
+	zrNHdh9qGer37TLG50ixtDTkqUHHqPdW9c2VUI5VDpbWS/NXxMsZQBuX07/RTRQh0FDD4QiJ0RU
+	LfyhPnIlP6ADje7orHrlh1EkVIKj85Qjws09rlsGkSG3hcfU8xuf
+X-Received: by 2002:a17:90a:c88b:b0:3ae:6fda:78b1 with SMTP id 98e67ed59e1d1-3b1b0b6049emr4722150a91.43.1794647565057;
+        Sat, 14 Nov 2026 01:12:45 -0800 (PST)
+Received: from kernel-lab.tail5e91bb.ts.net ([2409:8950:57d:63:2b6e:fd48:7485:9720])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1aeb179fasm8311897a91.4.2026.11.14.01.12.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 01:12:44 -0800 (PST)
+From: Yingjie Wang <flashhhhha@gmail.com>
+To: steffen.klassert@secunet.com
+Cc: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	jhs@mojatatu.com,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH ipsec] xfrm: avoid wrapping AEVENT timer thresholds
+Date: Sat, 14 Nov 2026 17:12:39 +0800
+Message-ID: <20261114091239.780633-1-flashhhhha@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -114,103 +104,72 @@ List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E64:EE_|CH3PR12MB9220:EE_
-X-MS-Office365-Filtering-Correlation-Id: edfbdb52-2aac-4089-81b0-08df3f300dc6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|7416014|376014|1800799024|82310400026|260925021311599003|260925021911599003|260925022911599003|10067099003|11063799006|56012099006|261022105027099003|261022075727099003|261021135927099003|261021121427099003|261021123027099003|261009223027099003|261102123227099003|261026121527099003|261026140227099003|261028144727099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	S9VzR81eiDfqTC2XanfTo7w9xqn5V7qJODjRvu8diekCeVKp+4jHwxduIcpd57Te6+sbyRSY9KSIYINutYLN/VDkIIyUWbKT8+Bl6xIaaX+ZwauQkDgMAl4pnbh97ce4XIccHwxTDhaGX+D4A3/Vqvok/yE8+npxBpi/Xe7fnhJNk2X28il5g7zmYL11lOYrXW5IwHSgFHnkep8AeyqVsqW4rnJuC/CTKlXUDpIhYRhgV1U88fcYfhiyoLt1WynpsoU++sWJU9FoALRP6kI4cvp8v6kbpZLd8vwHkh49KhIZwrNV0ZRceQP8R6Z7ks0PxhgLm/hVblY7plEvlcvauOeEN1HsOxeCK0n8o0laV9pdsPpTirDRZuwJvu0ohJNYa6r9a6ih2pL3nhHN9tImOPQ3VG7TuuMI7pWOs/Np3oiETNAbqSSCqfJ78+3QjCWbEVa9Fq2G+0mP2kJzku2spfxM1FKO4/70Gaw9xv10/3Jhy3MNLRdTl+hvoNYJQftkje7STuQmQ+GZh1M2Dxh2r5JNHXKd/Yw8nDg3Ai1kw6ZdyoAg4mtDxxhXpj3KvjMHQyqrhcBpKA4YAu/l1cuZpZhXIRxZDu/eq9f/Jh+iNQjEYJAKNf/PXy8yfyWLY77XmCF3jwqOw0IR394vG6RpAm89t291v7dnuOjxxKlGx4xuB92ku/SC1aXJ5XgHuhL9uH5BsMh7T7DFUF2UmLU9dg==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(376014)(1800799024)(82310400026)(260925021311599003)(260925021911599003)(260925022911599003)(10067099003)(11063799006)(56012099006)(261022105027099003)(261022075727099003)(261021135927099003)(261021121427099003)(261021123027099003)(261009223027099003)(261102123227099003)(261026121527099003)(261026140227099003)(261028144727099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	RxiWHdV/DKB4snz5k09MjQLkl7SOvJi0j7pHadSbNDE70NKI36XvuSDhmRprV74s8YfsZWO2MgjOKUF0qNCqTThK7uNIUQZBOHbp1gzpvgPTK6OwZlyOYiDB0i4EHPU9JI9K5JbIu54n+tqqNcgB+h5Za8evSqLaFrdqyEXulIh30l61wImeK0H7xt22PHY5IcgKZKJcr6jfDGWFuS2q16/lLfgEZqwqm7OO0vpyfjSTDz7eoac/ndSQ4rC7CB3ZuPOv4zVrLfNMQTGC2HDxYvYU5uzyoTL1fDR9XZFu4JRh//CE29Cjmk+jrJ5KL0xjnXBk13ssjr8YM8+jjqANvhL3sASX5kGvHJdgx9Y/oUGyznXaQlnjUtTFSm2lhCZJ6EaJ4GP+2LcQZFuuqxal/HbLL/XStBDgTY+Xybc3e+mGQuEnk+v06DDuWmHJ8ULp
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Nov 2026 13:39:33.0939
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: edfbdb52-2aac-4089-81b0-08df3f300dc6
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CO1PEPF00012E64.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9220
 
-xfrm_replay_seqhi() guesses seq_hi for a given ingress seq per RFC 4303
-section A2.2. Packets with seq < bottom are interpreted as being ahead
-and the function returns the next seq_hi. xfrm_replay_check_esn() redoes
-the same computation and defers to the ICV check.
+net->xfrm.sysctl_aevent_etime is stored in 100ms units, but the
+conversion in xfrm_state_construct() multiplies it by HZ while it is
+still a u32. Large values can wrap before the division by
+XFRM_AE_ETH_M, disabling the replay timer or turning a long threshold
+into a short delay.
 
-On SW crypto, such packets then fail the ICV check and are dropped,
-unless they're actual packets ~2^32 in the future (very unlikely).
+Do the conversion in u64 and clamp the resulting jiffies value to the
+range representable by replay_maxage and safe for jiffies comparisons.
+Use div_u64() so 32-bit builds do not require compiler runtime helpers
+for the u64 division. Use widened arithmetic when reporting
+XFRMA_ETIMER_THRESH as well, so large stored values do not wrap during
+readback.
 
-But on crypto offload, the ICV check already happened in HW and isn't
-repeated. xfrm_replay_advance_esn() then increments replay_esn->seq_hi.
+On x86-64 with HZ=1000, setting xfrm_aevent_etime to 536870912 made
+XFRMA_ETIMER_THRESH read back as 0 on the base kernel and 42949672 with
+this fix. A normal value of 8 read back as 8 on both kernels.
 
-The problem becomes visible when the HW state is renewed (e.g. bond
-failover or mlx5 mid-sequence ESN state update). The newly offloaded SA
-carries the wrong seq_hi and completely breaks ingress since all future
-packets fail ICV.
-
-This was verified on b2b ConnectX NICs, with an 'iperf3 -P 2' test over
-a pair of SAs over a bond device in active-backup mode.
-After ~10s of traffic at ~10 Gbps, replay_esn->seq_hi was ~2.5M due to
-the two streams sharing the ESN state.
-Forcing a bond failover on both sides breaks traffic permanently.
-
-Fix this by dropping packets up to 2^31 before the replay window for
-crypto offload, since the SW seq_hi guess cannot be validated. Packets
-up to 2^31 ahead are accepted as new, same as old code. A burst loss of
-more than 2^31 packets now stalls the SA (previously up to 2^32-wsize).
-
-SW crypto is unaffected.
-
-Fixes: 50bd870a9e5c ("xfrm: Add ESN support for IPSec HW offload")
-Signed-off-by: Cosmin Ratiu <cratiu@nvidia.com>
+Fixes: d51d081d6504 ("[IPSEC]: Sync series - user")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yingjie Wang <flashhhhha@gmail.com>
 ---
- net/xfrm/xfrm_replay.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+ net/xfrm/xfrm_user.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-diff --git a/net/xfrm/xfrm_replay.c b/net/xfrm/xfrm_replay.c
-index 9394953247ab..37c0c299cb10 100644
---- a/net/xfrm/xfrm_replay.c
-+++ b/net/xfrm/xfrm_replay.c
-@@ -451,6 +451,7 @@ static int xfrm_replay_overflow_esn(struct xfrm_state *x, struct sk_buff *skb)
- static int xfrm_replay_check_esn(struct xfrm_state *x,
- 				 struct sk_buff *skb, __be32 net_seq)
- {
-+	struct xfrm_offload *xo = xfrm_offload(skb);
- 	unsigned int bitnr, nr;
- 	u32 diff;
- 	struct xfrm_replay_state_esn *replay_esn = x->replay_esn;
-@@ -469,7 +470,18 @@ static int xfrm_replay_check_esn(struct xfrm_state *x,
+diff --git a/net/xfrm/xfrm_user.c b/net/xfrm/xfrm_user.c
+index a5fbe38839c4..4a676a6aa53e 100644
+--- a/net/xfrm/xfrm_user.c
++++ b/net/xfrm/xfrm_user.c
+@@ -924,6 +924,14 @@ static void xfrm_smark_init(struct nlattr **attrs, struct xfrm_mark *m)
+ 	}
+ }
  
- 	diff = top - seq;
++static u32 xfrm_aevent_etime_to_jiffies(u32 etime)
++{
++	u64 maxage = min_t(u64, U32_MAX, MAX_JIFFY_OFFSET);
++	u64 j = div_u64((u64)etime * HZ, XFRM_AE_ETH_M);
++
++	return min_t(u64, j, maxage);
++}
++
+ static struct xfrm_state *xfrm_state_construct(struct net *net,
+ 					       struct xfrm_usersa_info *p,
+ 					       struct nlattr **attrs,
+@@ -1022,7 +1030,8 @@ static struct xfrm_state *xfrm_state_construct(struct net *net,
+ 	x->km.seq = p->seq;
+ 	x->replay_maxdiff = net->xfrm.sysctl_aevent_rseqth;
+ 	/* sysctl_xfrm_aevent_etime is in 100ms units */
+-	x->replay_maxage = (net->xfrm.sysctl_aevent_etime*HZ)/XFRM_AE_ETH_M;
++	x->replay_maxage =
++		xfrm_aevent_etime_to_jiffies(net->xfrm.sysctl_aevent_etime);
  
--	if (likely(top >= wsize - 1)) {
-+	if (xo && (xo->flags & CRYPTO_DONE)) {
-+		/* The ICV was already verified by HW with its own seq_hi,
-+		 * so the seq_hi guessed by xfrm_replay_seqhi() can't
-+		 * be validated in SW.
-+		 *
-+		 * Treat seq up to 2^31 ahead of top as new, everything else as
-+		 * behind: in-window ones go through the bitmap, the rest get
-+		 * dropped.
-+		 */
-+		if (likely(diff >= BIT(31)))
-+			return 0;
-+	} else if (likely(top >= wsize - 1)) {
- 		/* A. same subspace */
- 		if (likely(seq > top) || seq < bottom)
- 			return 0;
+ 	if ((err = xfrm_init_replay(x, extack)))
+ 		goto error;
+@@ -2782,8 +2791,10 @@ static int build_aevent(struct sk_buff *skb, struct xfrm_state *x, const struct
+ 			goto out_cancel;
+ 	}
+ 	if (id->flags & XFRM_AE_ETHR) {
++		u64 etime = div_u64((u64)x->replay_maxage * XFRM_AE_ETH_M, HZ);
++
+ 		err = nla_put_u32(skb, XFRMA_ETIMER_THRESH,
+-				  x->replay_maxage * 10 / HZ);
++				  min_t(u64, etime, U32_MAX));
+ 		if (err)
+ 			goto out_cancel;
+ 	}
 -- 
-2.53.0
+2.43.0
 
