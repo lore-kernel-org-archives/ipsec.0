@@ -1,101 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794851154;
-	b=xURfRP+K3buneN3OSlUJSyJVlll5cSIyGvhj9qanldrxeid+KOZtLV42VsU8Cgpf06F4
-	 Knlm/VC61zWrlcse4cW7/9k6TZiiVMOwaJWeKSMSO+8W9lgWw+v4dK48/y4DG5yvNMEyt
-	 cD25c9BpADLk6GogPpm32CJHZh0NK6c9YJxInnmI1tHWlVKfQmsAcR5foYGPKyFS4nhoH
-	 hE3upDxYFqmDmXDkYbrK4yztVn8HPBOfj9oUadGMucEUTr1BcNE/uiPuGe4kkKD6Xm5JB
-	 1wZS6CO0Edsm46DoIm+h/lcP5zpdXA02ta55pS67UNtiqC1fepOLgw3Ys5wEjhxj3yA==
+	t=1794855708;
+	b=BsNedWSU1QBe39NvtjLeNoazj8AJbPIINNaLTidftJLVgBKxubPRXIO+y4nlz2kse7d3
+	 oWnm42C85Jm/xzwF4X3LRB2iJthYEZzla36wzca0fiSFOK1OxqVyWusUT857UKH+rpmmZ
+	 4kxMQjH7+jxIgBfK3CyZuryovWzM75hiCP7Lpmh7b+YJA66nWWLBQ2xV5IfP3G1Wr+Yop
+	 8QoriClig40ZUYExDTHeQTlduOVNgF/KMY9R6fniG8OM6UEcGfP2nNXl9GgKdopm6ElHE
+	 eKODbd6jT08h4hA0ETp6JsDopf3Oj7qE4L7tak8/J5BY5xzeJTyRzFL0gobJPDgMCzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794851154;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794855708;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=D3rTq3sw2FiwvkIQe48QRombHNJIoQKUHEA+xIJ5DiQ=;
-	b=DOEcYQsS6+10DBPf4sLXq4umWfPik373XedTj5QJHibTx0X/wQzLuAUQZtMcDZGzU/EF
-	 rMIuuuZnfIozNqkPwnOgVrhAiXuQ+CttH0kwc41hPgK3eKgrxtssZyOWPhetDcg9G1NSR
-	 0RtUcgB1i3H1DonvMd18Sjqplr6vRRtpsz9ksKwuV+mVDMcoY6g/U95FNNQhzzTAHOIkl
-	 mfPwpdwF9GYQyLUl0fALxUVZIYsAKRvgds+TS+YBDcP4k1qJsDc+n9TDjz78mzg4EwG4E
-	 GiK0N/S8ULol3VKqQIm+ZXaoOJk3Wd9k73vW8vo5PtvIx3u3gfhipgwWrXiRDIjYolA==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Cw/BVa7eJbiscvjL5aeyO7U6YquYlPCCRzpuqZhRipc=;
+	b=LkzR1rThBiqYIQdJJTqwWebQrB9/iwCSJKI+keFiTm1B9RQUWjDxX0n96MzJrahToOmS
+	 +z4qVTcePBBV7a3c0xi/dzwyCbOwRasYvFywm6mNsl3ilS7EfFQq4bodDRzZ+XETEpQUK
+	 Bgt3bMeroVLexxrITye2saUbrNi35q/ZhestJ1jYBy7fSeAECS18VUWmw6TdR2+8Q9CJ4
+	 TiNWq9LBdd2LXX7JS6jydS6ir6km7/FcZELyEbGEj5qtAhrXGmzXP5I4hdQAT0AKKtkbL
+	 E4BaEsvCgLbGwDrBnMSgj2qR201kSKTXmjmdQK/LMPchjWNYFwYivY7g+NBQ+T+GjrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=K1noAZ51;
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=JJnWgBH6;
+	arc=none smtp.remote-ip=209.85.217.47
+Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com [209.85.217.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D89BB606A323
-	for <ipsec@lists.linux.dev>; Mon, 16 Nov 2026 17:45:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D89BB606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27BD6606A332
+	for <ipsec@lists.linux.dev>; Mon, 16 Nov 2026 19:01:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27BD6606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=K1noAZ51
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2efd432714aso2352515ad.0
-        for <ipsec@lists.linux.dev>; Mon, 16 Nov 2026 09:45:53 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=JJnWgBH6
+Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-7d2d18f1bf5so3376726137.0
+        for <ipsec@lists.linux.dev>; Mon, 16 Nov 2026 11:01:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1794851153; x=1795455953; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=D3rTq3sw2FiwvkIQe48QRombHNJIoQKUHEA+xIJ5DiQ=;
-        b=K1noAZ51a9FfKFT2BHtamTWX6ZF3RWEDVjWyLhPvIi3w5AARrKS3xZhJQxtV5Fv8kR
-         z07Un6/NWnhPSymExDYhipVk3X9lZFjTz2e/2MJ4U7gd5ijPztcdDBMgEtXlRBZmR5uQ
-         NW5Gdr5Hh/U5KOf06N7JJuQK+NiyYnqXrKgoU=
+        d=mojatatu.com; s=google; t=1794855707; x=1795460507; darn=lists.linux.dev;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Cw/BVa7eJbiscvjL5aeyO7U6YquYlPCCRzpuqZhRipc=;
+        b=JJnWgBH6/t+f0l/vX7MrqeRDwhl+wk+7dX5EFhCBDd52gfjtAyNQadFDA6w4SHON+/
+         m9pFNt7TTxOlnllE55KnIUiQAJSqKh/tEPIZvC7m+lEQgXgNTF/4KhGTgzeJ+lT7nsV2
+         sf5OnywaoUW+M5CngWA6kssUqB5Hi9jxkNPMs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794851153; x=1795455953;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=D3rTq3sw2FiwvkIQe48QRombHNJIoQKUHEA+xIJ5DiQ=;
-        b=hK9Ls7/J5UMAD03BBEaBmanuGdbe9gXO/CEwh6zVQAsFYKbyOe1PaHuOvf1r2k4jsI
-         xF6s1AT41wAkW9UyTD4d6jaWzGX69i8Dbny2J1qtuSD8ThRbBD65io8MF0NxNZr021xb
-         dLL++gCMaOOQcAYLGm2+XmYbNcPCVZ9/ujPCrsD4++8c3Esc4q1JM1UHlhfDlVkK9NCS
-         Brpm/Lw3cGQ34m/rsLKYjRLBhzo2UdziHvt+wrGavgh7gPO1Vrz75Yd4mydpEcEOC1yh
-         WwXQUGEvwOq++t+vrcW/ItIwt5D7MySWjk5hKT/bWTf0Q3+cib4PxmLpe3GrmOFYEek4
-         ZMIQ==
-X-Forwarded-Encrypted: i=1; AL+hErHwI5XbsPcqmA9RHXV99mTsI4Rb32tv2aziBJXXj5/irdE2UfYeDOX5kw1e+XZ4z3twrNkDcQ==@lists.linux.dev
-X-Gm-Message-State: APuU4Z/L+bu83k9Db+1xy1/I9LAsHlP3cQRpCDUOzq5xUTaNCDjnqbcX
-	8s4arIsEYTOdZrKZi5rSSTNMdz3nbmMmYYBjQR7MnUrqV4QZn+E4/cANztAlNwSki+k=
-X-Gm-Gg: AZFdTZeSgt6CHXIrr/81E+9gsUC/JIQnVXOjCNTxFIPfnyzCZ8VAqacBa0TCfJLU76y
-	jrnahLJpuK7VTVVVmfC6EBc5BUBQ761x6fiTjS/6g+Qpt266KVRkHZvAkBLgm4pj9SRMPRCf1OG
-	z+CNOzLpDpYhkPakyAWF0uFuR/7gkmKuoxJywI10kTXqt+0hUXNbglTuJ2CG3J2UZNp28QXNVVN
-	cpmtwJQ7V5xe7J0ww5VT7+c+KLxr2MKsrUqlVdMAUlxCESjeSp4omMdUHFf9qJQ2olLWhoe+A2o
-	XbYEVDEt9nYbwf5vs+83ema63bU8Nf04+w4G+13HykKKPF8a2L9MeRAN49I6b0ytPhvtEhA8WuT
-	RCtI7ix72iyBD3vQlAQjq/eNZGJQHQyd3Kf2QtQZ03ZR+9v5bhFqwCHNRXqm+9lZ9prS36ffXSD
-	1QgDc0bb80bEa+9Bx9RGzE7ITbL5zg+UYXqdNDNskFOQcrCrFKgpc4n8H2pI/jGqlrBDmbhL4Qe
-	E4Zu3kxHvx9VmeiRwXRn7xTb1riawwp8DSdVoMdw81h1PXcIGWYXNsFSdjoMjSGbv0GeMKB3vnk
-	MW/DtNBk5mokKHFsJp74uKgc8Fw4FivfTEDCQMiMTx8UqWbRXqljmwOBfP/5kiYAUqW0mnhJtb0
-	RbCZntpyXXq5r9gyMLQcqV6W1bo22hYzdtiYSG+AChpPAtFNhrDe3jw5xH6OIvPD+
-X-Received: by 2002:a17:902:f545:b0:2e9:9522:ed3a with SMTP id d9443c01a7336-2ee0de4bfacmr106958285ad.22.1794851148382;
-        Mon, 16 Nov 2026 09:45:48 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd7ab901dsm2577055ad.74.2026.11.16.09.45.44
+        d=1e100.net; s=20260707; t=1794855707; x=1795460507;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Cw/BVa7eJbiscvjL5aeyO7U6YquYlPCCRzpuqZhRipc=;
+        b=hL8UP40x5cRpqLiATr8IW5kHb8zehPoD3cSmpqC0GV3QQtXWm5eKxf6uaYsCBo+A2D
+         71a1wBuyqmnSMnT0d7C3tSTCs7Bgg/HfjtsslWjN+R1/tzhvTHB2ipD8hVgxAxEOTDAn
+         ab8a4CoiiMF9HnfQrwKoWtwHlAsmT7eZWcOxmxuExFkOqct1vboYlWha5pO1eSiD6v6n
+         aBJczdb6LoLcBAkbup9ZaGFDfK1XOpEhtyVPBGpcZXa9c06GlDsFxYkcahiKWPJOX1Rz
+         Ros1iGdkimclV4HFIjOoH4Gm39Ba4lXy+pvNClDLckEe9bib7XhcpWJQX+Hy/u9VaEJc
+         Eefg==
+X-Forwarded-Encrypted: i=1; AL+hErH0FX1B+cLmAmKWT4gESX2LX9aRzItk7iHWzv2ucu7JJCAcX6CkPtKKitY5rnSM/mXoQG/QLw==@lists.linux.dev
+X-Gm-Message-State: APuU4Z9eA6Dafth6BIjxj5j2ulkw5208gNm7MMT+AbhGkVkwiQahhmw7
+	gOeAN1sw+I2uO0/1TQrv3tN2SDvuy/hVVDIKdzwjP39/prEtVuLrmYKQVXxEfdK2lg==
+X-Gm-Gg: AYBFou210plOKW6+jgU9Jbe+YbnzQuVopPjY8vPqg9mby/itE3RWkrbVvamsO7gKO9+
+	NumrvYk75a/T1yf6ARgZXbxU6o8o5d49M7hnTtaznMSz927S85kCdhUTs6mTCaOzsGPOa333xv/
+	nI3eJ+zn/tiljJfksWCpln8QB8WrtL+8KA5pg6poTGEPmdW/adCM9oeYMKTv/8KFrLjuzm3qbAG
+	vK732oUw0ipNk/sBl882hfel+UA2paxXEZg56mn9SF1xnqcWuxLNWkHfIkD4PgO0gNT6ugUW0cF
+	Xg+yczzc50MuubV/VofoSNN110mTzEgjNwnb1gPOY7TW2RgYbBLSTl1GjR9OFW4yvfXYSRdG1NZ
+	qTFrqei2NWaxoRQpdnTP0qQymubuGQU4xSPRcqCS6DkSeAi6lSt8f7bo5wb+RkidG3GRRejwrT6
+	vlSIiR0bzp4YBWjKq5eR+/tSffJXexFGg7D09BKxgSyQ0YfAsZFXwK3l/gcs0zL2DhNphBEMS6g
+	E3B37fqckg/SP4cDuE1spfhPnwciIV3NPpIl3Mum3Vv/ctO7QdqT4/AvoT4+AF2BsJb3qz8w0XC
+	naSeZbNe6v31bj2E1EHmdMEK8QRxzPd4nqrfvg+8vthkv4yR75AEJu3jeriXMbzhl+brzX9n734
+	=
+X-Received: by 2002:a67:e7c1:0:b0:7b2:f3ff:6b34 with SMTP id ada2fe7eead31-7d64d468432mr4302490137.1.1794855706870;
+        Mon, 16 Nov 2026 11:01:46 -0800 (PST)
+Received: from mbili.waya ([64.203.83.2])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d453casm91997386d6.10.2026.11.16.11.01.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 09:45:47 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
+        Mon, 16 Nov 2026 11:01:45 -0800 (PST)
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+To: netdev@vger.kernel.org
+Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>,
-	Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: Eric Dumazet <edumazet@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
 	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>,
-	Piyus Kedia <piyus@iiitd.ac.in>
-Subject: [PATCH] xfrm: do not write the ethernet header when the mac header is unset
-Date: Mon, 16 Nov 2026 23:15:31 +0530
-Message-Id: <20261116174531.2540348-2-piyus@iiitd.ac.in>
+	bpf@vger.kernel.org,
+	Jiri Pirko <jiri@resnulli.us>,
+	Victor Nogueira <victor@mojatatu.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	Sashiko <sashiko-bot@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: [PATCH net-next v4 0/4] net: drop the stale dst when steering to another device
+Date: Mon, 16 Nov 2026 14:01:37 -0500
+Message-Id: <CORE-9NOG.v4.r0.20261116135311@mojatatu.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261116174531.2540348-1-piyus@iiitd.ac.in>
-References: <20261116174531.2540348-1-piyus@iiitd.ac.in>
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -107,117 +123,162 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-xfrm4_remove_tunnel_encap() and xfrm6_remove_tunnel_encap() restore the
-mac header after removing the tunnel header and then stamp the protocol
-into it:
+This patchset is created to address constant whining by both sashikos
+about this being an issue when fixing a UAF on a teql issue, see:
+https://lore.kernel.org/netdev/QDISC-6HS9.v4.r0.20261111094338@mojatatu.com/
 
-	skb_reset_network_header(skb);
-	skb_mac_header_rebuild(skb);
-	if (skb->mac_len)
-		eth_hdr(skb)->h_proto = skb->protocol;
+Two producers steer a packet to a network device of their choosing and
+then hand it to the neighbour layer for link-layer resolution:
 
-skb_mac_header_rebuild() does nothing at all when the mac header was
-never set:
+  3/4 netfilter: the neighbour variant of nft `fwd`, on the netdev egress
+      hook
+  4/4 bpf: `bpf_redirect_neigh()` when the program supplies the nexthop
 
-	static inline void skb_mac_header_rebuild(struct sk_buff *skb)
-	{
-		if (skb_mac_header_was_set(skb)) {
-			...
-		}
-	}
+Both rewrite `skb->dev` to the target device and leave the skb's dst
+pointing at the route the packet arrived through. When the target
+device's neighbour for the nexthop is incomplete the packet is parked on
+that neighbour's arp_queue, and draining the queue re-looks the neighbour
+up from the stale dst. The frame is therefore built with the original
+device's link-layer header and then transmitted on the target device: the
+packet leaves with another device's addresses, and the sender never
+learns that its nexthop was unreachable.
 
-and it does not clear skb->mac_len either, so on an skb whose mac header
-has been unset while mac_len stayed behind, the guard is true and the
-store goes through an unset header.  skb_mac_header() is
-skb->head + skb->mac_header and the unset value of that u16 is 0xffff,
-so eth_hdr(skb)->h_proto is 65535 + offsetof(struct ethhdr, h_proto)
-bytes past skb->head: a two-byte out-of-bounds write landing far outside
-the skb, in whatever object happens to be there.
+This is explicit: the steer-to-another-device path never worked in this
+respect, so there is nothing here to regress. Both producers shipped with
+`skb->dev` swapped to the target device and the route's dst still
+attached, and the arp_queue drain has re-derived the neighbour from that
+dst for as long as either producer has existed; the invariant "the skb's
+dst describes where the skb is going", which the routing path keeps when
+it steers, was never established for these two entry points. With no
+commit to anchor with a `Fixes:` tag and no crash, UAF or lockup
+involved, the series targets net-next and does not nominate `Cc: stable`:
+a backport would change long-standing redirect behaviour for no
+crash-class benefit.
 
-skb_unset_mac_header() leaves skb->mac_len alone, and of its callers only
-skb_carve_reset_headers() clears mac_len by hand.  end_dt_vrf_rcv()
-(SRv6 End.DT4/End.DT6) unsets the mac header on the receive path so the
-VRF device can rebuild it, and leaves mac_len at the value the original
-ethernet frame had, which is how an skb in this state reaches xfrm input:
+More context: this came out of the review of the fix for a parked skb
+being resolved against the wrong device in sch_teql, posted separately and
+not part of this series. The neighbour code's queue drain is doing the
+right thing there, it re-derives the neighbour from the skb, so the repair
+belongs with the producers rather than with the drain path. Both
+producers are fixed in the same series so neither is left behind; each
+patch that changes a producer carries its own reproduction recipe.
 
-  tun_get_user -> netif_receive_skb -> lwtunnel_input
-    -> seg6_local_input_core -> End.DT4 -> end_dt_vrf_rcv
-    -> skb_unset_mac_header (mac_len stays 14)
-    -> VRF l3_rcv -> ip_local_deliver_finish -> xfrm4_esp_rcv
-    -> xfrm_input -> xfrm4_remove_tunnel_encap
+The reproduction for both arms is a pair of veth devices, one of them
+with an unresolved neighbour, plus a capture on the target's peer: the
+captured frame's source and destination addresses name the device whose
+neighbour was used to build it.
 
-  BUG: KASAN: slab-out-of-bounds in xfrm4_remove_tunnel_encap+0x17d/0x220
-       net/xfrm/xfrm_input.c:258
-  Write of size 2 at addr ffff88805f85800b by task syz-executor/10831
-  ...
-  The buggy address belongs to the object at ffff88805f858000
-   which belongs to the cache zswap_entry of size 56
+v2 drops the dst only when it describes a route, and keeps what the route
+carries (thanks to Pablo for catching this). A `DST_METADATA` dst is the
+tunnel template a tunnel helper attached to the packet, not a route, and
+dropping it would discard the encapsulation parameters, so it is left in
+place. A route carries encapsulation parameters too when it was installed
+with an ip, ip6 or xfrm encapsulation; 2/4 adds a helper that moves them
+onto a metadata dst before the route is released, so a producer that
+steers into an external tunnel device still finds them in
+`skb_tunnel_info()`, and one that steers into a `collect_md` xfrm interface
+still finds its `if_id` and underlying device. Neither case weakens the fix:
+a metadata dst resolves neighbours through `dst_blackhole_ops`, whose lookup
+returns NULL, so the queue drain keeps the parking (target-device) neighbour
+exactly as it does with no dst at all.
 
-The address does not depend on mac_len - it is always
-skb->head + 0xffff + offsetof(struct ethhdr, h_proto), since the unset
-sentinel is what mac_header holds - and mac_len only decides whether the
-write happens.  The value is skb->protocol.  It is two bytes at a fixed
-64KB offset, crossing into an unrelated slab cache.
+1/4 is a prerequisite on the xfrm path turned up after Pablo's comment.
+The interface that consumes that metadata puts the original route back on the
+skb before the xfrm lookup, which needs its family, and installing a
+reference counted route over a dst slot that is still occupied trips the
+slot assertion; the slot is cleared first. The same overwrite is in the
+tc-bpf helper that attaches the metadata, so both sites are fixed in that patch.
 
-Only write the ethernet header when there is one.  This mirrors what
-xfrm4_transport_input() already does, where the header length is taken as
-skb_mac_header_was_set(skb) ? skb_mac_header_len(skb) : 0, and it leaves
-the behaviour of every well-formed skb unchanged.
+The Sashiko reviews of v3 raised two questions about the release, one on
+3/4 and one on 4/4: what the target device's transmit path sees once the
+route is gone, and whether the older fallback to skb_rtable() in the tunnel
+transmit paths is reachable from it. Neither needs the release narrowed,
+and both are answered here.
 
-Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
+A target device's transmit path still sees the route of the device the
+packet arrived on, for the few consumers that read it on the way out. A
+tunnel with no configured remote takes its outer endpoint from that route,
+so a packet whose route carried no encapsulation parameters is left with no
+dst, counted as a transmit error and dropped, rather than encapsulated
+towards an endpoint that belongs to another device's path. The route realm
+goes with it: a realm is a property of the route the packet took, so nft
+meta rtclassid and nft rt classid stop matching on that packet, and
+bpf_get_route_realm() returns 0. Encapsulation parameters are not among
+what is lost: they moved onto the metadata dst, so a tunnel or an xfrm
+interface downstream still builds its outer header. Taking the outer
+endpoint or the realm from another device's route is the same cross-device
+reuse the release removes at the neighbour lookup, so these are the
+intended consequences, not gaps.
+
+The skb_rtable() fallback is older than this series. When a tunnel cannot
+take an endpoint from the skb, ip_tunnel_xmit() and ip6_tnl_xmit() cast
+whatever dst the skb carries to an rtable, and a metadata dst is not one.
+A tc-bpf program that calls bpf_skb_set_tunnel_key() with no remote
+already hands an NBMA tunnel such a dst, so the cast is reachable without
+this series; the release can also leave one behind when a route's
+encapsulation parameters are not usable for the payload. Repairing the cast
+is a separate change, and 3/4 and 4/4 say so.
+
+Closes: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v3.r0.20261103062649-2@mojatatu.com
+Link: https://lore.kernel.org/netdev/20261026160747.283702-1-horms@kernel.org/
+Link: https://lore.kernel.org/netdev/QDISC-6HS9.v4.r0.20261111094338@mojatatu.com/
+Link: https://lore.kernel.org/netdev/avTfQjFQYR2NNdRg@chamomile/
+Link: https://sashiko.dev/#/patchset/CORE-9NOG.v3.r0.20261115050625%40mojatatu.com
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/CORE-9NOG.v3.r0.20261115050625%40mojatatu.com
+
 ---
 
-Tested at runtime on mainline itself, before and after.  Both kernels were
-built from aebb72744764 ("Linux 7.4-rc3") in one scripted run, x86_64 with
-CONFIG_KASAN_GENERIC, CONFIG_DEBUG_NET, CONFIG_IPV6_SEG6_LWTUNNEL and
-CONFIG_NET_VRF, so each image is provably from its own commit.  Six boots
-each, injecting after the uptime passed 130s.
+v3 -> v4 (no patch changes code in this revision):
+- Answer the two Sashiko review questions about the release: what the
+  target device's transmit path still sees, and whether the older
+  skb_rtable() fallback in the tunnel transmit paths is reachable from it.
+- Patch 1/4: comment and commit-log change, no code change. The conditions
+  to recreate the bug are rewritten around the two arms, and the comment on
+  the dst slot swap says what owns the reference it clears.
+- Patch 2/4: kernel-doc comment and commit-log change, no code change. The
+  docstring's Return: section is corrected, and the log says the helper has
+  no caller of its own at this commit.
+- Patch 3/4: commit-log change only, the diff is unchanged from v3. The log
+  gains the section on what the target device's transmit path still sees and
+  the note on the older skb_rtable() fallback.
+- Patch 4/4: commit-log change only, the diff is unchanged from v3. Same two
+  sections in the log.
 
-The skb_reset_mac_len() warnings at include/linux/skbuff.h:2995 are the
-control: they fire when the unset-header skb reaches the receive path, and
-this patch does not touch that site.
+v2 -> v3:
+- Patch 2/4: Document the return value of skb_dst_drop_keep_metadata() in
+  its kernel-doc comment. The missing `Return:` section was caught by
+  NIPA CI.
 
-                  skb came through   reached the write   KASAN
-  unpatched         5 of 6 boots       5 of 5             1
-  patched           2 of 6 boots       0 of 2             0
+v1 -> v2:
+- Do not drop a dst that is not a route: a DST_METADATA dst is the tunnel
+  template a tunnel helper attached to the packet, and dropping it discards
+  the encapsulation parameters (Pablo Neira Ayuso).
+- Keep a route's encapsulation parameters as well: a route installed with an
+  ip, ip6 or xfrm encapsulation carries them in dst->lwtstate, which a drop
+  would discard before a downstream tunnel or xfrm device could use them.
+  The dst release now goes through a helper that moves them onto a metadata
+  dst first (new 2/4).
+- Fix the dst slot the xfrm consumer restores: a collect_md xfrm interface
+  puts the original route back before the xfrm lookup, and installing it
+  over a dst that is still there trips the slot assertion.  New 1/4 clears
+  the slot first at both that site and in the tc-bpf helper that attaches
+  the metadata.
 
-Every unpatched boot in which the skb arrived reached the write; no patched
-boot did, including the two in which the control shows the same skb
-arriving.  The assertion inside skb_mac_header() disappears from the patched
-runs for the reason the change implies - eth_hdr(skb) is no longer evaluated
-when the header is unset, so skb_mac_header() is not called at that site -
-while the unrelated warnings remain.
+Jamal Hadi Salim (4):
+  net: xfrm: interface: restore dst_orig on every xfrm interface
+  net: dst: keep the LWT metadata of a dropped route
+  netfilter: nft_fwd_netdev: drop the stale dst when steering to a
+    device
+  bpf: drop the stale dst when redirecting to an explicit nexthop
 
-checkpatch reports one thing, the missing Fixes: tag.  Neither tree we
-reproduced on carries history for the file, so we could not determine the
-introducing commit; we will add the tag if you can name it.
+ include/net/dst_metadata.h     |  1 +
+ include/net/xfrm.h             |  2 -
+ net/core/dst.c                 | 79 ++++++++++++++++++++++++++++++++++
+ net/core/filter.c              | 12 ++----
+ net/netfilter/nft_fwd_netdev.c |  6 +++
+ net/xfrm/xfrm_interface_bpf.c  | 19 ++++----
+ net/xfrm/xfrm_interface_core.c | 22 +++++-----
+ 7 files changed, 110 insertions(+), 31 deletions(-)
 
- net/xfrm/xfrm_input.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/net/xfrm/xfrm_input.c b/net/xfrm/xfrm_input.c
-index 5ed87d513..624ff8055 100644
---- a/net/xfrm/xfrm_input.c
-+++ b/net/xfrm/xfrm_input.c
-@@ -254,7 +254,7 @@ static int xfrm4_remove_tunnel_encap(struct xfrm_state *x, struct sk_buff *skb)
- 
- 	skb_reset_network_header(skb);
- 	skb_mac_header_rebuild(skb);
--	if (skb->mac_len)
-+	if (skb_mac_header_was_set(skb) && skb->mac_len)
- 		eth_hdr(skb)->h_proto = skb->protocol;
- 
- 	err = 0;
-@@ -291,7 +291,7 @@ static int xfrm6_remove_tunnel_encap(struct xfrm_state *x, struct sk_buff *skb)
- 
- 	skb_reset_network_header(skb);
- 	skb_mac_header_rebuild(skb);
--	if (skb->mac_len)
-+	if (skb_mac_header_was_set(skb) && skb->mac_len)
- 		eth_hdr(skb)->h_proto = skb->protocol;
- 
- 	err = 0;
 -- 
-2.34.1
-
+2.43.0
