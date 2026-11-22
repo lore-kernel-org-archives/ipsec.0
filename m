@@ -1,61 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.228
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795311508;
-	b=07UherGY5dxIFK0S5HLALtbdVRiFW9P9MEwWRpIN44xP58FItb2AxsqMKI+HzEbDP0fW
-	 ZktQbu8GDOI7Kpx4Y1XW5+klsTsIVavaCfEZl3k/Oluaf6S/lr1+eFIrPdgpsQ3vwWu+8
-	 EW2SGs6h42+G6cTmMS4dqGz6zxFVRAfC6i6LykyJhIwkcPoiiro6pKM5w4pbfIhjlwQ0a
-	 wKH7TdcHNQYm8IwTlZ0jycza7mB6FBsm5Ubv7rvtRDRK4OEd+0Oc4Xt7kBHumc77LDJ1Y
-	 KHk/NIcySUuWYnzyzJYH39fDN+1yO8afqdTs49dlVyL6X4pVyoi4xxGegTzAAF8ZsVg==
+	t=1795352973;
+	b=qHd54ZkSc27MAUp3EJhsD5j2uiK0S+rRJtzdWYerjrXFSLdGiZcNtA3172TXx5IY4wLL
+	 fXR0Ko4SWK+qCx5ALUOCeBnK7syVsFw/edUrMvs8iipwshrQoCeSuMBTe6pSOLf8/W8Lp
+	 8rlKC6+OwHVNkuBLhL5Leks4R4w9NfxiHXeT0EksZEFOFZttsILHuNyM6eZRscy4oODsb
+	 zYbH7mMROmBIzwcZ3vyMxNj3/xA7Nb7gJvGfhdEiSIG5JltN7VfdMkQkVdT0VL14I3ctm
+	 ctpnT/M9MBLwFesD55Fx2rhxQm973nZWGrvvKoB55RP0nD0e5/6XGuDaRigWkmJimOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795311508;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=81Pbkrc52gEy+fyEGLKCyvPeoMIXZ32F4Jmz33E/W4w=;
-	b=z8mEtCAs/eYX9T9fM7/DMfOcMVO0hJ4TJ2gvr/41of9wti7DFS/RoT5Nw3ZBDDMOqDJH
-	 Zu6TvDmFl1cPsBIczaj1IU7+iTQLsMGe3tP885lYqVMWhfxkJs1CzGRnM5V8pJe6JFp5I
-	 rZh7Ri6V8r0KOnjpT7UV/qSoCXrQsv5ytlkTrUQxulQdwKgrFinYPZ/cy4eIFuOriAWWP
-	 v0lJVxPFrs6/kjY+fUNoGf82+lguL2S0W4dCRazfr55H/hgjAKeCof0KUHcZe/TA/jNFL
-	 Lrxn/PCA6XNL9qD5lmGVk5nHfDOtKEX31R5ubzwTH4RkGVbHjD80OCU1E1O/N8k1uVA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795352973;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=RzpIstdBZ9UDJfuYE6dfOAxjKSqfqUAZ2HY3EqITTgs=;
+	b=nB5NWS12X/jBf30jw02kLZ5cCcjcPOHvnDlFvpdk4i8SvXFyzbysBMWqUog1DIl6rYld
+	 DiHIYiufXu7P81gjaESfEehnIgUNl/awxG6juG7mHN5yGrZ8wCjLo4YgxfH6Dusg00saQ
+	 yR7Bj6kNxUStuATz8mqXhoHtGwQuFuzT+U2KC/xhuaNYpK7dbd4DQLDzzKzOsZ1XVTCja
+	 9wJ61VVPwgFCtcxByrYPdyQdrIhwVEk33sV+lRfzLoJhZz1yG8AVzDNEksFQHECIRnwgz
+	 S5SkVHAMlSaSUczyuqzjCqgMbfH/ukjxv9IyUSDOOlK7wlqemxFd7AOkF8DNaHCOYQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KGDjHrI0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=isV5x3oM;
+	arc=none smtp.remote-ip=209.85.222.228
+Received: from mail-qk1-f228.google.com (mail-qk1-f228.google.com [209.85.222.228])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF21F606A32A;
-	Sun, 22 Nov 2026 01:38:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02E17606A332
+	for <ipsec@lists.linux.dev>; Sun, 22 Nov 2026 13:09:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02E17606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KGDjHrI0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A91171F000C4;
-	Sun, 22 Nov 2026 01:38:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795311508;
-	bh=81Pbkrc52gEy+fyEGLKCyvPeoMIXZ32F4Jmz33E/W4w=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KGDjHrI0XUWcenBRawfxf232RBlQKwxPGfIOwt+Fpe9pi6zDCHXyEIG4JQ93Rak9J
-	 J1g/af98yy2+e8/OiPB7Y32gntgb3zlTXnDE278xHpb2tGzDGn7nik71+MjvIRHjwj
-	 +FFE6OAzKEbFjvyE3OxK4Y/NQ620qvdvY0aars6tJlINftf2vmfFUvJkNcrosSdIIu
-	 pKHiul5iIzCWe3FeMWgSpWfBlQPWdg+R8ve+/0TYWeoqomHe2wCBdtpbNmGYehlf/E
-	 k2xlS2aoQyhw25xCOL6aIyo38Mv/FGx+lLZKH43YR2gD0F7s9OPW3nQa7gDpaUD0Pl
-	 kmCNss1EfAK8g==
-Subject: Re: [PATCH ipsec 1/2] xfrm: iptfs: don't modify the shared info of
- cloned skbs on output
-From: netdev-bot+sashiko@kernel.org
-To: opensource@andrii.net
-Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, chopps@labn.net, netdev@vger.kernel.org,
- ipsec@lists.linux.dev, linux-kernel@vger.kernel.org, security@kernel.org,
- stable@vger.kernel.org
-Date: Sun, 22 Nov 2026 01:38:27 +0000
-Message-ID: <179531150722.3135.5639628464200463791@kernel.org>
-In-Reply-To: <c1e999b5-15ee-468d-81c5-530a560e84df@mid.andrii.net>
-References: <c1e999b5-15ee-468d-81c5-530a560e84df@mid.andrii.net>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=isV5x3oM
+Received: by mail-qk1-f228.google.com with SMTP id af79cd13be357-943e8d35f74so256157985a.0
+        for <ipsec@lists.linux.dev>; Sun, 22 Nov 2026 05:09:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=andrii.net; s=gmail-2025; t=1795352971; x=1795957771; darn=lists.linux.dev;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RzpIstdBZ9UDJfuYE6dfOAxjKSqfqUAZ2HY3EqITTgs=;
+        b=isV5x3oM6vdPTty/mFxJuwvbjMxb4V9nZenaeYhuAtBMP17d4mClsXrHm+0X4JXu1i
+         xYFH3oIaM89pEeZHFaSUAcycSZu5A8QusdMTyTCD13R4v1jU0fuvqkXYn5pSy9ERQFhs
+         gD2028+0GzaAmf5YMF3086ZI9wJV1uMIJvwLh0irUX7UiqHPWzWVN8XuT2kr9zY846sm
+         iqFaUxGfBrn70oKkrsYpSjgfQQu4svgt0OErtL5l7ZsotUgWzw0QYHXJWUvnKArnSWtn
+         +0HuMZs4Q8PcfhzjxI2jhMWJ9fdt51LJYjc3GKea6E34p7+ZDpkrW4L57EE2iohn5J57
+         ls4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795352971; x=1795957771;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RzpIstdBZ9UDJfuYE6dfOAxjKSqfqUAZ2HY3EqITTgs=;
+        b=U/o0u0+LTyzK7v+R53gltzWfLpjDF/a31XJayaKvWvWRhF7wbw981A+xjIeD86jj97
+         v7+ylFBan62BtFhsqM/uRS40eDIDxlwH7mJtgfIUsvyV9cWlpFbow4jnOWaqw4HjOIVo
+         TYAWAuOC8gt1sotvt0AGqebFZo9xwO/B+7fwL3ug6aqe/pLOPlMP1txmxlOiDmx7D9EF
+         LcvAWcTHRwpppKeK70WirkAsTRAA2a1ViQObrQDEcssFzHiBqZRBq2lmyH8rYwzhQY2Z
+         n6Oz7LjCyINmRABAqu9EozV7jhLeuI19KyXISsH+buri/2iN4nvxGn2ixdnBYiO9qAor
+         h2Vg==
+X-Forwarded-Encrypted: i=1; AL+hErFRYaduCEpXnkzmcdzMrXjAibxNosemlRauz2j+ZSGtjqn53q4pUcpbKBAx0ZgLw7xd1TOIbw==@lists.linux.dev
+X-Gm-Message-State: APuU4Z/dDpY96KDdNe6zOpIlF31PcIsrEYU//aiASmBk4hPlGgFpHl6m
+	caX+BU/Q/HLKxMJpbjB3MMe2fko3XZfbZvGwQkmfaCAQb6BgWhvL73KJD2am0lxydM8X3xDd+zX
+	i7P0wUfoN7ZogoEyRn7CAO31UrS36Uryq4U7vLdsnkXztSdJb/smg
+X-Gm-Gg: AZFdTZf3dawJMzt70120TkeDvHQNG9l/5h9LMZJKx4rxzWPF0c3KH6V4R/zE2GKGOHe
+	jjWRbQWFhDsrzj4f9ymgAyplPEzD81mJpDzJ23OHL0B6HJq2vsdfaSndPu8tNBPgxcPrWwGPmma
+	lowqeOa9gx8hiZQMDRZoK3o1Fj2G/PrpzeM8ZRSUPGWmNCn5MSxl6IzKzm5YkdJ34VNKVbRb9hd
+	fDNSSL4SggYsW5Bkx5K5hnJcwQ1IRrnVDS05dkX5KDWiAinlKke5GFOF8CXAjxN7NL+GhHVBntS
+	FAwvrDj429Bw5cG0HtCkE+RhIr5ttWj7Ra5SxzHWSgAx0HfapmU+U9Zs20MlyJbze/O1IXfs0ur
+	TB6l0jWGsCXyoZHPFEcvsdZ5BRtI=
+X-Received: by 2002:a05:620a:6607:b0:949:3c50:134 with SMTP id af79cd13be357-949ba9a178amr1410279285a.33.1795352971591;
+        Sun, 22 Nov 2026 05:09:31 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id af79cd13be357-949bb3a8486sm45588885a.14.2026.11.22.05.09.30
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 05:09:31 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Christian Hopps <chopps@labn.net>,
+	Fernando Fernandez Mancera <fmancera@suse.de>,
+	Willem de Bruijn <willemb@google.com>,
+	Piyus Kedia <piyus@iiitd.ac.in>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Andrii Tereshchenko <opensource@andrii.net>,
+	stable@vger.kernel.org
+Subject: [PATCH ipsec v2] xfrm: iptfs: make room before copying a continuation in reassembly
+Date: Sun, 22 Nov 2026 05:09:25 -0800
+Message-ID: <e417c7f2-eaee-4fb0-b365-65cd521efd6b@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -65,160 +106,79 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+When iptfs_reassem_cont() cannot share a continuation as page frags, it
+linearizes the in-progress skb and copies the data in with skb_put(),
+without checking the tailroom. An skb started by iptfs_pskb_add_frags()
+has little room after linearizing, so a larger continuation panics the
+kernel in softirq:
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+  skbuff: skb_over_panic: ... len:2884 put:1442 ... end:0x6c0 dev:eth1
+  kernel BUG at net/core/skbuff.c:215!
+  Call Trace:
+   <IRQ>
+   skb_put.cold+0x1f/0x1f
+   iptfs_reassem_cont+0x242/0x760
+   iptfs_input_ordered+0x382/0x3e0
+   iptfs_input+0x24d/0x630
+   xfrm_input+0x12a5/0x29f0
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+After linearizing, grow the head if the rest of the inner packet does
+not fit, and abandon the reassembly if that fails.
 
-- [High] The fix is incomplete.
-- [Low] The commit message says: "ESP copies a cloned head anyway, so
-  this moves that copy earlier and does not add one." That is not true…
+Made with an AI coding assistant, reviewed by the submitter.
 
---
+Fixes: 5f2b6a909574 ("xfrm: iptfs: add skb-fragment sharing code")
+Fixes: 0b352f83cabf ("xfrm: iptfs: fix skb_put() panic on non-linear skb during reassembly")
+Reported-by: Piyus Kedia <piyus@iiitd.ac.in>
+Closes: https://lore.kernel.org/all/20261119142308.3272570-1-piyus@iiitd.ac.in/
+Link: https://lore.kernel.org/all/20260908224855.1591147-1-kuba@kernel.org/
+Cc: stable@vger.kernel.org
+Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+---
+v2:
+- skb_linearize() first, then pskb_expand_head() only if the tailroom is
+  still short, as Fernando Fernandez Mancera suggested. Regular traffic
+  never took the second allocation in my tests.
+- shorter changelog.
+v1: https://lore.kernel.org/all/70d0cc8d-e2ff-4293-a416-eaf2705a0b9c@mid.andrii.net/
 
-xfrm: iptfs: don't modify the shared info of cloned skbs on output
+The netdev AI review of the runt fix flagged this copy (Link:). Piyus
+Kedia's patch for the same overrun drops the valid inner packet; this
+one delivers it.
 
-This patch changes how iptfs_output_queued() handles a cloned first skb.
-It unclones the skb before appending inner packets to its frag_list, or
-sends it on its own if it already has a frag_list or cannot be uncloned.
-It also stops aggregation at a cloned skb2 that has a frag_list, and
-keeps iptfs_consume_frags() from taking the page frags of a cloned skb2.
+Tested on v7.4-rc3 and ipsec master: the panic reproduces without fault
+injection and is gone with this patch, failslab on either allocation
+only drops the packet, and W=1 and sparse are clean. The selftest is
+with the IPsec maintainers, as security-bugs.rst asks.
 
-> diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-> index 0313a43aa8a97..95ba7301324b9 100644
-> --- a/net/xfrm/xfrm_iptfs.c
-> +++ b/net/xfrm/xfrm_iptfs.c
-> @@ -2234,6 +2234,19 @@ static void iptfs_output_queued(struct xfrm_state *x, struct sk_buff_head *list)
->  		if (iptfs_first_skb(&skb, xtfs, mtu))
->  			continue;
->  
-> +		/* A clone shares skb_shinfo(), and with it the frag_list we
-> +		 * are about to append to, with its original, e.g. the skb TCP
-> +		 * keeps for retransmission. A cloned head that has a frag_list,
-> +		 * or that we cannot unclone, is sent on its own rather than
-> +		 * aggregated; the skbs on a frag_list stay shared with the
-> +		 * original even after an unclone, so they are never appended.
-> +		 */
-> +		if (skb_cloned(skb) &&
-> +		    (skb_has_frag_list(skb) || skb_unclone(skb, GFP_ATOMIC))) {
-> +			xfrm_output(NULL, skb);
-> +			continue;
-> +		}
+ net/xfrm/xfrm_iptfs.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-[Severity: High]
-Does this guard hold the "they are never appended" rule from the comment
-above? It only tests skb_cloned(skb). It also runs after
-iptfs_first_skb(), which may already have uncloned the head.
+diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
+index 0313a43aa8a97..e9b4d23468022 100644
+--- a/net/xfrm/xfrm_iptfs.c
++++ b/net/xfrm/xfrm_iptfs.c
+@@ -909,7 +909,15 @@ static u32 iptfs_reassem_cont(struct xfrm_iptfs_data *xtfs, u64 seq,
+ 	    iptfs_skb_can_add_frags(newskb, fragwalk, data, copylen)) {
+ 		iptfs_skb_add_frags(newskb, fragwalk, data, copylen);
+ 	} else {
+-		if (skb_linearize(newskb)) {
++		/* A newskb started by iptfs_pskb_add_frags() has little
++		 * tailroom after linearizing. Make room for the rest of
++		 * the inner packet before copying.
++		 */
++		if (skb_linearize(newskb) ||
++		    (skb_tailroom(newskb) < ipremain &&
++		     pskb_expand_head(newskb, 0,
++				      ipremain - skb_tailroom(newskb),
++				      GFP_ATOMIC | __GFP_NOWARN))) {
+ 			XFRM_INC_STATS(xs_net(xtfs->x),
+ 				       LINUX_MIB_XFRMINBUFFERERROR);
+ 			goto abandon;
 
-For a CHECKSUM_PARTIAL head, iptfs_first_skb() does:
-
-	if (skb->ip_summed == CHECKSUM_PARTIAL) {
-		err = skb_checksum_help(skb);
-
-On a cloned skb, skb_checksum_help()->skb_ensure_writable()->
-pskb_expand_head() calls skb_clone_fraglist(). That only takes a
-reference on each frag_list member. It then clears skb->cloned and
-resets dataref to 1:
-
-net/core/skbuff.c:pskb_expand_head() {
-    ...
-		if (skb_has_frag_list(skb))
-			skb_clone_fraglist(skb);
-    ...
-	skb->cloned   = 0;
-    ...
-}
-
-After that, skb_cloned(skb) is false, but the original still links the
-frag_list members.
-
-Wouldn't two later steps then write into sk_buffs the other owner still
-links? The first is the re-home loop, where iptfs_rehome_fraglist()
-rewrites the members' frag_list, len and data_len. The second is this
-append:
-
-	*nextp = skb2;
-
-The ->next of the last shared member would then point to skb2, which the
-other owner's len and data_len do not count.
-
-There seem to be a few other ways to reach the same state.
-
-The new break in the inner loop leaves a cloned skb2 that has a
-frag_list for the next head. On the next pass that skb goes through
-iptfs_first_skb() again, so it can be uncloned the same way and then
-aggregated anyway.
-
-Heads can also arrive already uncloned but with shared frag_list
-members. For example, nf_dup_ipv4() calls pskb_copy(), and
-__pskb_copy_fclone() does:
-
-	if (skb_has_frag_list(skb)) {
-		skb_shinfo(n)->frag_list = skb_shinfo(skb)->frag_list;
-		skb_clone_fraglist(n);
-	}
-
-A reassembled forwarded packet and its duplicate are then both
-non-cloned but share their frag_list members. skb_cow() in ip_forward()
-on a cloned skb has the same effect.
-
-A non-cloned skb2 whose frag_list members are shared also gets past the
-new skb_cloned(skb2) && skb_has_frag_list(skb2) check. Its members are
-then linked into the head's chain, and later appends write their ->next.
-
-When the other owner frees its skb, can kfree_skb_list() follow the
-modified ->next into skb2? By then skb2 may already be freed, or
-consumed by ESP's skb_cow_data(). The result would be a use-after-free,
-a double free, or the same skb_over_panic described in the commit
-message.
-
-For comparison, __pskb_pull_tail() forks shared list members with
-skb_clone(), and skb_cow_data() copies them.
-
-Could the code refuse to aggregate onto, or re-home, any frag_list with
-an skb_shared() member, whether or not the head is cloned? Or could the
-clone/frag_list decision be made before skb_checksum_help() can unclone
-the head?
-
-[Severity: Low]
-The commit message says:
-
-    Unclone the first skb before appending to it. ESP copies a cloned head
-    anyway, so this moves that copy earlier and does not add one.
-
-Is that accurate for the local TCP case this patch targets?
-skb_unclone() here does pskb_expand_head(skb, 0, 0), which adds no
-tailroom. The following skb2s are TCP clones, so share_ok becomes false
-and they go onto the frag_list.
-
-In esp_output_head() the head is no longer cloned. It still has a
-frag_list, though, so this check fails and it goes to cow:
-
-		} else if ((skb_shinfo(skb)->nr_frags < MAX_SKB_FRAGS)
-			   && !skb_has_frag_list(skb)) {
-
-skb_cow_data() then sees nr_frags != 0:
-
-	if ((skb_cloned(skb) || skb_shinfo(skb)->nr_frags) &&
-	    !__pskb_pull_tail(skb, __skb_pagelen(skb)))
-
-If the pulled data does not fit in the tailroom, __pskb_pull_tail() does
-a second pskb_expand_head(). Before the patch, the cloned head needed
-only one pskb_expand_head(skb, 0, eat + 128) inside __pskb_pull_tail().
-
-Doesn't this add a head reallocation and copy for each aggregated outer
-packet? When nothing is aggregated, the uncloned head can take ESP's
-page-frag path and a copy is saved instead. Either way, the cost depends
-on the traffic.
-
-[ ... ]
-
+base-commit: f0e68014f4ac1653b2980ab76744f4dfdffdbac5
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/b56bbced-a8b0-4ae9-80b4-1958ea36684c%40mid.andrii.net
+2.53.0
+
