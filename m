@@ -1,99 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430564;
-	b=0/w8oamm8QbRQ6wR3f2V2OgcqfN2hybZMZpE+WMbH0DZwZE9/6i4tZGnRawYYRIqHxsV
-	 XSvZ5Ayj7FJbclMlPbOgUrYr4mrn6FDe0sfr4iqcdr/DKbHtFKqmCQTZl9Nk9d6bj5noY
-	 1fD83l4Sls6vscHrgq+zGIs8Q9mv94k8MZ6w96TRmbdEiP6uGwjiXN04E7spx840ma5gh
-	 Ip6bXaDec8taleFtQWl6a/oAWmZqW4ySrKlteOG5CkwMejSz/sYiFJMOK/Ythdt5WL8Te
-	 oiRC+EivPajziAjiaZ5Rr8rWreTiDOWf8Jll8+l1lA30U/j7Z0x9ckAFsVZb2RYUZVw==
+	t=1795433020;
+	b=35+4jwNbsmt15MMsegDQBKH4mcC5rn0hIqRAYAbTqokgesRMXwXOx6+8Ppsf+K2JWIof
+	 9Vtz5CfEmkZdBvO/uCYGF94JhPTQ37jWn3lC8Q/l7K4qCM7OWHTHSyiTOghyuhvPS1VvT
+	 8LsyyQqhn20PQL4sJKT8QyQyZbWxAmu12grWFJfEHdlFjYMEmfmqKAHnSEwijyKfbu7wh
+	 OazSGlN9wI5hW27muse7relFK7SAaaGduhvNqSfLKesp5ZbSk4OnDVoUc5vyQkk8QR1wt
+	 9iMO/6kJfqDQbERkMhfd24wu92mzamm0PQtMceg1v+GFfUovkTZFoZByH6GlpCmIYWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430564;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
-	b=vLDKnzSgB7feC0NGjz8pZygZszGW/iFwAuRcz7zJuc7lXOGMJ5bN8Lt7s5/vaLNZyCRZ
-	 VAXMgikSCkHqvYyrYv/fbQ4hW6pviZHE9f988slttixccWi+rABmTefV3RRIJOnak4JVn
-	 BI4R9STAv8ojMMmaUKRlU+jGd+UKpZEeWOCT0ZtYseuJGs01UO6VT42/dcVDeSizyS1VX
-	 ElJKykFTzWS0E6ybmOLUPuag19A6xbhJ3+t/KevdFNiZSHsNcqz/slkkrUa52oTQVeVxU
-	 2XXdzjUYDL4OFQnVv8DZyMg2IcXN39mte7QV9CZ43jf41G4ZrLZriTspoan3DNcsi3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433020;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=Bum+lssZPEFatuL2bG+N1NnJsQw7nXk0ur3WJ+ACVtg=;
+	b=zWOLv0izOwPVQaGoitcEf0V1KSJoHE1hXw/4h2oo+YklCbbVkN1osffq2pdHCotZOn3t
+	 wEc+mWG/0FS1/NBZZ3ACtOktLoijfInI+rKqQ0QEw3s3FAyWEOIqy8H8OuunPcxvIaQ4K
+	 IlEecOLm5R5Ej+afHxGrN856WY51jbkL/eRclXbSJR3UUdivK5V4+qn7terOhcMB6Mr1L
+	 r0Mzj9FQuIp7eh6Y8LALA/uuQMewSlTrM5ueZACl5ciYo0woZ74+l3W5kZlF3pQOHajz6
+	 P8wN7ww7tBXZUY308MvQlud75NVr3JWtNYspZLrzLYjlIs4NOuVEtFXJAWVaOW720gQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudlinux.com;
-	spf=pass smtp.mailfrom=cloudlinux.com;
-	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=cFwTSLt2;
-	arc=none smtp.remote-ip=209.85.210.173
-Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=HzqUGRGG;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 723C0606A333
-	for <ipsec@lists.linux.dev>; Mon, 23 Nov 2026 10:42:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 723C0606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6139E606A31F
+	for <ipsec@lists.linux.dev>; Mon, 23 Nov 2026 11:23:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6139E606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=cFwTSLt2
-Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8a60f90a924so1095121b3a.3
-        for <ipsec@lists.linux.dev>; Mon, 23 Nov 2026 02:42:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795430563; x=1796035363; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
-        b=cFwTSLt2QTlutcQ15kIpWfCxx4jwOq+XzsJIoBtolGLZw2IEXRQzBj0bCKlr5ouUzR
-         C/PxS6G1tQAtwk6deyAtWJKgUilsKXnGTOOozRaCk/5AjsJH9GYZsXOSpml3OBs/RWyn
-         UWrHzSwEsUSu3MnyQTN8BhAbqGQRXuMyW1nsz9wx4t0hnDaxJlApgE8a5rxehUgttNqa
-         pfsvVFotkoWWjPcsg7yMMKfExn1XGD6/xabnDou7NSAhjDyn+cZ2ChkOIqkB4LnGVidF
-         4ws8YYO+jaAZiKlhTvBGDSnN7+o9o1EiOgQnlfN8iT0QIwdx8kcgw1xJhjVQ9/qZpzPs
-         0zIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795430563; x=1796035363;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
-        b=Zn8jqXXuIWq31sNW/XCFcBTUGwm3MowdMULb7+J4f/4ImbafEg5vp3ngfKTDs4NDew
-         1/LTOdNSKMn2VVeAgsR17gW5IOqDwSI5WlrMUd0F3dR0zYbXbBjvYa0e+Y7b60oSnw1c
-         JKd00DzBw/1XdIBto/gdQmqo9rgNXnbfSBX/OrLutmdygfVQMqxv9b5TwvZHPXvR/udG
-         mtO18UcdEaKzsLO17uj9kz3upnH08ovT1pvhXNKF3aZeG6ewcdASFwqVRNSU8YDx17cF
-         vfPwPOkFEf0sHirJaoM+hRBpXPyY7KF7QmVwJxsJBt7u0+rxeM+m4iK0+ZiMgvnyXMb7
-         fMXw==
-X-Forwarded-Encrypted: i=1; AL+hErF+7gkGw3BYB1bjXwSCrle++V+9UOav3NXcScMs7NOuKj0KFsRqbmmEaMBi6P6769BK3K+oyg==@lists.linux.dev
-X-Gm-Message-State: APuU4Z9GV15K4XYlDfQO/sHx4wvn726Ydz6Fq2wJAKrKDI+Sq2JxtCFh
-	s1iVx7vGv5TmXBCDP2D22/iAkDPvxtaNVQ/XrWsJZCxBweAAV6tc721qHyav32la+Jk=
-X-Gm-Gg: AZFdTZejAmXaEu6AJvS61OL3oWYtuUIgP7wvCtIK6XqA9gcaI7rMfMm6Cs03fibN7Jo
-	sibKM93UHqLb+Wdpgpk11RmRCCbKONnMR5WWDLR17RvIHq9MND+4EwQp+lO+RpZAVjQ3Yo7hQq5
-	R2OEjMyAMfUYgS4P047bKwxaqo/71YIpIitGnt62CN4MvvudnF56mi65e05xJL1rCGJCgot3VaZ
-	K76mhj+COgxlQgzVNQPiQrfsKwQYmz2bQsVvzIkNPC1hpYD/EBVGNM+UKEUqD8R8NdJK1bNalMw
-	LYmV8c3V3878aehtnRCoy4fo1pAbUg5226JrHWw5PVgost5rnPGjY4dtAch4S1wZGRYrLZya2lc
-	fK51RzaxCIw0yMtiMw/pmItJ8Ox1ZoyZRVXehQUOmm0dN22Y8R1PKgQyEa4oLIGDter4nN2vu1X
-	0RPI/W3I9bJFrhMx3yXxoq7OP3KkKcS8sQkA8VEmvlnK0b/qxQxntR0A0H94mS69/hYXZGIDjEW
-	zwWykxjhOihDneUpPh9ebncce8qrJ9go0Xd9u7V+x8bLlRGuZsMaNqlXoGkvfbRt443bp/OqMFq
-	3j7e35yp1hmQbvz7uW77hq4BQH43w1JUZG/t
-X-Received: by 2002:a05:6a20:4308:b0:3eb:b2ce:7b4f with SMTP id adf61e73a8af0-4014c34fdfemr11751808637.68.1795430562727;
-        Mon, 23 Nov 2026 02:42:42 -0800 (PST)
-Received: from rmustafin-laptop ([27.79.41.63])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde84cd5ed8sm2283731a12.10.2026.11.23.02.42.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:42:42 -0800 (PST)
-From: Rustam Mustafin <rmustafin@cloudlinux.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Rustam Mustafin <rmustafin@cloudlinux.com>,
-	stable@vger.kernel.org
-Subject: [PATCH ipsec v2] xfrm: use the frame's own socket in the too big checks
-Date: Mon, 23 Nov 2026 17:42:36 +0700
-Message-ID: <20261123104236.4179425-1-rmustafin@cloudlinux.com>
-X-Mailer: git-send-email 2.52.0
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=HzqUGRGG
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 8950020728;
+	Mon, 23 Nov 2026 12:23:37 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id REJH_RAY6Ms5; Mon, 23 Nov 2026 12:23:36 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id A3DC9201C7;
+	Mon, 23 Nov 2026 12:23:36 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com A3DC9201C7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795433016;
+	bh=Bum+lssZPEFatuL2bG+N1NnJsQw7nXk0ur3WJ+ACVtg=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=HzqUGRGG69t1azuhLafPq7isOoKAcz2QJREEgF44pc92J4ctrvIi9y7YJjsenc8Sr
+	 d1zizrlAdlKomgV1OMLUtzqkkPsjviu8UzWpr8BGV+UypsVR/7p8nRdk5L/Wm4zvIg
+	 EOwK0wswzgk2AG/hX5KUdjm3pWfP+inIs9+vhEGJ0ZBRDPg7ClEq9LTovzD0Wv0W7i
+	 PMB5hBjVlXuPRxZzAFx/1vRO1DPOSUWnPqaktxcX8S/VeucVY+dlzpEaJ4S//1kwUB
+	 jiHxViEnLbKy9cqoVdOTePhjMKFqelrnsNq1q1h/ZU0+SaqwQvEtZnF6IRRJjP3WXy
+	 qgyzQFKn4R0wA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 23 Nov
+ 2026 12:23:35 +0100
+Received: (nullmailer pid 2092840 invoked by uid 1000);
+	Mon, 23 Nov 2026 11:23:35 -0000
+Date: Mon, 23 Nov 2026 12:23:35 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, Christian Hopps
+	<chopps@labn.net>, "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	<netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>,
+	<syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com>
+Subject: Re: [PATCH ipsec] xfrm: iptfs: force a dst reference before queueing
+ an skb
+Message-ID: <awQiN-6b40NOCVFV@gauss4>
+References: <20261115132611.427311-1-ngocthang2710.1999@gmail.com>
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -103,90 +85,42 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261115132611.427311-1-ngocthang2710.1999@gmail.com>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-__xfrm6_output() decides how to report a too big frame by looking at
-its sk argument, but xfrm_local_error() reports to skb->sk and
-dereferences it unchecked.  The two differ for a UDP tunnel: vxlan,
-geneve and other udp_tunnel6_xmit_skb() users pass the tunnel socket as
-sk, while a frame they forward has no skb->sk.  When such a frame takes
-an IPv6 tunnel mode xfrm bundle and exceeds its MTU, xfrm_local_error()
-oopses:
+On Sun, Nov 15, 2026 at 08:26:11PM +0700, Nguyen Ngoc Thang wrote:
+> iptfs_output_collect() is the dst->output hook and runs under the
+> caller's RCU read lock. It queues the skb and sends it later from the
+> iptfs hrtimer. The skb may still carry a noref dst, e.g. one set by
+> __ip_queue_xmit() via skb_dst_set_noref(). Once the RCU section ends,
+> nothing keeps that dst alive.
+> 
+> When the timer fires, xfrm_output_one() calls skb_dst_force() outside
+> any RCU section:
+> 
+>   WARNING: include/net/dst.h:326 at xfrm_output_resume+0x41d9/0x64e0
+>   Call Trace:
+>    xfrm_output_one net/xfrm/xfrm_output.c:549 [inline]
+>    xfrm_output_resume+0x41d9/0x64e0 net/xfrm/xfrm_output.c:597
+>    iptfs_output_queued net/xfrm/xfrm_iptfs.c:2325 [inline]
+>    iptfs_delay_timer+0x3803/0x4310 net/xfrm/xfrm_iptfs.c:2362
+>    __run_hrtimer kernel/time/hrtimer.c [inline]
+>    __hrtimer_run_queues+0x3bc/0xa10 kernel/time/hrtimer.c
+>    hrtimer_run_softirq+0x1e3/0x2e0 kernel/time/hrtimer.c:2153
+>    handle_softirqs+0x265/0x8d0 kernel/softirq.c:669
+> 
+> The warning also means the queued skb may point to a dst that has
+> already been freed.
+> 
+> Take a reference with skb_dst_force() while still under RCU, as other
+> deferred xmit paths do, and drop the skb if its dst is already gone.
+> 
+> Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
+> Reported-by: syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=622de7e1f18a30fc404a
+> Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
 
-  Oops: general protection fault, probably for non-canonical address
-  0xdffffc0000000002: 0000 [#1] SMP KASAN NOPTI
-  KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
-  RIP: 0010:xfrm_local_error+0x92/0x190
-  Call Trace:
-   <IRQ>
-   xfrm6_output+0x599/0xae0
-   udp_tunnel6_xmit_skb+0x713/0xd90
-   vxlan_xmit_one+0x1ebc/0x3490
-   vxlan_xmit+0x1369/0x6540
-   dev_hard_start_xmit+0xe3/0x5b0
-   __dev_queue_xmit+0x18e7/0x3550
-   ip6_output+0x360/0xec0
-   ip6_forward+0x1573/0x35c0
-
-Commit 1620c88887b1 ("xfrm: Fix the usage of skb->sk") changed both the
-IPV6_DONTFRAG test and the local error test from skb->sk to sk.  Test
-skb_to_full_sk(skb) in both, as xfrm6_tunnel_check_size() does.
-
-A frame without a socket then goes to ip6_fragment(), which sends an
-ICMPv6 Packet Too Big, also when the tunnel socket sets IPV6_DONTFRAG,
-where it was dropped silently.  For callers that pass a NULL sk, such as
-ip6_tunnel, the error goes to skb->sk again, as before 1620c88887b1, and
-a request or timewait socket that vrf passes as sk is no longer read as
-a full socket.
-
-Fixes: 1620c88887b1 ("xfrm: Fix the usage of skb->sk")
-Cc: stable@vger.kernel.org
-Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
----
-
-Notes:
-    v2: also use skb_to_full_sk(skb) for the IPV6_DONTFRAG test, as the
-    review of v1 suggested; drop the code comment.
-    v1: https://lore.kernel.org/all/20261114125552.1319352-1-rmustafin@cloudlinux.com/
-    
-    Tested with KASAN on 7e1392a42ea2: a frame forwarded through vxlan over
-    IPv6 ESP oopses without the patch and not with it.  Through ip6ip6 over
-    the same ESP tunnel, a too big frame is dropped as before; ping now gets
-    EMSGSIZE on its error queue instead of a Packet Too Big.
-    
-    Not touched here:
-    - iptfs_is_too_big() has the same mismatch (IPv6 oops, IPv4 silent drop);
-      it was pointed out in two reviews:
-      https://lore.kernel.org/all/20260908224856.1591189-1-kuba@kernel.org/
-      https://lore.kernel.org/all/179369310739.488856.16665150928122536725@kernel.org/
-    - skb_to_full_sk() can read a freed listener when a bpf syncookie request
-      socket is redirected and queued; the bpf_sk_assign series handles it:
-      https://lore.kernel.org/all/20261119142231.2612515-2-razor@blackwall.org/
-
- net/ipv6/xfrm6_output.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/net/ipv6/xfrm6_output.c b/net/ipv6/xfrm6_output.c
-index 44b221a09a0c..d38311645908 100644
---- a/net/ipv6/xfrm6_output.c
-+++ b/net/ipv6/xfrm6_output.c
-@@ -88,14 +88,14 @@ static int __xfrm6_output(struct net *net, struct sock *sk, struct sk_buff *skb)
- 
- 	toobig = skb->len > mtu && !skb_is_gso(skb);
- 
--	if (toobig && xfrm6_local_dontfrag(sk)) {
-+	if (toobig && xfrm6_local_dontfrag(skb_to_full_sk(skb))) {
- 		xfrm6_local_rxpmtu(skb, mtu);
- 		kfree_skb(skb);
- 		return -EMSGSIZE;
- 	} else if (toobig && xfrm6_noneed_fragment(skb)) {
- 		skb->ignore_df = 1;
- 		goto skip_frag;
--	} else if (!skb->ignore_df && toobig && sk) {
-+	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
- 		xfrm_local_error(skb, mtu);
- 		kfree_skb(skb);
- 		return -EMSGSIZE;
--- 
-2.52.0
-
+Applied, thanks a lot!
