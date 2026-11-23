@@ -1,101 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795408190;
-	b=wHoe53YKxfQZMLl9PVYSEDLNN5EBCq8lpM4nzBNITWionLFOgqXRx6DwsdQDUfTssGLZ
-	 ouD6TrHHMYVkRpUBz/F/0OL5zXzmTX0Sao/Hy6B2+KPb/YaztyzSCBkBIM7f7kpEH19mf
-	 Iu7O6BRRDE7EJURSdzEZCBQ15b3UM7Qr7B1Xa+R2t8UJ2bdhhg2o+I2L5/6hJODmP29YH
-	 tpwpD4fS6XBMLYGqx0RR0OME/3Uuiabiy7uY/qLibsN2KKZUfi9T/XxCkdWFrP+kS7E7P
-	 tyg1w42cdAtfYLHMTD4hA0gp23u5e8++Kv91IRSeUvuAVOaZUNVe3KZ0lA230V1TMqw==
+	t=1795430564;
+	b=0/w8oamm8QbRQ6wR3f2V2OgcqfN2hybZMZpE+WMbH0DZwZE9/6i4tZGnRawYYRIqHxsV
+	 XSvZ5Ayj7FJbclMlPbOgUrYr4mrn6FDe0sfr4iqcdr/DKbHtFKqmCQTZl9Nk9d6bj5noY
+	 1fD83l4Sls6vscHrgq+zGIs8Q9mv94k8MZ6w96TRmbdEiP6uGwjiXN04E7spx840ma5gh
+	 Ip6bXaDec8taleFtQWl6a/oAWmZqW4ySrKlteOG5CkwMejSz/sYiFJMOK/Ythdt5WL8Te
+	 oiRC+EivPajziAjiaZ5Rr8rWreTiDOWf8Jll8+l1lA30U/j7Z0x9ckAFsVZb2RYUZVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795408190;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430564;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=9WFHo8GeZELncIjowQIjRTjb0VoQunjDuTg0qWyCJAA=;
-	b=bScn8zPd5OJTEWzFXsw3PE9bHx9e3iOFjKAKGCaqhMsXjPJMtzmYsMxZCt2FJ64TbXbM
-	 Mz9yMK+MXiJl/+S2iMYLS1WlAQzVACFVri+Vyr08uX26kkUcUoYu/S8mcFUQ5a7GqpILh
-	 xmKcN8WC+2TjyQHCtPZ0U21tBKS7/D1rExs4OW4uybc75mxYiOdKVsVjL+eZwsxQlz2PB
-	 vAgcM2ZXSiKXIp/HApvMTDxPxKchji65yO9gg0iEQzxhx7HfrMGmEoDaFEthOuj3p/e2G
-	 iOCUz3RJUyTNhLF1XiK/9Et4vGC0y6usEgpQzKNdFU7jG5Gupam01uytruvgd7yydNA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
+	b=vLDKnzSgB7feC0NGjz8pZygZszGW/iFwAuRcz7zJuc7lXOGMJ5bN8Lt7s5/vaLNZyCRZ
+	 VAXMgikSCkHqvYyrYv/fbQ4hW6pviZHE9f988slttixccWi+rABmTefV3RRIJOnak4JVn
+	 BI4R9STAv8ojMMmaUKRlU+jGd+UKpZEeWOCT0ZtYseuJGs01UO6VT42/dcVDeSizyS1VX
+	 ElJKykFTzWS0E6ybmOLUPuag19A6xbhJ3+t/KevdFNiZSHsNcqz/slkkrUa52oTQVeVxU
+	 2XXdzjUYDL4OFQnVv8DZyMg2IcXN39mte7QV9CZ43jf41G4ZrLZriTspoan3DNcsi3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b1LG000a;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=cFwTSLt2;
+	arc=none smtp.remote-ip=209.85.210.173
+Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0207A606A32D
-	for <ipsec@lists.linux.dev>; Mon, 23 Nov 2026 04:29:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0207A606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 723C0606A333
+	for <ipsec@lists.linux.dev>; Mon, 23 Nov 2026 10:42:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 723C0606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b1LG000a
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3869b68caecso3519925eec.0
-        for <ipsec@lists.linux.dev>; Sun, 22 Nov 2026 20:29:49 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=cFwTSLt2
+Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8a60f90a924so1095121b3a.3
+        for <ipsec@lists.linux.dev>; Mon, 23 Nov 2026 02:42:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795408189; x=1796012989; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9WFHo8GeZELncIjowQIjRTjb0VoQunjDuTg0qWyCJAA=;
-        b=b1LG000aIDvE7dqCokX3rgEmd9Nl71CcMwe4vWMtSDbs+PfzmvFjnQK+59zekmSDkQ
-         H7J2J8AE5pA2Vgd361oaYsZ7DeU1S8hxflLvGJ7dN9hxOdodQGgRverP2T0+faOH65iy
-         1yM1K3Z+tH6WUa9Da97PzIC1W5AGhHtcfnhBCvFee1OBvl+lSi+Bq6RBpqPB7i1KgeMq
-         VyEPnNdL6vxB8JGk8Yx8UcNlNu4cbUE+Hrw1ef0XnVgXT5s4YrBFrSmhZIrBg1qxOD80
-         neIf8NOaXGhUf4fOYjY9Xz3TjG+cAOcdAUiPGb23dUYgzK+Cxq+0p5CFYsVtwnuqiDzl
-         4Vpw==
+        d=cloudlinux.com; s=google; t=1795430563; x=1796035363; darn=lists.linux.dev;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
+        b=cFwTSLt2QTlutcQ15kIpWfCxx4jwOq+XzsJIoBtolGLZw2IEXRQzBj0bCKlr5ouUzR
+         C/PxS6G1tQAtwk6deyAtWJKgUilsKXnGTOOozRaCk/5AjsJH9GYZsXOSpml3OBs/RWyn
+         UWrHzSwEsUSu3MnyQTN8BhAbqGQRXuMyW1nsz9wx4t0hnDaxJlApgE8a5rxehUgttNqa
+         pfsvVFotkoWWjPcsg7yMMKfExn1XGD6/xabnDou7NSAhjDyn+cZ2ChkOIqkB4LnGVidF
+         4ws8YYO+jaAZiKlhTvBGDSnN7+o9o1EiOgQnlfN8iT0QIwdx8kcgw1xJhjVQ9/qZpzPs
+         0zIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795408189; x=1796012989;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9WFHo8GeZELncIjowQIjRTjb0VoQunjDuTg0qWyCJAA=;
-        b=pEx85K67UY0TGPTveoKwZRVbAP9ZuREwJfD2enVLuliiA4qOlaqMMyy3zsIWwHjTOm
-         A8MrFaVHglD1RKNowituUZuatZQw6ZaxmevbWgB9SidnW8cAQEW2nfOF2SomluJzfedL
-         0jZ18LbC/1bGPqhkQjicIuWCq8nVcOmf2dET24qj8zLcDmWsduOXiHBg9KOSvANI33LO
-         +dqMhZ6DN9BTsxzrVYfdwMAney8gT4D2flfSabq86vIabj2+UoH77QRi7IpLiADBjwNB
-         oaOThgeWeNStifSsXU7KaM9GQKhAHQVauNMwrwqr8b48r4X52UweGKG2VB+KniqWwtgp
-         La2w==
-X-Forwarded-Encrypted: i=1; AL+hErHYti0BWbt3km5CMCm9Xb0898mF+2o+agYheTsfzlujA3gktmjslTTnR/p2zI1Rf8sSoQ2Lsw==@lists.linux.dev
-X-Gm-Message-State: APuU4Z9Sb3q1OxZIehILaGybOx95F5y+cpZHshEDIaXA8LOY3XtleW5n
-	R+LzV7663drkD48JePWOFIZi/5JXNj08gEwgTRrzfcfyOKc+B9GtdJUY
-X-Gm-Gg: AZFdTZccgarxXhl4kCgy7GMDLGn98isp4lryQD9oSx0uttMaRZyXUIjGmVENErhShLh
-	Lis5L2zAZbH6S6tWl5J3vMhsXi+VbG7dAZdzT/U7KfWFuLR1hoOriG55amIYnYhiQwkQNGY19Ih
-	a9RGS5Fqmj1XA4GnpIuFTUQTTbY/tiPAuZrcNgEdHNqPMxOlUKtOUanqbHmeaQ0AEHbrSR+6GhJ
-	xYXNHYn2DQv3s22ar/j1wNItiPcVnQOc8Onu2wX4K8Z4qCVxrDvMRExA4KD+mhCr82pdX6G9Tvm
-	HRY+y89A/MoxYm0P7oN/tMW7a/BZEKFSVuzEQ5jzX3LQtEQTFl0fC5b1flglE6GAZwfs1Qq1r5x
-	kam9W+iu6BZHwEWDm6JDsndRfGvEiCFCxZ6R7udBh3rvZ44MJgmv2l6qSViSVMEMZYpt+g/cQb2
-	h+OPP4NMi13/u79zPNZDJwPorNMwptfEOl5MUrYWw7UyQiTG4/ZXd1seCtHhv0E3Jn6WuLx/VpI
-	5F1+rziwi7/5vrMeobTWQMOKbp+jLZwZWdgl5PGRV5rCEtgJi3W6DSW7X6ju28SG1UjUZLp3fq2
-	BV501XoEZ3b28KZ7kP17IJPIDsL1XNnzaDZS8Shv6WCdRSobPvO0j0vJVDmkQKBr1Cg=
-X-Received: by 2002:a05:693c:600a:b0:37b:4a2b:81a with SMTP id 5a478bee46e88-3863f13587fmr9290868eec.4.1795408189065;
-        Sun, 22 Nov 2026 20:29:49 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm33562090eec.22.2026.11.22.20.29.46
+        d=1e100.net; s=20260707; t=1795430563; x=1796035363;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cwt87uUsOrwu5RSttuWdxqXXfcvorQyjbx6LQp+7f0U=;
+        b=Zn8jqXXuIWq31sNW/XCFcBTUGwm3MowdMULb7+J4f/4ImbafEg5vp3ngfKTDs4NDew
+         1/LTOdNSKMn2VVeAgsR17gW5IOqDwSI5WlrMUd0F3dR0zYbXbBjvYa0e+Y7b60oSnw1c
+         JKd00DzBw/1XdIBto/gdQmqo9rgNXnbfSBX/OrLutmdygfVQMqxv9b5TwvZHPXvR/udG
+         mtO18UcdEaKzsLO17uj9kz3upnH08ovT1pvhXNKF3aZeG6ewcdASFwqVRNSU8YDx17cF
+         vfPwPOkFEf0sHirJaoM+hRBpXPyY7KF7QmVwJxsJBt7u0+rxeM+m4iK0+ZiMgvnyXMb7
+         fMXw==
+X-Forwarded-Encrypted: i=1; AL+hErF+7gkGw3BYB1bjXwSCrle++V+9UOav3NXcScMs7NOuKj0KFsRqbmmEaMBi6P6769BK3K+oyg==@lists.linux.dev
+X-Gm-Message-State: APuU4Z9GV15K4XYlDfQO/sHx4wvn726Ydz6Fq2wJAKrKDI+Sq2JxtCFh
+	s1iVx7vGv5TmXBCDP2D22/iAkDPvxtaNVQ/XrWsJZCxBweAAV6tc721qHyav32la+Jk=
+X-Gm-Gg: AZFdTZejAmXaEu6AJvS61OL3oWYtuUIgP7wvCtIK6XqA9gcaI7rMfMm6Cs03fibN7Jo
+	sibKM93UHqLb+Wdpgpk11RmRCCbKONnMR5WWDLR17RvIHq9MND+4EwQp+lO+RpZAVjQ3Yo7hQq5
+	R2OEjMyAMfUYgS4P047bKwxaqo/71YIpIitGnt62CN4MvvudnF56mi65e05xJL1rCGJCgot3VaZ
+	K76mhj+COgxlQgzVNQPiQrfsKwQYmz2bQsVvzIkNPC1hpYD/EBVGNM+UKEUqD8R8NdJK1bNalMw
+	LYmV8c3V3878aehtnRCoy4fo1pAbUg5226JrHWw5PVgost5rnPGjY4dtAch4S1wZGRYrLZya2lc
+	fK51RzaxCIw0yMtiMw/pmItJ8Ox1ZoyZRVXehQUOmm0dN22Y8R1PKgQyEa4oLIGDter4nN2vu1X
+	0RPI/W3I9bJFrhMx3yXxoq7OP3KkKcS8sQkA8VEmvlnK0b/qxQxntR0A0H94mS69/hYXZGIDjEW
+	zwWykxjhOihDneUpPh9ebncce8qrJ9go0Xd9u7V+x8bLlRGuZsMaNqlXoGkvfbRt443bp/OqMFq
+	3j7e35yp1hmQbvz7uW77hq4BQH43w1JUZG/t
+X-Received: by 2002:a05:6a20:4308:b0:3eb:b2ce:7b4f with SMTP id adf61e73a8af0-4014c34fdfemr11751808637.68.1795430562727;
+        Mon, 23 Nov 2026 02:42:42 -0800 (PST)
+Received: from rmustafin-laptop ([27.79.41.63])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde84cd5ed8sm2283731a12.10.2026.11.23.02.42.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 20:29:48 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
+        Mon, 23 Nov 2026 02:42:42 -0800 (PST)
+From: Rustam Mustafin <rmustafin@cloudlinux.com>
 To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
 	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
 	netdev@vger.kernel.org,
 	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH ipsec v2 1/1] xfrm: free the policies already cloned when a socket clone fails
-Date: Mon, 23 Nov 2026 13:29:42 +0900
-Message-ID: <179540803323.3139700.15088508372382876389@gmail.com>
-In-Reply-To: <179540803323.3139700.5340002553684152759@gmail.com>
-References: <179540803323.3139700.5340002553684152759@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Rustam Mustafin <rmustafin@cloudlinux.com>,
+	stable@vger.kernel.org
+Subject: [PATCH ipsec v2] xfrm: use the frame's own socket in the too big checks
+Date: Mon, 23 Nov 2026 17:42:36 +0700
+Message-ID: <20261123104236.4179425-1-rmustafin@cloudlinux.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -107,48 +105,88 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-__xfrm_sk_clone_policy() clones the parent's socket policies one
-direction at a time and returns -ENOMEM at the first failure. If the
-policy for the second direction cannot be cloned, the clone of the
-first one is already set in the new socket and linked on
-net->xfrm.policy_all. sk_clone() then frees the new socket without
-xfrm_sk_free_policy(), and the policy is leaked until the network
-namespace goes away:
+__xfrm6_output() decides how to report a too big frame by looking at
+its sk argument, but xfrm_local_error() reports to skb->sk and
+dereferences it unchecked.  The two differ for a UDP tunnel: vxlan,
+geneve and other udp_tunnel6_xmit_skb() users pass the tunnel socket as
+sk, while a frame they forward has no skb->sk.  When such a frame takes
+an IPv6 tunnel mode xfrm bundle and exceeds its MTU, xfrm_local_error()
+oopses:
 
-  WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300
+  Oops: general protection fault, probably for non-canonical address
+  0xdffffc0000000002: 0000 [#1] SMP KASAN NOPTI
+  KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
+  RIP: 0010:xfrm_local_error+0x92/0x190
   Call Trace:
-   xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
-   ops_undo_list (net/core/net_namespace.c:253)
-   cleanup_net (net/core/net_namespace.c:713)
+   <IRQ>
+   xfrm6_output+0x599/0xae0
+   udp_tunnel6_xmit_skb+0x713/0xd90
+   vxlan_xmit_one+0x1ebc/0x3490
+   vxlan_xmit+0x1369/0x6540
+   dev_hard_start_xmit+0xe3/0x5b0
+   __dev_queue_xmit+0x18e7/0x3550
+   ip6_output+0x360/0xec0
+   ip6_forward+0x1573/0x35c0
 
-Delete the policies cloned so far before returning the error.
-xfrm_sk_clone_policy() clears the new socket's slots before cloning,
-so a slot that is set holds one of these clones.
+Commit 1620c88887b1 ("xfrm: Fix the usage of skb->sk") changed both the
+IPV6_DONTFRAG test and the local error test from skb->sk to sk.  Test
+skb_to_full_sk(skb) in both, as xfrm6_tunnel_check_size() does.
 
-Fixes: d188ba86dd07 ("xfrm: add rcu protection to sk->sk_policy[]")
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+A frame without a socket then goes to ip6_fragment(), which sends an
+ICMPv6 Packet Too Big, also when the tunnel socket sets IPV6_DONTFRAG,
+where it was dropped silently.  For callers that pass a NULL sk, such as
+ip6_tunnel, the error goes to skb->sk again, as before 1620c88887b1, and
+a request or timewait socket that vrf passes as sk is no longer read as
+a full socket.
+
+Fixes: 1620c88887b1 ("xfrm: Fix the usage of skb->sk")
+Cc: stable@vger.kernel.org
+Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
 ---
- net/xfrm/xfrm_policy.c | 7 +++++++
- 1 file changed, 7 insertions(+)
 
-diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-index cea6842e6454..dba1851f0b3d 100644
---- a/net/xfrm/xfrm_policy.c
-+++ b/net/xfrm/xfrm_policy.c
-@@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
- 			rcu_assign_pointer(sk->sk_policy[i], np);
- 		}
- 	}
-+	while (unlikely(ret) && i--) {
-+		np = rcu_dereference(sk->sk_policy[i]);
-+		if (np) {
-+			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
-+			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
-+		}
-+	}
- 	rcu_read_unlock();
- 	return ret;
- }
+Notes:
+    v2: also use skb_to_full_sk(skb) for the IPV6_DONTFRAG test, as the
+    review of v1 suggested; drop the code comment.
+    v1: https://lore.kernel.org/all/20261114125552.1319352-1-rmustafin@cloudlinux.com/
+    
+    Tested with KASAN on 7e1392a42ea2: a frame forwarded through vxlan over
+    IPv6 ESP oopses without the patch and not with it.  Through ip6ip6 over
+    the same ESP tunnel, a too big frame is dropped as before; ping now gets
+    EMSGSIZE on its error queue instead of a Packet Too Big.
+    
+    Not touched here:
+    - iptfs_is_too_big() has the same mismatch (IPv6 oops, IPv4 silent drop);
+      it was pointed out in two reviews:
+      https://lore.kernel.org/all/20260908224856.1591189-1-kuba@kernel.org/
+      https://lore.kernel.org/all/179369310739.488856.16665150928122536725@kernel.org/
+    - skb_to_full_sk() can read a freed listener when a bpf syncookie request
+      socket is redirected and queued; the bpf_sk_assign series handles it:
+      https://lore.kernel.org/all/20261119142231.2612515-2-razor@blackwall.org/
+
+ net/ipv6/xfrm6_output.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/net/ipv6/xfrm6_output.c b/net/ipv6/xfrm6_output.c
+index 44b221a09a0c..d38311645908 100644
+--- a/net/ipv6/xfrm6_output.c
++++ b/net/ipv6/xfrm6_output.c
+@@ -88,14 +88,14 @@ static int __xfrm6_output(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 
+ 	toobig = skb->len > mtu && !skb_is_gso(skb);
+ 
+-	if (toobig && xfrm6_local_dontfrag(sk)) {
++	if (toobig && xfrm6_local_dontfrag(skb_to_full_sk(skb))) {
+ 		xfrm6_local_rxpmtu(skb, mtu);
+ 		kfree_skb(skb);
+ 		return -EMSGSIZE;
+ 	} else if (toobig && xfrm6_noneed_fragment(skb)) {
+ 		skb->ignore_df = 1;
+ 		goto skip_frag;
+-	} else if (!skb->ignore_df && toobig && sk) {
++	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
+ 		xfrm_local_error(skb, mtu);
+ 		kfree_skb(skb);
+ 		return -EMSGSIZE;
 -- 
-2.43.0
+2.52.0
 
