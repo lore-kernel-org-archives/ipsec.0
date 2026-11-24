@@ -1,99 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795490992;
-	b=QyABjShVeTYxXUHC3BkpBPG8cfu2/9+468PPNULsMPpuPmdmtZqOE1uHyw7mUbNeq+s3
-	 /Ffpq4GvpfuDmdXXx/qxqV6FoT7B6aZbmi87/xAEh8OcGe0QdduF2mFE+XkZamS+kRrEi
-	 x0c8mrn+6v6zdSFU/KMK15PW+e1iiSAh0OkHMvMqqg8r4986FUHb4ZQZrT5UCoccHMPF9
-	 L0NZeMsCkx6FKaI+jjrAUffLlfPiIDekSaBB0/JSpG7jRd9yeK/H2oByKQ0SjOkkUFy8W
-	 JZAnABWGHT4wPLDPUtWIXw2jyOFwDzABOZpX9tBQ/vofF78arpQNzfujKlpejrwXjYg==
+	t=1795498741;
+	b=mBPpnkyas7Pe8ElSy9s8IHXE2WVx6OQ9iHkHZ0888249FY4Z+fsleMmLEag7Om5tJhIM
+	 Hx3Z9KntnmMDD7WELP+9cJ6wItrz/M8OAeFts/LIhuuEOPMgrYzZzYTqdvfVPfQyxE0/Z
+	 HK/UmrQ4TeFUk5RK7OIEUupO557DvN6klf02n6SEjq3NifMf5/tOxOGfhRKAhDYo7Eiu/
+	 eMTxMj8faqhbEKHB3oBvg2r4MY8NaKTRnNt4GHq8r44JOdJh2hZcQeLgdPVjDoMYzqCxp
+	 Rnmfxht4gox3ApiIpfVaKnOB1uaSD2rxqmwC8fnojZfIKE/i18aKvHXSv/hQSi04Arg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795490992;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=e5Opmlw6W+7IY9g9unaFxu16R4gE9zSxgAoE/RUOQJw=;
-	b=hPCPFZ1wx2VLrfCSSR91JQN+Vrd2Mw0i8F9uZZuTtUzH+9dIFAOYh/yekf0nc7wdgzsr
-	 UPdntVeedlK9Om9XC50+o14j7m9o2tqfOdumMNbmAoNSxXVjq4MxubadML/fVuM+SvUpX
-	 rvPVabys1Y48zGF+UttbOS1ogPjxza9LM34Yi1FDSlRyn62Rugp24neBs9bqvxwhu9US1
-	 WjnpjcYEI7d940n1CbhdPwJcVW+oLlKzOo4jZ/tysflTWR4+aNoPgI0ZEKgrFRVJWAOiG
-	 wpPIWYUV22BhhoTwqRPdXhF1GYP/iR2iNGOgoW2DvaZadKhPqbMlSORMoUuN8WGrvjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795498741;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=npJbQvk8UMz5QtPOfLc1/x+H4HQkgKEYsqkXjIBQhNg=;
+	b=idiq9wudSBe83MMLOgQx5kIp02AQVeUemxfxrAHVAxH8mMhH4kc2liUu/q6bIRxfrb8M
+	 3oDDWLsc5+72OLJ6F3unVm5p/A9ryYEN1AKdgu/BcDCkXeIs7u2FSvQVn0xkPZB695SEY
+	 jYyDjEUXDsci4n4/u7JEyPf0lvlk155q1zuDoUY64QCXCi/Zl1GvtfC+9X3d+N+Txb6c2
+	 O51RpBDwesjMh5LDsFZR0MGM2gLGbwleLenmn2u2EdfEjHoMnFK44CrnYGvRHhNDJVGlE
+	 oak6YVD33UAckD16ACn0snR6/vPTq+yWbah4Q0/KpuksjoLw0m3XOgBXNEk/N9ETaug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=SZc47GTb;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FVAvy7OB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2246606A326
-	for <ipsec@lists.linux.dev>; Tue, 24 Nov 2026 03:29:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2246606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C98B6606A699;
+	Tue, 24 Nov 2026 05:39:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=SZc47GTb
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cde827b7b95so853836a12.0
-        for <ipsec@lists.linux.dev>; Mon, 23 Nov 2026 19:29:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795490991; x=1796095791; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=e5Opmlw6W+7IY9g9unaFxu16R4gE9zSxgAoE/RUOQJw=;
-        b=SZc47GTbf7fwMUmt3c5bVCIcsz4UrBnPnU8DbuLCGPoHzDl3yve2YWSqHaepMqF1pv
-         6ecNlEOUaG02jy2VTjD6KkNSvFvP6leLXMm8YmSzjmD0ObnUwN87aGtQYk6nSY/PIc0c
-         QLVCEA34Uwu2wGdy4pIlL+//v6/1xXAf+n5xOd8dcBvvGCRD1EtMNzchWLaEMheEmtd7
-         wSpVNg2Otq84THS2T8QG/VMz252GQKDtmvKPdUjkXDjiMxCaBD9P0zWES4bhJFOOggPx
-         PsproHi32xCtVmBEBHGftyPni2y5hkyOfJsXleyOXOEwMk5q50NCb4xVmYaIXxCsiSPp
-         B66g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795490991; x=1796095791;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=e5Opmlw6W+7IY9g9unaFxu16R4gE9zSxgAoE/RUOQJw=;
-        b=R1aZkh/AaxO7oFPf6d3EYSOigOuPConkvgq5Y6NbrpKzH9rVpbpkcXVjUV+4VvDHpd
-         R94c7VvxhIVjva+Mz+/ERzNhpAgxPVFtrRdJI4UKSzuDjfvCpGFe30l+tDeWI6ZGtxiR
-         Z/CYoFR4bJfLkZrv0rvhj3NeKClIfzaA8PfrzjtXd2NupGeiAKVhsxvkbYEHI1qraG24
-         aQAxMURamehq3Hi+NR71K4OqKqRYuOZGmFuPO1h1soUdEd/Mc/tGfJImUc1w6TsexNDv
-         XGShgOIGKiLYfrwUKvKetOBVNoagiQNQq6dUJF4CQ8SS+/aaci1gtm/UOvAMUkp/5+mW
-         61kw==
-X-Forwarded-Encrypted: i=1; AL+hErFJg5zVFICp10b5KAcYLKUl0LvRwky3s9Jhecd8S6F47fZ1WPoAPr9kLSocz6JUZGOk34sqfw==@lists.linux.dev
-X-Gm-Message-State: APuU4Z9dopFAxP53AFZEGWOSl4a/sjSBfio7GjONcaFW1RxdsLutIUE/
-	Axwee/8eAMHAqRzlX/zDEr5nm7S+OPYRO0Le0YkSRr9E6VsfcQ/gKqCST791lbYTD0cgXbLDfb6
-	IUnFwnLV8dhgf6S3Ap/l0ZrUzx6F37c2mGXMVgAVlHVCLIrZCDICQ
-X-Gm-Gg: AZFdTZdlPKIUN3VUKtiFSFOW3Yq00121UYuDn4FUBskVXJcYhkwZsi4kH3wcC/Ulmv1
-	dRrYqWAkCVNZ8q8eaiGzCjHCRXywBxF//x6koAEo3kb6CzIaf7jlrh8cNtTl1WzsX58spk3WftM
-	cliRS8mUFwyahAlC4wKLOX3dM28vamU+yknKpR807Ooez2u4b99G7lFL3L0mjQDZb65+6K2kNHz
-	2f3D2JzKqbQf1tYdByrc3sWZpkPL2/36kxcTnCsefAkcD2nxqTaPl9DUHGBz9/fO+gT50I67ZVP
-	bE/7n0t+KNO4vNxEA/1NNHivoa5MWFW9u5F9955W+GB1owU2u1hsqXVmEdI8k+P9KunjDfg0kQU
-	7VEYGGReiLJw8Bl6mIA6bWQRNUMM=
-X-Received: by 2002:a17:90b:17d1:b0:3a8:a98c:ea07 with SMTP id 98e67ed59e1d1-3b41c8e1735mr11583721a91.13.1795490991106;
-        Mon, 23 Nov 2026 19:29:51 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41cfc74bcsm4445939a91.0.2026.11.23.19.29.50
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 19:29:51 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Dmitry Safonov <0x7f454c46@gmail.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH ipsec] xfrm/compat: pass on the translated length of a socket policy
-Date: Mon, 23 Nov 2026 19:29:46 -0800
-Message-ID: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FVAvy7OB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F6751F000E0;
+	Tue, 24 Nov 2026 05:39:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795498741;
+	bh=npJbQvk8UMz5QtPOfLc1/x+H4HQkgKEYsqkXjIBQhNg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=FVAvy7OBB5qzBMdYVNU4VCFlAeeYvHHERmIRBIk215KoerfyMA8tM4ZOH3lTW5jH+
+	 rYIH3R7uZfCyO58/yGfJpvYMrgeuXoDT0XAlCoi1/GOzHuQh3e8weosFHjC3JgAnyg
+	 5/BZhurBDy2o6cWWzbN3aApHFaKjdwRYtHnF971zentuesdtdk0V6lMO4X/7a9RIOU
+	 inc1mg8MD00T9T1XnKq+UjO6EVYtdNTG076K5guueGNhC3SS3uLh/79dOAfNXtntt6
+	 xqqwM7wGvJQWaQH9If879KK//d0q7ijlAAEHSZzLV6qrJbu5SrdO85voAX06OLNzqJ
+	 4aaYD5/79tutw==
+Subject: Re: [PATCH net] pfkey: fix kernel stack leak in pfkey_migrate()
+From: netdev-bot+sashiko@kernel.org
+To: bsdhenrymartin@gmail.com
+Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, netdev@vger.kernel.org, ipsec@lists.linux.dev,
+ stable@vger.kernel.org
+Date: Tue, 24 Nov 2026 05:39:00 +0000
+Message-ID: <179549874061.3135.6550381232746686569@kernel.org>
+In-Reply-To: <20261120052814.3686573-1-bsdhenrymartin@gmail.com>
+References: <20261120052814.3686573-1-bsdhenrymartin@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -103,120 +63,136 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-xfrm_user_policy() compiles a 32-bit task's translated socket policy
-with the untranslated length, 4 bytes short, so the policy loses its
-last template: an ESP-required socket policy then sends in clear
-text. Have the translator return the translated length.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Made with an AI coding assistant, reviewed by the submitter.
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-Fixes: 96392ee5a13b ("xfrm/compat: Translate 32-bit user_policy from sockptr")
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
----
-The 64-bit struct xfrm_userpolicy_info has 4 bytes of tail padding
-that the 32-bit one lacks (168 and 164 bytes on x86-64), and
-xfrm_compile_policy() counts the templates as (len - sizeof(*p)) /
-sizeof(*ut). With the 32-bit length one template counts as none, so a
-32-bit program's ESP-required socket policy requires nothing: its
-datagrams leave in clear text, with no SA and no acquire. For the same
-reason a policy without templates, which IKE daemons set on their own
-sockets, is refused.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The BUILD_BUG_ON()s check what the translator's memcpy()s rely on:
-4 = sizeof(struct xfrm_userpolicy_info) -
-sizeof(struct compat_xfrm_userpolicy_info), the fields before the
-padding at the same offsets in both layouts, and templates that need
-no 8-byte alignment.
+- [High] The fix is incomplete: pfkey_migrate() (net/key/af_key.c) still
+  leaks kernel stack through the uninitialized `struct xfrm_kmaddress k`.
+- [Low] The commit message understates the leak and leaves out its most
+  direct path.
 
-Found with an AI coding assistant. It reproduces on an unmodified
-kernel (ipsec master), without kernel changes or fault injection, and
-no longer with this change. Tested with the reproducer, a selftest,
-two boots each way, and with the xfrm_policy and xfrm_state
-selftests. The reproducer is available on request; the selftest
-follows once stable has the fix.
+--
 
- include/net/xfrm.h     |  2 +-
- net/xfrm/xfrm_compat.c | 18 ++++++++++++++----
- net/xfrm/xfrm_state.c  |  2 +-
- 3 files changed, 16 insertions(+), 6 deletions(-)
+pfkey: fix kernel stack leak in pfkey_migrate()
 
-diff --git a/include/net/xfrm.h b/include/net/xfrm.h
-index 445223a8dc6f1..455b9f986ea5b 100644
---- a/include/net/xfrm.h
-+++ b/include/net/xfrm.h
-@@ -2331,7 +2331,7 @@ struct xfrm_translator {
- 			struct netlink_ext_ack *extack);
- 
- 	/* Translate 32-bit user_policy from sockptr */
--	int (*xlate_user_policy_sockptr)(u8 **pdata32, int optlen);
-+	int (*xlate_user_policy_sockptr)(u8 **pdata32, int *optlen);
- 
- 	struct module *owner;
- };
-diff --git a/net/xfrm/xfrm_compat.c b/net/xfrm/xfrm_compat.c
-index 670e3512fc090..af5cb36d691ea 100644
---- a/net/xfrm/xfrm_compat.c
-+++ b/net/xfrm/xfrm_compat.c
-@@ -642,16 +642,25 @@ static struct nlmsghdr *xfrm_user_rcv_msg_compat(const struct nlmsghdr *h32,
- 	return h64;
- }
- 
--static int xfrm_user_policy_compat(u8 **pdata32, int optlen)
-+static int xfrm_user_policy_compat(u8 **pdata32, int *optlen)
- {
- 	struct compat_xfrm_userpolicy_info *p = (void *)*pdata32;
- 	u8 *src_templates, *dst_templates;
- 	u8 *data64;
- 
--	if (optlen < sizeof(*p))
-+	/* The 64-bit layout only adds tail padding, and the templates
-+	 * after it are the same in both layouts.
-+	 */
-+	BUILD_BUG_ON(sizeof(struct xfrm_userpolicy_info) -
-+		     sizeof(struct compat_xfrm_userpolicy_info) != 4);
-+	BUILD_BUG_ON(offsetof(struct xfrm_userpolicy_info, share) !=
-+		     offsetof(struct compat_xfrm_userpolicy_info, share));
-+	BUILD_BUG_ON(__alignof__(struct xfrm_user_tmpl) > 4);
-+
-+	if (*optlen < sizeof(*p))
- 		return -EINVAL;
- 
--	data64 = kmalloc_track_caller(optlen + 4, GFP_USER | __GFP_NOWARN);
-+	data64 = kmalloc_track_caller(*optlen + 4, GFP_USER | __GFP_NOWARN);
- 	if (!data64)
- 		return -ENOMEM;
- 
-@@ -660,10 +669,11 @@ static int xfrm_user_policy_compat(u8 **pdata32, int optlen)
- 
- 	src_templates = *pdata32 + sizeof(*p);
- 	dst_templates = data64 + sizeof(*p) + 4;
--	memcpy(dst_templates, src_templates, optlen - sizeof(*p));
-+	memcpy(dst_templates, src_templates, *optlen - sizeof(*p));
- 
- 	kfree(*pdata32);
- 	*pdata32 = data64;
-+	*optlen += 4;
- 	return 0;
- }
- 
-diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
-index f4a4ddaeb9b37..eb984ed118884 100644
---- a/net/xfrm/xfrm_state.c
-+++ b/net/xfrm/xfrm_state.c
-@@ -3115,7 +3115,7 @@ int xfrm_user_policy(struct sock *sk, int optname, sockptr_t optval, int optlen)
- 			return -EOPNOTSUPP;
- 		}
- 
--		err = xtr->xlate_user_policy_sockptr(&data, optlen);
-+		err = xtr->xlate_user_policy_sockptr(&data, &optlen);
- 		xfrm_put_translator(xtr);
- 		if (err) {
- 			kfree(data);
+This commit zero-initializes the on-stack struct xfrm_migrate m[]
+array in pfkey_migrate(). The unused 12 bytes of each AF_INET
+xfrm_address_t then no longer carry stack residue into the cloned
+xfrm_state or back to userspace.
 
-base-commit: b88c75488ecc768acadb14e980bbfa087b1dbf38
+> pfkey_migrate() declares struct xfrm_migrate m[XFRM_MAX_DEPTH] on the
+> stack without initializing it. For AF_INET endpoints
+> pfkey_sockaddr_extract() writes only the 4-byte a4 member, leaving
+> the remaining 12 bytes of each xfrm_address_t as stack residue.
+> xfrm_state_clone_and_setup() then memcpy()s the full 16-byte
+> new_daddr and new_saddr into the cloned xfrm_state, and a subsequent
+> XFRM_MSG_GETSA dump copies them back to userspace as-is. Each
+> migrated SA leaks 24 bytes of kernel stack, which can contain kernel
+> pointers.
+
+[Severity: Low]
+Is this description of the leak complete? Every successful migrate
+also goes through the key manager notification path:
+
+xfrm_migrate()
+  km_migrate()
+    xfrm_send_migrate()
+      build_migrate()
+        copy_to_user_migrate()
+
+net/xfrm/xfrm_user.c:copy_to_user_migrate() {
+    ...
+	memcpy(&um.old_daddr, &m->old_daddr, sizeof(um.old_daddr));
+	memcpy(&um.old_saddr, &m->old_saddr, sizeof(um.old_saddr));
+	um.new_family = m->new_family;
+	memcpy(&um.new_daddr, &m->new_daddr, sizeof(um.new_daddr));
+	memcpy(&um.new_saddr, &m->new_saddr, sizeof(um.new_saddr));
+    ...
+}
+
+The result is multicast to XFRMNLGRP_MIGRATE listeners without any
+GETSA request. For AF_INET, that was 48 uninitialized bytes per m[]
+entry (old_daddr, old_saddr, new_daddr and new_saddr). This included
+entries that matched no SA.
+
+The = {} change does close this path for m[], so the code looks fine
+for m[].
+
+Could the commit message describe the multicast path and the
+per-entry size as well?
+
+> diff --git a/net/key/af_key.c b/net/key/af_key.c
+> index d215b33b7492c..6d116862b20d8 100644
+> --- a/net/key/af_key.c
+> +++ b/net/key/af_key.c
+> @@ -2571,7 +2571,7 @@ static int pfkey_migrate(struct sock *sk, struct sk_buff *skb,
+>  	struct sadb_x_policy *pol;
+>  	struct sadb_x_ipsecrequest *rq;
+>  	struct xfrm_selector sel;
+> -	struct xfrm_migrate m[XFRM_MAX_DEPTH];
+> +	struct xfrm_migrate m[XFRM_MAX_DEPTH] = {};
+>  	struct xfrm_kmaddress k;
+
+[Severity: High]
+Can pfkey_migrate() still leak kernel stack through k here?
+
+When the request carries a SADB_X_EXT_KMADDRESS extension, only
+parse_sockaddr_pair() fills k.local and k.remote:
+
+	ret = parse_sockaddr_pair((struct sockaddr *)(kma + 1),
+				  8*(kma->sadb_x_kmaddress_len) - sizeof(*kma),
+				  &k.local, &k.remote, &k.family);
+
+That call goes through pfkey_sockaddr_extract(). For AF_INET it writes
+only 4 of the 16 bytes:
+
+	case AF_INET:
+		xaddr->a4 =
+			((struct sockaddr_in *)sa)->sin_addr.s_addr;
+		return AF_INET;
+
+pfkey_migrate() then passes kma ? &k : NULL to xfrm_migrate(). On
+success, the key manager path copies out the full addresses:
+
+xfrm_migrate()
+  km_migrate(sel, dir, type, m, num_migrate, k, net, encap)
+    xfrm_send_migrate()
+      build_migrate()
+        copy_to_user_kmaddress()
+
+net/xfrm/xfrm_user.c:copy_to_user_kmaddress() {
+	...
+	memset(&uk, 0, sizeof(uk));
+	uk.family = k->family;
+	uk.reserved = k->reserved;
+	memcpy(&uk.local, &k->local, sizeof(uk.local));
+	memcpy(&uk.remote, &k->remote, sizeof(uk.remote));
+
+	return nla_put(skb, XFRMA_KMADDRESS, sizeof(uk), &uk);
+}
+
+xfrm_send_migrate() then multicasts this to XFRMNLGRP_MIGRATE. For an
+AF_INET kmaddress, would 24 bytes of uninitialized stack (12 from
+k.local and 12 from k.remote) still reach userspace?
+
+On the netlink side, xfrm_do_migrate() and copy_from_user_migrate()
+fill the kmaddress with full 16-byte copies. pfkey appears to be the
+only producer that passes in a partially written k.
+
+pfkey_create() only checks ns_capable(net->user_ns, CAP_NET_ADMIN).
+That is the same privilege level needed for the GETSA leak described
+in the commit message.
+
+Should this also be struct xfrm_kmaddress k = {}; ?
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120052814.3686573-1-bsdhenrymartin%40gmail.com
