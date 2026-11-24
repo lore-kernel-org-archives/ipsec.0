@@ -1,59 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795498741;
-	b=mBPpnkyas7Pe8ElSy9s8IHXE2WVx6OQ9iHkHZ0888249FY4Z+fsleMmLEag7Om5tJhIM
-	 Hx3Z9KntnmMDD7WELP+9cJ6wItrz/M8OAeFts/LIhuuEOPMgrYzZzYTqdvfVPfQyxE0/Z
-	 HK/UmrQ4TeFUk5RK7OIEUupO557DvN6klf02n6SEjq3NifMf5/tOxOGfhRKAhDYo7Eiu/
-	 eMTxMj8faqhbEKHB3oBvg2r4MY8NaKTRnNt4GHq8r44JOdJh2hZcQeLgdPVjDoMYzqCxp
-	 Rnmfxht4gox3ApiIpfVaKnOB1uaSD2rxqmwC8fnojZfIKE/i18aKvHXSv/hQSi04Arg==
+	t=1795501077;
+	b=uJXQbYCaXyPW0/nWTg6i2k7D5RdYyJh8wX7/MZJoAFL8jtkpkM84MnBfm7zlbaDlj54M
+	 wrlnqq0oYlcpUp0PSeWeQkwzx33swgKHf9A6K1T3/1Xl/RliCAcBYJyS+/lDseCATnfRq
+	 0KHsAivbvxXVn7jrIChhY2luMQbpoQ5FYl+rG7BgtkdbNbfpSGJNCCU4gW8MHa7Ux2oy0
+	 iVWCf8G58Sx2iZCZO722SZsEqQYKZMJZ+bGLDRb+b5vjw4ZmX7Y2aHVE8H/clsjXhEVOh
+	 O9QgtK9EzLWXe55G3vf7OfsdMtwivbAYoFbghGzWiLwsDRAKmSPfn7o5HOUueSJfe3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795498741;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=npJbQvk8UMz5QtPOfLc1/x+H4HQkgKEYsqkXjIBQhNg=;
-	b=idiq9wudSBe83MMLOgQx5kIp02AQVeUemxfxrAHVAxH8mMhH4kc2liUu/q6bIRxfrb8M
-	 3oDDWLsc5+72OLJ6F3unVm5p/A9ryYEN1AKdgu/BcDCkXeIs7u2FSvQVn0xkPZB695SEY
-	 jYyDjEUXDsci4n4/u7JEyPf0lvlk155q1zuDoUY64QCXCi/Zl1GvtfC+9X3d+N+Txb6c2
-	 O51RpBDwesjMh5LDsFZR0MGM2gLGbwleLenmn2u2EdfEjHoMnFK44CrnYGvRHhNDJVGlE
-	 oak6YVD33UAckD16ACn0snR6/vPTq+yWbah4Q0/KpuksjoLw0m3XOgBXNEk/N9ETaug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501077;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=Fns5KSeLA1lAqdtuoDUdCMp8WJ8wrSCmXQUe1et8xFI=;
+	b=PiFuynRx+eQtTJpKvdHzF08qMAy/Pz9Fk80uKHD7ll0MUAYaqYKQpKNaDSvNRWX5gv4G
+	 HdoClS1s3yxlyKziOSwyOCZEWKWO/JjnqCy3L0RPKbjx6abaiCCtkrbWhGxJYr3xulKeL
+	 9UMOIaZCPv7yjeXusZ3ErMcU3egDQvr4Apn0/E7vh7wjk4Opyx1bDeOO56spUQDUtq5y2
+	 rqQvYLGGiuf51VWXmqzdEebicj3YeQMUA9UA2IKTOphylW4Js4b6yEcVy7dDGXAJyP5sC
+	 7sP4SP9RQqgJdyBbxwNTszYdaM8A0X5J3LK7UGJum59r+U5MMbWPtaFM10bi+zqQK8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FVAvy7OB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=CuMNmgBk;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C98B6606A699;
-	Tue, 24 Nov 2026 05:39:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34199606A31E
+	for <ipsec@lists.linux.dev>; Tue, 24 Nov 2026 06:17:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34199606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FVAvy7OB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F6751F000E0;
-	Tue, 24 Nov 2026 05:39:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795498741;
-	bh=npJbQvk8UMz5QtPOfLc1/x+H4HQkgKEYsqkXjIBQhNg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FVAvy7OBB5qzBMdYVNU4VCFlAeeYvHHERmIRBIk215KoerfyMA8tM4ZOH3lTW5jH+
-	 rYIH3R7uZfCyO58/yGfJpvYMrgeuXoDT0XAlCoi1/GOzHuQh3e8weosFHjC3JgAnyg
-	 5/BZhurBDy2o6cWWzbN3aApHFaKjdwRYtHnF971zentuesdtdk0V6lMO4X/7a9RIOU
-	 inc1mg8MD00T9T1XnKq+UjO6EVYtdNTG076K5guueGNhC3SS3uLh/79dOAfNXtntt6
-	 xqqwM7wGvJQWaQH9If879KK//d0q7ijlAAEHSZzLV6qrJbu5SrdO85voAX06OLNzqJ
-	 4aaYD5/79tutw==
-Subject: Re: [PATCH net] pfkey: fix kernel stack leak in pfkey_migrate()
-From: netdev-bot+sashiko@kernel.org
-To: bsdhenrymartin@gmail.com
-Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, netdev@vger.kernel.org, ipsec@lists.linux.dev,
- stable@vger.kernel.org
-Date: Tue, 24 Nov 2026 05:39:00 +0000
-Message-ID: <179549874061.3135.6550381232746686569@kernel.org>
-In-Reply-To: <20261120052814.3686573-1-bsdhenrymartin@gmail.com>
-References: <20261120052814.3686573-1-bsdhenrymartin@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=CuMNmgBk
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id F0989206D0;
+	Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 72SRn53h-tJp; Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 580BD201C7;
+	Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 580BD201C7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795501073;
+	bh=Fns5KSeLA1lAqdtuoDUdCMp8WJ8wrSCmXQUe1et8xFI=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=CuMNmgBkP7qTfM6MdxNUQ6ZyVyFsrN51hj1M1RaCrS/5jRfJkAFbqvLG2UzS3NtM/
+	 Lcg5KAuLcfVffLvgrX+EcXiVUgPrMB6Oenm9MyxVshBWaox4J5C6JNKRglv9dctAQw
+	 5XJ0IxPDsK3bZEa1qDH/MWmz5iQF78pJFMvPRjp6bhKCFczY1u3b4ZqDbBkBs36oj/
+	 BPhB8a9Ix0gI/uXi8R6tdQuT0h5c/Jv99Q6w98eIRyNkIEnzvHc1E5Wk2hf08UOwYJ
+	 yQjiFDbvwvAA225xSuKdx17rxcb50t8f3ugwLxr2wZh0t7xClgswJGTE+v3rjaB3ev
+	 Bkv3vBs4jrdSA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 24 Nov
+ 2026 07:17:51 +0100
+Received: (nullmailer pid 3202217 invoked by uid 1000);
+	Tue, 24 Nov 2026 06:17:52 -0000
+Date: Tue, 24 Nov 2026 07:17:52 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [BUG] xfrm: ESP SA in route optimization mode hits WARN_ON_ONCE
+ in xfrm_state_mtu() and xfrm_input()
+Message-ID: <awUsEE7XZIFwc0Ws@gauss4>
+References: <179493154245.3969421.1349059390749040254@gmail.com>
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -63,136 +83,96 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <179493154245.3969421.1349059390749040254@gmail.com>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Tue, Nov 17, 2026 at 08:05:46AM -0800, Kyuwon Cho wrote:
+> Hi Steffen, Herbert,
+> 
+> While testing v7.4-rc3 with an LLM-guided test generator that we are
+> developing as a research prototype, we found that XFRM_MSG_NEWSA accepts
+> an ESP state with mode XFRM_MODE_ROUTEOPTIMIZATION, and that one packet
+> through it hits two WARN_ON_ONCE()s. An unprivileged user can do this
+> from its own user and network namespace. Sending the packet:
+> 
+>   WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0, CPU#1: test/107
+>   CPU: 1 UID: 65534 PID: 107 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy) 
+>   RIP: 0010:xfrm_state_mtu+0x239/0x3d0
+>   Call Trace:
+>    <TASK>
+>    xfrm_bundle_create+0x1560/0x2340
+>    xfrm_resolve_and_create_bundle+0x158/0x2d0
+>    xfrm_lookup_with_ifid+0x483/0x18e0
+>    xfrm_lookup_route+0x1e/0x180
+>    ip6_dst_lookup_flow+0x196/0x1e0
+>    udpv6_sendmsg+0x163b/0x2d70
+>    __sys_sendto+0x2b1/0x3c0
+>    __x64_sys_sendto+0xdb/0x1b0
+>    do_syscall_64+0x116/0x630
+>    entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>    </TASK>
+> 
+> and receiving it:
+> 
+>   WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50, CPU#1: test/107
+>   CPU: 1 UID: 65534 PID: 107 Comm: test Tainted: G        W           7.4.0-rc3 #1 PREEMPT(lazy) 
+>   RIP: 0010:xfrm_input+0x2176/0x5f50
+>   Call Trace:
+>    <IRQ>
+>    xfrm6_esp_rcv+0x83/0x1c0
+>    ip6_protocol_deliver_rcu+0xc71/0x13d0
+>    ip6_input_finish+0x192/0x3f0
+>    ip6_input+0xcb/0x220
+>    __netif_receive_skb_one_core+0x114/0x1b0
+>    process_backlog+0x3c6/0x12c0
+>    __napi_poll.constprop.0+0x9c/0x5c0
+>    net_rx_action+0x48e/0xe30
+>    handle_softirqs+0x22d/0x980
+>    do_softirq+0x43/0xa0
+>    </IRQ>
+> 
+> verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION for any
+> protocol; only IP-TFS is limited to ESP. esp6_init_state() treats every
+> mode other than BEET and TUNNEL as transport:
+> 
+> 	switch (x->props.mode) {
+> 	case XFRM_MODE_BEET:
+> 		...
+> 	default:
+> 	case XFRM_MODE_TRANSPORT:
+> 		break;
+> 
+> so the state is created. The ESP paths then reach code that assumes
+> route optimization never comes with ESP. xfrm_state_mtu() has no case
+> for it and falls to:
+> 
+> 	default:
+> 		if (x->mode_cbs && x->mode_cbs->get_inner_mtu)
+> 			return x->mode_cbs->get_inner_mtu(x, mtu);
+> 
+> 		WARN_ON_ONCE(1);
+> 
+> and xfrm_inner_mode_input() has
+> 
+> 	case XFRM_MODE_ROUTEOPTIMIZATION:
+> 		WARN_ON_ONCE(1);
+> 		break;
+> 
+> The packet is dropped on input, so the effect is the warnings, which
+> panic a machine with panic_on_warn. Both WARN_ON_ONCE()s date from the
+> 2019 xfrm mode cleanup (c2d305e51038, c7b37c769d2a).
+> 
+> Accepting XFRM_MODE_ROUTEOPTIMIZATION only for the Mobile IPv6 types
+> (IPPROTO_ROUTING and IPPROTO_DSTOPTS) in verify_newsa_info(), as it
+> already limits IP-TFS to ESP, or rejecting it in esp6_init_state()
+> (route optimization exists only for IPv6 states), should avoid it. We
+> have not tested either change.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+I think adding a guard to verify_newsa_info() makes sense. Can you
+submit a fix?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Thanks!
 
-- [High] The fix is incomplete: pfkey_migrate() (net/key/af_key.c) still
-  leaks kernel stack through the uninitialized `struct xfrm_kmaddress k`.
-- [Low] The commit message understates the leak and leaves out its most
-  direct path.
-
---
-
-pfkey: fix kernel stack leak in pfkey_migrate()
-
-This commit zero-initializes the on-stack struct xfrm_migrate m[]
-array in pfkey_migrate(). The unused 12 bytes of each AF_INET
-xfrm_address_t then no longer carry stack residue into the cloned
-xfrm_state or back to userspace.
-
-> pfkey_migrate() declares struct xfrm_migrate m[XFRM_MAX_DEPTH] on the
-> stack without initializing it. For AF_INET endpoints
-> pfkey_sockaddr_extract() writes only the 4-byte a4 member, leaving
-> the remaining 12 bytes of each xfrm_address_t as stack residue.
-> xfrm_state_clone_and_setup() then memcpy()s the full 16-byte
-> new_daddr and new_saddr into the cloned xfrm_state, and a subsequent
-> XFRM_MSG_GETSA dump copies them back to userspace as-is. Each
-> migrated SA leaks 24 bytes of kernel stack, which can contain kernel
-> pointers.
-
-[Severity: Low]
-Is this description of the leak complete? Every successful migrate
-also goes through the key manager notification path:
-
-xfrm_migrate()
-  km_migrate()
-    xfrm_send_migrate()
-      build_migrate()
-        copy_to_user_migrate()
-
-net/xfrm/xfrm_user.c:copy_to_user_migrate() {
-    ...
-	memcpy(&um.old_daddr, &m->old_daddr, sizeof(um.old_daddr));
-	memcpy(&um.old_saddr, &m->old_saddr, sizeof(um.old_saddr));
-	um.new_family = m->new_family;
-	memcpy(&um.new_daddr, &m->new_daddr, sizeof(um.new_daddr));
-	memcpy(&um.new_saddr, &m->new_saddr, sizeof(um.new_saddr));
-    ...
-}
-
-The result is multicast to XFRMNLGRP_MIGRATE listeners without any
-GETSA request. For AF_INET, that was 48 uninitialized bytes per m[]
-entry (old_daddr, old_saddr, new_daddr and new_saddr). This included
-entries that matched no SA.
-
-The = {} change does close this path for m[], so the code looks fine
-for m[].
-
-Could the commit message describe the multicast path and the
-per-entry size as well?
-
-> diff --git a/net/key/af_key.c b/net/key/af_key.c
-> index d215b33b7492c..6d116862b20d8 100644
-> --- a/net/key/af_key.c
-> +++ b/net/key/af_key.c
-> @@ -2571,7 +2571,7 @@ static int pfkey_migrate(struct sock *sk, struct sk_buff *skb,
->  	struct sadb_x_policy *pol;
->  	struct sadb_x_ipsecrequest *rq;
->  	struct xfrm_selector sel;
-> -	struct xfrm_migrate m[XFRM_MAX_DEPTH];
-> +	struct xfrm_migrate m[XFRM_MAX_DEPTH] = {};
->  	struct xfrm_kmaddress k;
-
-[Severity: High]
-Can pfkey_migrate() still leak kernel stack through k here?
-
-When the request carries a SADB_X_EXT_KMADDRESS extension, only
-parse_sockaddr_pair() fills k.local and k.remote:
-
-	ret = parse_sockaddr_pair((struct sockaddr *)(kma + 1),
-				  8*(kma->sadb_x_kmaddress_len) - sizeof(*kma),
-				  &k.local, &k.remote, &k.family);
-
-That call goes through pfkey_sockaddr_extract(). For AF_INET it writes
-only 4 of the 16 bytes:
-
-	case AF_INET:
-		xaddr->a4 =
-			((struct sockaddr_in *)sa)->sin_addr.s_addr;
-		return AF_INET;
-
-pfkey_migrate() then passes kma ? &k : NULL to xfrm_migrate(). On
-success, the key manager path copies out the full addresses:
-
-xfrm_migrate()
-  km_migrate(sel, dir, type, m, num_migrate, k, net, encap)
-    xfrm_send_migrate()
-      build_migrate()
-        copy_to_user_kmaddress()
-
-net/xfrm/xfrm_user.c:copy_to_user_kmaddress() {
-	...
-	memset(&uk, 0, sizeof(uk));
-	uk.family = k->family;
-	uk.reserved = k->reserved;
-	memcpy(&uk.local, &k->local, sizeof(uk.local));
-	memcpy(&uk.remote, &k->remote, sizeof(uk.remote));
-
-	return nla_put(skb, XFRMA_KMADDRESS, sizeof(uk), &uk);
-}
-
-xfrm_send_migrate() then multicasts this to XFRMNLGRP_MIGRATE. For an
-AF_INET kmaddress, would 24 bytes of uninitialized stack (12 from
-k.local and 12 from k.remote) still reach userspace?
-
-On the netlink side, xfrm_do_migrate() and copy_from_user_migrate()
-fill the kmaddress with full 16-byte copies. pfkey appears to be the
-only producer that passes in a partially written k.
-
-pfkey_create() only checks ns_capable(net->user_ns, CAP_NET_ADMIN).
-That is the same privilege level needed for the GETSA leak described
-in the commit message.
-
-Should this also be struct xfrm_kmaddress k = {}; ?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120052814.3686573-1-bsdhenrymartin%40gmail.com
