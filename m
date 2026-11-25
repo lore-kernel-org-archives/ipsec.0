@@ -1,109 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.145
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587919;
-	b=xgiDXKW7FHkPq3n+AlcVidv05rtQc+nD+g+oO0eA0LmD0jPfTsauxFrUDlP5EgOA4+aR
-	 625Ydj6tjTaBzOwe3cbRdFPb/piB//RvPPEMNsvw0OPaZDcmReiUpKYCOJ6mxCzahrINw
-	 ZAS9PxbC6TrPcrvCqvmnF9omyu43L+m8a24bXUKjMG0W46AjlS29QGKF75dqZwkOREGLD
-	 zov3AaT2Y2xzljpp6qyMgsFoa18THRfY2Gc4jGGJQOZEkGPXOcevBgDjAi27mYMtn/DB2
-	 jrmlQGjRvR/DNH+LnVgN5pO6hlYBov33GyRKrkVHDd0rLS0NJEXVQ8lzdurP6XIy2Zw==
+	t=1795604002;
+	b=ghBqCC8KCGA6Y48lF7p86sEM/IAb9xfNROKmXVZWmwKx0upEReNmUTHbH+DsokgNx2wT
+	 HdvD3UBqN33TpFGFR+ZIdH9vYO0x6A+aHGiYplGQZhfPqdSbmh2dRy70GD57MFstB3XLS
+	 1JYHQxdwYF4+VH2ltOCzQo3PyIsUxyV4cOnNeeAupEdxRt7QYXRYthsKkWvnNVd5BqVEh
+	 dJKC5+0j4Cey0F0UxrcOLeSvccrbPuIsCzGl5YdoSS7WXxqxYBDSde1AAVqRPdXz5QaRz
+	 xUsdkTm4dGGwt5QBWFRSnrOyFNWmWYeNUWTIi6E1+ZCFHJ/NTHTO/IvgVDJ3p7QRIpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587919;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=wQqO0ZGiPSduhL/nnYRl9rtTaPzOuw285ahJlrfXT+I=;
-	b=X8IlOTze1j1w7zXAZjAsVqzip29cKlh/yNZxA4wPyheegNI2w7NtFdm52cZB2rZUmusD
-	 JKuN68x52e+c1cX4ydS5FtLZiPMmeFkiYMZoSxPD64IbnM+B69dpK0+z8GbN3w3X9eRtb
-	 YmykKgta8sGHDduO4YsECY/Xeq9fO6DesiqPrJWBWU1qGI3fbC6mtRva+4f7RR+shda9W
-	 XzOfcZGkekkiOKtPIX9PIXkRDeLGSviRqc0awOlhoHEo6dx5wsc3WEwbqR6ElV7ngJQoz
-	 k1JoEsYxPJO2d84lSV1ThtQIHclGCrJeHOIQfStd9wr3GYQA1KiISXtxZA2jOBXIVFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604002;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=IMedBWjX3od9XnP02Tr+7kPdu9op0gEHiwtOGI7i/ss=;
+	b=BGjNnnjEWQ0hS5hJDfZTOE6CUhVk1wM1BZTyiAbwzuolGsGrfLDMbeE1GE5HkIPIJpWQ
+	 Xa2KkNqNCR2lepNOfTdLPdrdQm/QoN6t35a9stsKaHYXpCfIgNn2JtDs6B/xobY0FUfcA
+	 j8cA+q7ixs0p4+9egFDGc7BjK7LXiJIQb0xL0mvjOCiG4eMPkBW6dyxZMgBugVppqrSwI
+	 HAd2pMspLH5LgtGB/l+CH5a6LYkmaTMqA3UkUO3Xy0JcoMbEPuIzRXJ607Md2pfTGbmbz
+	 asnU7ZE/67i6ZzeK7clQAWWZhzKhkiSX/w5kR88ksKCG4IfbWXbTSHKqRUsB0fv7l2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=trailofbits.com;
-	spf=pass smtp.mailfrom=trailofbits.com;
-	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=VJYa2XUP;
-	arc=none smtp.remote-ip=74.125.82.41
-Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=queasysnail.net;
+	spf=pass smtp.mailfrom=queasysnail.net;
+	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=bQ8C3qxP;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gyXbDEpP;
+	arc=none smtp.remote-ip=202.12.124.145
+Received: from fout-b2-smtp.messagingengine.com (fout-b2-smtp.messagingengine.com [202.12.124.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 080A7606A326
-	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 06:25:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 080A7606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AFCB606A323
+	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 10:53:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AFCB606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=VJYa2XUP
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b3acec6677so7976747c88.1
-        for <ipsec@lists.linux.dev>; Tue, 24 Nov 2026 22:25:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1795587918; x=1796192718; darn=lists.linux.dev;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wQqO0ZGiPSduhL/nnYRl9rtTaPzOuw285ahJlrfXT+I=;
-        b=VJYa2XUPlju1kVR6vhELYAUPWcgniW5cPCCnRpw+m5eppzd5x41v+HI3Hm6u6o4daX
-         YxIeYMsi9NQbK4UGhGNQRTIvgbt9CDgN2jkUhRpK53tcPAIyi9NHmJ+Awbhg0u+7hGka
-         JeK6PLkUNJXDjc4DKmSWhA72vqvvcr9qRS3eSam6Enc9xUbe2PDfNdjI+D5zkBPVb1xl
-         3y55VPqtREHVkeMCEjFcLd7hvDu6asEpHW0npN8DsnSZjjAU+W0tp8xFgOTakwxzjDCZ
-         w62vfnkmA8EODcqoL2NxKobmfKEbh7P55HjAKeTv33QMmOnOTlbansjFNYnVpz3zBK2C
-         O+gw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795587918; x=1796192718;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wQqO0ZGiPSduhL/nnYRl9rtTaPzOuw285ahJlrfXT+I=;
-        b=In4xRGyAjfq0ifszoz+V/QLkexVHvdKnwTJcWHAA84qGaVGIYYFRDhZEzWz9OPQ9XZ
-         pOPXCOzHs3UVqCj6uMCeUMRUO4DFsoxCm5LTmCmWMJ3FkcDQ0iSyKq6SwgqfkXlVH+8j
-         wt4xgqpPobq8ZH5XyBru4Isct7pBpDvrMUlZB8uE2ZYgI4B54UX+MRgPf15QbRiEfdzk
-         kMF6gQm1WCOTUO6OSCtx3OAew/qjkiwSeMxYi8aFDLyE+drewwN4PXARVsj5rfmxuL5+
-         jQIXbgLYUBIbtJHacyKPi1mNE2RTZ5NRS2IBLqts32fJqzzb+loUtMZSiBweMuuw11Bq
-         E5xQ==
-X-Forwarded-Encrypted: i=1; AL+hErFqYZjIQSquU4hJ+NJ+CN6QG2nR0BYsN12V+rH9pV/BgMntUyXfQ3TLotej9jKXZ8sctvmyCA==@lists.linux.dev
-X-Gm-Message-State: APuU4Z+anZBy4WIk0Ro50tPtSAT89NE9Ppvxy4KJujlXqSGN8+U81Q6W
-	bXaH00P5gmxFZMXaUlxC3xox0w3fdBDCGGqCCB+RWsIqu+mHB12545P3oNdqVR3jbHU=
-X-Gm-Gg: AZFdTZcsRX7X2M7xFYTBpfi9BCfCVUBMVeF3ZHe7GE6Gbynqc3qJvvv+gUZykrZR5Jm
-	HISOknj6Rnux+2KJ5byB19OQcvK+SF0FFIw/cm2OvmjZttkKzGxFJAw15I1KYi4bARw71ak+UTw
-	cnOJNs3Q03WWhn2m4vwI7prhHxwBT5gutXmJwWqHtO2JLUvGDu5OzJwX6l2tzBaoG++Q8RILI5f
-	yqsHzma//wktK5/eGg3uY5AbvOMRuQ/u+IYLu836yG3LB7S4TOrlKEuY4wj7BIPOstPb+roJu/P
-	2Ugka+tIfhCn9LFFvTQxgYYtc9BivaXiLbLkaw33dyC2ajrfn3SqeHUSswvoXE+6V22d3hKWeIk
-	tC+uTm7QplJ28UkimeXtPQ8LrYKlKWIFICc1NFcExwFcXLYoryksy9L4Cn18tpTnAc0mk5h7DzZ
-	YdQXlYRL7HDYjdtR3HC5RGhVdHJjlw9ngNumAKGVraD5545mkwHZgMcWhgPi9NrwrqYjETeFWK1
-	KTSs4L5yBk8W9dmoWp6lw2HjmT7J6LVA/Nuieut3QAaKgnHf1l93ziMGtGAZ4OfM+D2yctPeOkA
-	FA9WPzYdjrKrGWmBPkWyNkyBA4dUuH4uaOhiT2thp8M5/x0JiacyRKsMMaG1krV1Al80UNYAKb9
-	eKmmrH1nx2wj6af9Y+XTbV2y25A==
-X-Received: by 2002:a05:701a:cc88:10b0:151:6e80:ba7e with SMTP id a92af1059eb24-1b5567dcec1mr15984271c88.4.1795587917888;
-        Tue, 24 Nov 2026 22:25:17 -0800 (PST)
-Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5568592adsm38712721c88.15.2026.11.24.22.25.16
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 22:25:17 -0800 (PST)
-From: Artem Dinaburg <artem@trailofbits.com>
-To: stable@vger.kernel.org
-Cc: andrea.mayer@uniroma2.it,
-	autonomouscodesecurity@microsoft.com,
-	blbllhy@gmail.com,
-	bridge@lists.linux.dev,
-	davem@davemloft.net,
-	dsahern@kernel.org,
-	edumazet@kernel.org,
-	g.goller@proxmox.com,
-	herbert@gondor.apana.org.au,
-	horms@kernel.org,
-	idosch@nvidia.com,
-	ipsec@lists.linux.dev,
-	justin.iurman@gmail.com,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	razor@blackwall.org,
-	steffen.klassert@secunet.com,
-	xmei5@asu.edu,
-	yuya.kusakabe@gmail.com
-Subject: [6.18.y] Please pick four networking fixes
-Date: Wed, 25 Nov 2026 01:25:13 -0500
-Message-ID: <20261125062513.96901-1-artem@trailofbits.com>
+	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=bQ8C3qxP;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gyXbDEpP
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfout.stl.internal (Postfix) with ESMTP id 237D31D005C4
+	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 05:53:16 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Wed, 25 Nov 2026 05:53:16 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1795603995; x=
+	1795690395; bh=IMedBWjX3od9XnP02Tr+7kPdu9op0gEHiwtOGI7i/ss=; b=b
+	Q8C3qxP+9d2HMPK8mgfPgGMznQxX5oCbAIvogC599Wia7S9Lbs++V83MNLgA55H5
+	9Ho0iU495/ED8Svl+Cbo7wH+vRwfzFtFSewYseyiAp+1Gc3YyLQQ36L6OkWHCnT8
+	eADy50dtq0THvDEuPvGrKUzzDcDjxepIhnc0yKQOtbbythfviY7phuRrqww/GgVe
+	MHXpkrFdqcxneej0ovK+l+5kbNSg0btTwSg7wnLX9NXtKdUV9gQO90tjasn58E30
+	EDQWZkWunB0vZOvkpPzUwJZkW0s8fzvBrwn9D5Cy86na9AMXh9hTBSf66tO0Qjg7
+	G9mUlFQXOUuhrxHTtLOIw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795603995; x=1795690395; bh=IMedBWjX3od9XnP02Tr+7kPdu9op0gEHiwt
+	OGI7i/ss=; b=gyXbDEpPwsCpKuvySIRatM2OcD5rtgJBpaaYc5C/D6k2iWMDFdX
+	bF/LMNPGUnWIQ78hHhTTGC575Oa2jtO65l1z414RK9wQ/miAm4drlkIubz58nKac
+	TnkSO+hE0UIc6SXD567zje3pyZOWXT0dqik4EWb3vUaTFQom/jeGxMozmduYRMto
+	ft7nvIxGnqcXjD/dLAkMZ6C7SBK/xzEsge+L3Xs2fBeUU9x/ABW/PPOFjAk+3nhO
+	k6UAsXQMw1yLwxv9N051tQJclus89eUrxVeAtQDpsLC+kIxv1kcE74ppJkSfCnli
+	As0iaicLLu3GPT63fmWMNnrD/+7j2M8GWvw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=queasysnail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795603995; d=queasysnail.net;
+	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
+	rt=PGlwc2VjQGxpc3RzLmxpbnV4LmRldj4=;
+	s=fm1:rsa-sha256:jEtLIyoVGmnsMaT6QOLdRYhgdskPYvLsxqQdJaZDYhqCkX6
+	X8sSpYiwpTAVI6ozOC5cC4MiU3oObZHL5Rhem0Lly5dcgv3IEcJNZmE3hmwf0XdU
+	4i2vzfyOMEN7ntD5wlWb0Azw7TeVlDh3nBXQWR+UXDjXbMruFOVIhF9KK7mETjON
+	+elDBxZjofQ3g4NADjmT+t6Ig4anh2TAMZ3sdQWYJK1cYGaCMyKEl3idkISwzuNC
+	wPF1hnNNjwHGwYt0S8LNIAnhtErMLk/ao38GnlzxeTScMYY3wcXNlxVaSRC9KpVk
+	OA/rEh3/gM2u56r0yxOZKZHD5c5qHyDc36rcyow==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:GaYmS27SHISQh0lT//rasAORSoR+j9znckb4ncjj5FI=:RAlWs96h1djoT4wp8bSIipVCnv+/8fOAkojvTVQS1E4=;
+X-ME-Sender: <xms:Gr4GaxuOQ-HRFy2F-ns_PZ0_4t7aSBNYPvpOIabcf10UDF0Mq-G5yA>
+    <xme:Gr4GayrUxcjnhW2cLd4rQXoYFIts89F4lFz3Y6udMa9Ov_ZG3XAqXhEmXIsKwjIWr
+    fTdY8KOsS0_HuZOIFZM0GXJyv8ryFhb6noEjldU3_ZR5wTWp0yGnrg>
+X-ME-Received: <xmr:Gr4GawXUC8VxCCtnjXk5GhfbL0wlDPHiEuEdfgT82hrX02lR-DljXzcMBcE>
+X-ME-Proxy-Cause: dmFkZTFL/iCFQ0PAibj91uAXUdDjtMpu/z4F9HtlVgjv9YoagyQvMuaPr/PMKZ6cT/Ogmw
+    FX/1GzlQ5XIm5eAUY6sqED9iYpsKMCkjEFQ2dp8ARYw0SbnTFtzajNMBepCuvtDPWQEH7B
+    7sVGAZU8S5Epr4pisGez9MEW3KYmnc0MPnB7vNYOWekwmPmiMEnIo83fti/cb14Mzd8Uuh
+    MQRTm6diJ44l/mjevm2Y2Vo5rQIM41U5beUnSUnKbW0WMJclbas/BHGYlVU5nBIQydIeGp
+    u3POhF5jqTBRAsnbnC0tbaq0faIuZJ8pFwiEYiSHrnrBqF76pL2BcQfoAzg91pkcjBpaeT
+    jgdvgvh+dvr9O+GxVWJNpnEhknPu08gTp/JkqNr7yaugcdHWnuxxxiy6IVwNaJiiFzkIZh
+    J1j4qHNz+9gXJ6js7PMqrZZ2Kv786EV/vJ/SWRZOn69uLcR21Abf13DYptqph0wt3Chq0c
+    8vt+jm0NWak6btcvJaK75l7yjUsLtZaDYDy8uh0rOycOiW4F7RZMe+2pFh3I3lNI5kNCKz
+    MDdrBwzOrOb+R+YpBwTNOKGJAC6L1RAQ7mJL+5KZNbo7Nm81E0Jv+b+8pDs9tK5Q6NOf5M
+    aCxJ7wjHoG4TN6BS87vRyK6gNG+vJjDUa0eYduxvl0VwFwFGRUEy6sjzfWzA
+X-ME-Proxy: <xmx:Gr4Gay1KmrP2WHM6O-a_HPY3VExfySEPV7SpiPkSWdoeNyW0H_0ZqA>
+    <xmx:Gr4Ga9tGIHZj0SA36yup24Kllvsh6ddjEIVOC8tDVOlvewxzoLH4_A>
+    <xmx:Gr4GayXAL37-QNKXzkeUfd23YEWJi8g5UzcAygDedwQCr8jOIZOpFw>
+    <xmx:Gr4Ga9wo3ajUsxgkIpQJGfsKWdd_u3mY256zuH8HprCVhqlrhNNweA>
+    <xmx:G74Gay7RUnoYmVZLxUa7kN_3YB5IRHwUDyiFEgpOafGp2XnQjko1zJdP>
+Feedback-ID: i934648bf:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 05:53:13 -0500 (EST)
+Date: Wed, 25 Nov 2026 11:53:11 +0100
+From: Sabrina Dubroca <sd@queasysnail.net>
+To: Zihan Xi <zihanx@nebusec.ai>
+Cc: netdev@vger.kernel.org, ipsec@lists.linux.dev,
+	steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
+	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, vega@nebusec.ai
+Subject: Re: [PATCH net 0/1] xfrm: espintcp: fix IPv4/IPv6 receive path
+ confusion
+Message-ID: <awa-F8TtQllwfELK@krikkit>
+References: <20261116155229.318582-1-zihanx@nebusec.ai>
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -113,80 +125,42 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261116155229.318582-1-zihanx@nebusec.ai>
 
-Hi,
+Hello,
 
-Please pick the following four upstream commits for 6.18.y. None carries
-a stable tag, and so far each has been backported only to 7.2.y. They
-touch unrelated files and can be applied in any order.
+2026-11-16, 15:52:28 +0000, Zihan Xi wrote:
+> Historical QEMU run output:
 
-1. 2842ce397dd09882530b42f7fdb0c855767eb24e ("net: bridge: vlan: fix
-   bugs caused by switchdev deletion errors"), CVE-2026-98285
+I'm not sure what "historical" means here. Your reproducer will output
+the same thing before/after the patch.
 
-   When switchdev fails to delete a VLAN, __vlan_del() returns early.
-   This can leave inconsistent state, leak memory when the VLANs are
-   flushed, and cause a NULL pointer dereference on the flush error
-   path. The fix logs the switchdev error and completes the software
-   deletion. In 7.2.8 and in mainline since 7.3. Applies unchanged to
-   6.18.65.
+>     accepted socket domain=10
+>     peer=::ffff:127.0.0.1 port=41512
+>     recv=0 errno=0
+> 
+> The historical tracing additionally showed:
+> 
+>     xfrm6_rcv_encap <-espintcp_rcv
+> 
+> and XfrmInNoStates increased by one (before=1004 after=1005 delta=1). The run
 
-2. 9fa903b24b1f46b4ff5443bcd4aca23e5c57f9c1 ("xfrm: hold net_device
-   reference under RCU in bundle creation"), CVE-2026-98364
+Which is expected either way since you haven't configured any xfrm states.
 
-   xfrm_bundle_create() and xfrm_create_dummy_bundle() read dst->dev
-   without holding a reference and pass it to xfrm_fill_dst(). A
-   concurrent RTM_DELLINK can free that device first, causing a
-   use-after-free. The fix reads the device with dst_dev_rcu() and stays
-   in the RCU read-side section until xfrm_fill_dst() has taken its
-   references. In 7.2.8 and in mainline since 7.3. Applies to 6.18.65
-   unchanged apart from line offsets.
+> followed the no-state/error path without a KASAN report, oops, or crash-log,
+> so no crash-log is attached.
 
-3. 87cd6b717e4069dca34e0866e57eaeb44d3b173e ("net: ipv6: keep room for
-   the mac header in dst_dev_overhead()"), CVE-2026-98570
+So this is just a "regular" bug where things don't work as expected,
+right? No other issue after we pass the packet up? (still worth
+fixing of course, the patch looks ok)
 
-   The seg6, rpl and ioam6 lwtunnels reserve headroom with
-   dst_dev_overhead(), which can be smaller than skb->mac_len, for
-   example on a VLAN device with reorder_hdr off.
-   skb_mac_header_rebuild() then computes a negative MAC header offset
-   and writes past the buffer. The fix makes dst_dev_overhead() return
-   the larger of the two values. In 7.2.9 and in mainline since 7.3.
-   Applies unchanged to 6.18.65.
+Earlier you say "the vulnerable path", and call the reproducer a PoC,
+I want to be clear on the problem ("vulnerable" and "PoC" sound like a
+security issue).
 
-4. 8ae3f4067ba4ae3a15581392f6dac422e3d3def0 ("seg6: ensure packet data
-   is writable before modifying SRH and IPv6 DA"), CVE-2026-98802
+> We run the PoC in a 2 vCPU, 2 GB RAM x86 QEMU environment.
 
-   advance_nextseg() and seg6_next_csid_advance_arg() modify the SRH
-   and the IPv6 destination address without making the packet data
-   writable. If the skb is cloned, for example by an AF_PACKET socket on
-   the ingress device, the clone sees the modified packet. The fix calls
-   skb_ensure_writable() first and reloads the header pointers
-   afterwards. In 7.2.10 and in mainline since 7.3. Applies unchanged to
-   6.18.65.
-
-   Ordering note: queue-6.18 contains
-   seg6-fix-transport-header-for-inner-ipv4-with-ip-opt.patch, which
-   adds code above input_action_end_b6(). With that patch applied, a
-   three-way cherry-pick of this commit is clean and correct, but
-   applying the upstream diff as plain text places the
-   kfree_skb_reason() hunk for input_action_end_b6_encap() in
-   input_action_end_b6() instead, which fails to build.
-
-Apart from that seg6 patch, no patch in queue-6.18 touches the files
-these commits change. All four cherry-pick cleanly together onto 6.18.65
-and onto 6.18.65 with the current queue-6.18 patches applied. Older
-stable series are affected by some of these bugs as well; this request
-covers only 6.18.y.
-
-Compiled net/bridge/br_vlan.o, net/xfrm/xfrm_policy.o,
-net/ipv6/seg6_iptunnel.o, net/ipv6/rpl_iptunnel.o,
-net/ipv6/ioam6_iptunnel.o and net/ipv6/seg6_local.o with CONFIG_WERROR=y
-on 6.18.65 from a cumulative x86_64 tree, with and without the current
-queue-6.18 patches. No kernel boot or runtime test was performed.
-
-An LLM was used to check applicability and stable-queue history and to
-draft this request; I reviewed the result.
-
-Thanks,
-Artem Dinaburg
+-- 
+Sabrina
