@@ -1,126 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606968;
-	b=3QS459dGekep17GTwRVGsAtk8OZuCEInfkZ6Evx1RQDw+gxa/Mg2W4QeYwXxiuJ8TH3o
-	 S8cPLrsH0UDwkiYii7kpZyQ/MBs9RMff36jIft4DruRQAZXnDp6u4fH+BCjrWB3qapFAL
-	 Qrl4hgPbTRTF9SEe/C1ivcsQePrIOEv47QKWsRwi9A5YH4mndJe/DEi9+fFU68j0YBjvy
-	 XguiY+yt4Kf5OcP6j13Osp0PMxNWB9uEqYLRhuy8WFUzn4yun5PC243uivZ1Bo8FlYtrP
-	 obVb2J/b9neU/Bxp5WJPcQe0LuSL9c49uSuGKZf31i46zxnepWBXZ5oI8CfwP78U6mA==
+	t=1795620473;
+	b=W+Lx2MuN5uQHJLmvFRgVY9J6g0QjiIBoVAycQzemh0aZP6dvf1DHfOXRAAwz1m0LUupV
+	 LenbzJk0FSNLBJ5CZtYgvXtE5XltEwMYXQeYdd/fC+9Tga1YNwDgM0hNM2rhQ8tcYN2yc
+	 v67roxtm/Oxz16TPoVSRRFn1iauE3COrdI1knb5UCtYGvefFLajHub9GW3/o8MmbsNUgf
+	 MKQJskXeQyWC8ZJdqHML+ixC5VOkF5pVSaktJnoS9R/r2kD7AIGDkfnow5VssjY/0WQoI
+	 27WMkSG0Wu/gfZUP/Ld7/ifEjrt7ltpDgfxqSKaqbKZJpb5VAJl2Q3/TmqyZq1OjuRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606968;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=4cP//6uftNlbZ1CgEpvxccI/1eFx75zu58+1g01Ccl8=;
-	b=t5CrQJJOje+2HLvOjIeAkQ3C7lcuzw5oMTAqEfEkKTmVoIl2x4KrbG+un+QMWsY3gfjA
-	 5dXeZVX3FEUluUouLPKeUHzEagc5lIj0EAzwj/EsVqXU85Mhac2TN3IT6DEsbHQB378CB
-	 g6OWxN7FU8bHkycU7X4smYP0uBkc6Kj8MxojfjZqlVJ99VUJz3lb6fT8E85ozO9xcdM/Z
-	 n4GCW5q1gEbGULkSEIrjC6ZV3b5LEeL6Z7ZG+5rpQNho1T925WMSkqiE7PjzZdVselxQ7
-	 6Cw6P9TsDpZWkyEdX2apLY4hD/aHodSnSCWq2/HgSbinn7/HqK2ERkGrAyxrpOJLYJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620473;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=TQMJOKB5egHcGgynmGG4EwUuLrxBDUpZJMqON6XcyvA=;
+	b=IJw3WNArco4bptSiq5jLsedLU/q6LH7m+Isi0o6csT+e7jwcxdReZY1DYHK9kaQjR5cD
+	 S893zhRgEPJCsG8FTrwJ7AhjiMusS48Lve3Q+IQgdUZ/bZFGz4sgA2b+FQUfS3/sTuKes
+	 zVf4pQMUWOQ7XqVnnremNKVpDCUGbibxwQLXiCQ9MhqwLmN/XVgwYjED8vREGXB7TVmDU
+	 yXP3+FBLYvTgxHpYC/i/hcHjbWhczR4FOvm//Awo7SmGpTsgs3IA5TZN9s75y+Xg9663I
+	 qULdHmjfDtjkofw+YxDkUJbmzhkbeIl0AByKQwEGboxl2fN5KLemF9EBmTDX7hbDj6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=queasysnail.net;
-	spf=pass smtp.mailfrom=queasysnail.net;
-	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=XFmGg0K3;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RehI1OjG;
-	arc=none smtp.remote-ip=202.12.124.152
-Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ijdrdMAR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D1F5606A329
-	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 11:42:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D1F5606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B82BD606A31E;
+	Wed, 25 Nov 2026 15:27:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=XFmGg0K3;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RehI1OjG
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id A764B7A052F
-	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 06:42:46 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Wed, 25 Nov 2026 06:42:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1795606966; x=1795693366; bh=4cP//6uftNlbZ1CgEpvxccI/1eFx75zu
-	58+1g01Ccl8=; b=XFmGg0K3c2VNV/U1Wox9EqkGfkfqfapXdq8CPsXtSMnKCYiP
-	r+Snf/QLovy355e075IwUtqz7rWJA9HcaStuyGlGfV+CXS+LDVf81zDmBroTG3+i
-	2PR2wUtAF9QWmaWyBOm778lpl5Yo/kF9UtUCs/So+ynkiyZvD/2ublk4LMC+3ucI
-	ppLMm1MN5aqQscihgo+R+WEkzm2YsAOqcvPta3Fw4/q5BUoVGX7M5WhsUUUXBhH3
-	lyYQdlbMCvILf/flT1/MMj8/N6HPazgxO3lPnLCmcBgfm5v9levA/SPcD9LdSdr7
-	MgRTTDEalmxA3tGdptgpbwQ7KVN6Qbm3Z9tU+A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795606966; x=
-	1795693366; bh=4cP//6uftNlbZ1CgEpvxccI/1eFx75zu58+1g01Ccl8=; b=R
-	ehI1OjGYrKONm13BNoY4sHVLIvfGN75XZLB2+c2LxfZesbT8vk1eNtuXk1wId1An
-	9w5UWMLr09Q6BeUrtRATFGEER7qAm3Sru78BP/oUQY+TgJ41O5VkZhVTo5pwAkOv
-	3F1h9ImWZ+ppMjY9RwadxZU5Mrs4838SZc3n2vnrehgTrhMmvlgSTfhgIdEEN+9T
-	XqlJ3DVhZoG5KbBFN8MzTrRGaZ97x89MINFNEXSuhZLAKIQS094C09RN8F5uRnoz
-	fCqzQxsPpmSeVFVrVju/a2mn0VyA1OZORiav4EnShTP00LhrBKmG9L8C/WKQn/9a
-	ZbJbPuwvu1mbCokciVYZA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=queasysnail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795606966; d=queasysnail.net;
-	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
-	rt=PGlwc2VjQGxpc3RzLmxpbnV4LmRldj4=;
-	s=fm1:rsa-sha256:NdBZWpxSGbz9oW/KwLKcuaJDaJdjQo42L8Wj3WwW92ciUsc
-	09K/D2KF45VVVQpYdAIWc2Z8YZv18W3dfOGgkUgdE4vysQWEboOCAeM/ScheD71c
-	9CxJ77wx1CZxgE5t8zTS9Kyjt3bVEJ8JGkEZXM55ojRSCrfTon1vRDsPVhG3Y69l
-	42/TuIdVr5eopHku0Bk8H8dQ8+dr9VcD8Kxgv69UU3zVS371rRroKAWhmmijHBoy
-	QDV3X/XAZ3ahfqoxBf/OtJDWyI5KfFR3p8AVOAf61JDbcYWm4LhdCEhVKgAUIvp8
-	TQQK4YRqLiGkmz3aBpRW2uXDduEPDN1M7FGAe2w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:k7wUJ/1Z+GKcK+at9dE5gsh1z0yS4VAK/37wnpsRGzo=:VS2rSnb1gHOVw3QOsm75qp57SK5lJhkejn/bhUZ9EAw=;
-X-ME-Sender: <xms:tckGa_v03hqb9em0vFiJzy6skLVhal7bBa674DZ9_MTbcuP8doZeHA>
-    <xme:tckGa4rh3QQp0WLB-1H7OcgQIGt-Mz43zyGH-wlgVaWH9XXdIbWJvlPmxuDRpqhc_
-    hP8g_wktaa6trjUmbQoB7Fk1LGBydf3K0cyS7-HHXJpAKZCVP19n0fY>
-X-ME-Received: <xmr:tckGa-XFzYuM6OkJgq4VCmKqYx3IGfdhDbpP1va9a7Y2haGUl-lAtfZli1Y>
-X-ME-Proxy-Cause: dmFkZTFS2vUXDjXD2CzX40LTsRscSpS1p1yBuargzSROeWa2OorAOwjnVxQCSz/bap8/DR
-    uyDQZa+BfdH5cozSOtE70/1DWRl9qaR3PU6/eH7o+053A5UOVU+VXNUwC1XjYSZKkfrTMG
-    tDDZiSZ6XHqIhlB0Bs79nMAWPd89kpkpqfg8DWkT0jdA9QFcHVxHO6zJQiP0cj2UxqO4Fg
-    27Gt6LuVK23jTbORvZjt/71VIZlXlHDqn4qWwd4ESFPi5NC4eqflwtvLbU1OOTWz1XxyNZ
-    w99DiYKbLbNEKu+WxigTaRF9j7Gyy8C8F6gxpZOB98j9amIqYrAONCSYf9Z4Ioj1fSwPnS
-    GuOgsldt5Uo3sRK76ANpNxjjv21Ut9l6Vz6PYrqV+rE0lgjoGRVF2GhwaKm999Zx+o6E1p
-    u2+1+I8T/lIL9lNlkAoK4kQKiZrSpNn/m/O6arCk4Jih3IyvmHxnqLpS/kGP08yk6taoWG
-    sY/l2bebyHF13J2Osw64QXKvsiceSGytVb9OGtd5BTgdLo7+sT3W+IHTJEa5699xjCnfhF
-    JSF+nfmr34yUVq8GGEs39VKfoDFkcTx7bBTLEvUWB72bZxa8hFuL9RCawNUQd33pKdmEyq
-    jxzLLAdZz5qaGGIvDkVttI0YZlU5KrLQLAqNLFuhICQBcBWRUCKC7GKhIIIA
-X-ME-Proxy: <xmx:tckGa42G_c2muUtHYSM4_swTe9X5AwMIVQjP7UlMl_WXT-94V1hrDQ>
-    <xmx:tckGa7s7H8N8u16YO2wkaaHPo5PuU8YO41YIrtwj9CQIqHPTkVqKVA>
-    <xmx:tckGa4VDP1VBELKXvllV83x4eybttoxxxiOh_EqpItuJznujzv2EEg>
-    <xmx:tckGa7xYAIdT8E1NH-F6vvUj417MeroC7vjPUbG-2CEwu6p_B0eRzA>
-    <xmx:tskGaw6WbbPGyFdC8hBn-1EkRwY0PFekDyvxmRaSLMQn0BMiWseUpe2l>
-Feedback-ID: i934648bf:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 25 Nov 2026 06:42:45 -0500 (EST)
-Date: Wed, 25 Nov 2026 12:42:43 +0100
-From: Sabrina Dubroca <sd@queasysnail.net>
-To: zihan xi <zihanx@nebusec.ai>
-Cc: netdev@vger.kernel.org, ipsec@lists.linux.dev,
-	steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
-	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, vega@nebusec.ai
-Subject: Re: [PATCH net 0/1] xfrm: espintcp: fix IPv4/IPv6 receive path
- confusion
-Message-ID: <awbJs5YyFCHkggs1@krikkit>
-References: <20261116155229.318582-1-zihanx@nebusec.ai>
- <awa-F8TtQllwfELK@krikkit>
- <CAANe3eQhQD=6s-Da74_bEy8qNFtOp_kCqpqDs64TBv0CAXdKtA@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ijdrdMAR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291211F000C4;
+	Wed, 25 Nov 2026 15:27:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795620473;
+	bh=TQMJOKB5egHcGgynmGG4EwUuLrxBDUpZJMqON6XcyvA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ijdrdMARWt/P79rA/nv7dZGn4nIuZmRVHXrvsJd/KKUvyH/YKVN81Q21S58X0OyKn
+	 +VtdgAu4eTUaN/mnx2oB5zfHvyOVBMQobpiDswecyA98lyaMR4NvwDQajZp4W69MHg
+	 wJcqwbMRVkCQyyUaL89ECAwn0lPhtMpu/VIv5qpHvvzsU/JanDNGW6BHfG+zsXfge7
+	 XHdQv5GB8N99m+2j6jWcE6tPZkhu46lBdN4FF9/Es1Cg66RdHuASowVOC6VOSyutRK
+	 jao7Qf5J7ineiK1N5YgrKcfUD9rw2ki9B01JwgCJNFG1Gq3eS6wn74jHr66eCxsAxd
+	 ZfutpYoiEGAkQ==
+Subject: Re: [PATCH net v3 1/2] net: keep the TCP fixed-ID flags on the header
+ they describe
+From: netdev-bot+sashiko@kernel.org
+To: julius@bairaktaris.de
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, willemb@google.com, horms@kernel.org,
+ andrew+netdev@lunn.ch, dsahern@kernel.org, idosch@nvidia.com,
+ ncardwell@google.com, kuniyu@google.com, steffen.klassert@secunet.com,
+ herbert@gondor.apana.org.au, richardbgobert@gmail.com, ecree.xilinx@gmail.com,
+ andy.moreton@amd.com, alex.austin@amd.com, linux-net-drivers@amd.com,
+ saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ linux-rdma@vger.kernel.org, alexei.starovoitov@gmail.com, ast@kernel.org,
+ daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ john.fastabend@gmail.com, sdf@fomichev.me, izaiahsun@gmail.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ shuah@kernel.org, bpf@vger.kernel.org, ipsec@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 25 Nov 2026 15:27:50 +0000
+Message-ID: <179562047069.3135.2008249679354171410@kernel.org>
+In-Reply-To: <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+References: <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -130,98 +76,148 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAANe3eQhQD=6s-Da74_bEy8qNFtOp_kCqpqDs64TBv0CAXdKtA@mail.gmail.com>
 
-2026-11-25, 19:14:18 +0800, zihan xi wrote:
-> Hi Sabrina,
-> 
-> Thanks for the review. Your questions are fair, and I agree that my
-> original cover letter did not distinguish setup evidence from evidence
-> of impact clearly enough.
-> 
-> On Wed, Nov 25, 2026 at 6:53 PM Sabrina Dubroca <sd@queasysnail.net> wrote:
-> >
-> > Hello,
-> >
-> > 2026-11-16, 15:52:28 +0000, Zihan Xi wrote:
-> > > Historical QEMU run output:
-> >
-> > I'm not sure what "historical" means here. Your reproducer will output
-> > the same thing before/after the patch.
-> 
-> By "historical" I meant that this output came from an earlier QEMU
-> run, not from a fresh run for this revision. The socket output only
-> confirms the test setup: the accepted socket is AF_INET6 and the peer
-> is v4-mapped. It does not demonstrate a failure.
-> 
-> The relevant observation is the ftrace entry:
-> 
-> xfrm6_rcv_encap <- espintcp_rcv
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Yeah, thanks.
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-> It shows that the packet was dispatched to the IPv6 XFRM receive path,
-> despite originating from a v4-mapped connection.
-> >
-> > >     accepted socket domain=10
-> > >     peer=::ffff:127.0.0.1 port=41512
-> > >     recv=0 errno=0
-> > >
-> > > The historical tracing additionally showed:
-> > >
-> > >     xfrm6_rcv_encap <-espintcp_rcv
-> > >
-> > > and XfrmInNoStates increased by one (before=1004 after=1005 delta=1). The run
-> >
-> > Which is expected either way since you haven't configured any xfrm states.
-> 
-> Agreed. The XfrmInNoStates increment is expected without an inbound
-> XFRM state and is not evidence of impact. I will not present it as
-> such.
-> >
-> > > followed the no-state/error path without a KASAN report, oops, or crash-log,
-> > > so no crash-log is attached.
-> >
-> > So this is just a "regular" bug where things don't work as expected,
-> > right? No other issue after we pass the packet up? (still worth
-> > fixing of course, the patch looks ok)
-> >
-> > Earlier you say "the vulnerable path", and call the reproducer a PoC,
-> > I want to be clear on the problem ("vulnerable" and "PoC" sound like a
-> > security issue).
-> 
-> I agree that describing this as a "vulnerable path" and calling the
-> reproducer a "PoC" was misleading given the evidence. I will use more
-> precise terminology in future revisions.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-This will be helpful, thanks.
+- [Medium] In xfrm_output(), the new FIXEDID->OUTER copy only runs for
+  TRANSPORT/BEET mode, but skb->encapsulation = 1 is set for every…
 
-> Based on the evidence currently available, yes: this is a receive-path
-> correctness bug. The demonstrated issue is that ESP-in-TCP dispatches
-> an IPv4 skb from a v4-mapped connection to xfrm6_rcv_encap(). I did
-> not demonstrate a crash, KASAN report, memory disclosure, or a
-> consequence after successful XFRM state processing, and I will avoid
-> claiming those.
-> 
-> Separately, source analysis confirmed the control-block overlap
-> addressed in the current reroll: strparser metadata overwrites part of
-> the saved IP control block before the old code restores it. However, I
-> have not demonstrated its end-to-end effect with a valid inbound
-> SA/policy. I also could not substantiate the proposed kernel-memory
-> overread through IPv6 ancillary data; the inspected helper
-> bounds-checks reads against the skb tail.
-> 
-> I have revised the cover letter to distinguish these findings and
-> limitations. The reproducer demonstrates the wrong-family dispatch; it
-> does not demonstrate a crash or security impact.
+Pre-existing issues:
+- [Medium] tcp6_gro_complete() (net/ipv6/tcpv6_offload.c:81-102) ignores
+  NAPI_GRO_CB(skb)->ip_fixedid.
 
-I don't think you need to send a v2 (unless Steffen asks), I just
-wanted to be clear on the type of problem this is.
+--
 
-Thanks.
+net: keep the TCP fixed-ID flags on the header they describe
+
+This patch goes back to SKB_GSO_TCP_FIXEDID describing the innermost IPv4
+header. It replaces SKB_GSO_TCP_FIXEDID_INNER with
+SKB_GSO_TCP_FIXEDID_OUTER for the outermost header of an encapsulated
+packet. The outer flag is cleared where tunnel and BPF paths add or remove
+a header, xfrm_output() sets it for ESP transport and BEET offload, and the
+mlx5 and sfc drivers are converted.
+
+> diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+> index b84fcd07c7230..da0d8ba70c0cc 100644
+> --- a/net/ipv4/tcp_offload.c
+> +++ b/net/ipv4/tcp_offload.c
+
+[ ... ]
+
+> @@ -473,9 +475,10 @@ INDIRECT_CALLABLE_SCOPE int tcp4_gro_complete(struct sk_buff *skb, int thoff)
+>  	th->check = ~tcp_v4_check(skb->len - thoff, iph->saddr,
+>  				  iph->daddr, 0);
+>  
+> -	BUILD_BUG_ON(SKB_GSO_TCP_FIXEDID << 1 != SKB_GSO_TCP_FIXEDID_INNER);
+> +	/* Bit 0 of ip_fixedid is the outermost header, bit 1 the inner one. */
+>  	skb_shinfo(skb)->gso_type |= SKB_GSO_TCPV4 |
+> -			(NAPI_GRO_CB(skb)->ip_fixedid * SKB_GSO_TCP_FIXEDID);
+> +		(((fixedid >> encap) & 1) * SKB_GSO_TCP_FIXEDID) |
+> +		((fixedid & encap) * SKB_GSO_TCP_FIXEDID_OUTER);
+
+[Severity: Medium]
+This is a pre-existing issue and this patch did not introduce it. Does the
+IPv6 counterpart need the same mapping?
+
+Take an IPv4 outer header over an IPv6 inner TCP flow, such as 6in4/SIT or
+VXLAN over IPv4 carrying IPv6. For the outer IPv4 header,
+gro_receive_network_flush() calls inet_gro_flush() with inner=false, which
+records:
+
+include/net/gro.h:inet_gro_flush() {
+    ...
+		NAPI_GRO_CB(p)->ip_fixedid |= 1 << inner;
+    ...
+}
+
+The flow is then merged as fixed-ID. tcp4_gro_complete() now maps that bit
+to SKB_GSO_TCP_FIXEDID_OUTER, but tcp6_gro_complete() never looks at
+ip_fixedid:
+
+net/ipv6/tcpv6_offload.c:tcp6_gro_complete() {
+    ...
+	th->check = ~tcp_v6_check(skb->len - thoff, &iph->saddr,
+				  &iph->daddr, 0);
+	skb_shinfo(skb)->gso_type |= SKB_GSO_TCPV6;
+    ...
+}
+
+So the outermost IPv4 header of such a packet never gets
+SKB_GSO_TCP_FIXEDID_OUTER. When the packet is forwarded and resegmented,
+inet_gso_segment() rewrites the fixed outer IDs as incrementing ones.
+
+Should tcp6_gro_complete() set SKB_GSO_TCP_FIXEDID_OUTER from bit 0 when
+skb->encapsulation is set?
+
+>  
+>  	tcp_gro_complete(skb);
+>  	return 0;
+> diff --git a/net/xfrm/xfrm_output.c b/net/xfrm/xfrm_output.c
+> index f1f612cd7b438..927e1535c47d7 100644
+> --- a/net/xfrm/xfrm_output.c
+> +++ b/net/xfrm/xfrm_output.c
+> @@ -805,6 +805,16 @@ int xfrm_output(struct sock *sk, struct sk_buff *skb)
+>  		xfrm_state_hold(x);
+>  
+>  		xfrm_get_inner_ipproto(skb, x);
+> +		/*
+> +		 * Transport and BEET mode keep the IPv4 header and its ID, so
+> +		 * the header that SKB_GSO_TCP_FIXEDID describes is the outer
+> +		 * one as well.
+> +		 */
+> +		if (!skb->encapsulation &&
+> +		    (x->props.mode == XFRM_MODE_TRANSPORT ||
+> +		     x->props.mode == XFRM_MODE_BEET) &&
+> +		    (skb_shinfo(skb)->gso_type & SKB_GSO_TCP_FIXEDID))
+> +			skb_shinfo(skb)->gso_type |= SKB_GSO_TCP_FIXEDID_OUTER;
+>  		skb->encapsulation = 1;
+>  
+>  		if (skb_is_gso(skb)) {
+
+[Severity: Medium]
+Can a tunnel mode SA still lose the fixed IDs of the packet's only IPv4
+header?
+
+skb->encapsulation = 1 is set for every crypto offloaded SA, but the copy
+to SKB_GSO_TCP_FIXEDID_OUTER is skipped for tunnel mode.
+
+A GSO packet that was decapsulated earlier keeps a stale non-zero
+skb->inner_protocol. inet_gro_complete() sets it for encapsulated GRO, and
+neither iptunnel_pull_offloads() nor skb_scrub_packet() resets it. After
+decap, such a packet has encapsulation=0 and SKB_GSO_TCP_FIXEDID set, and
+SKB_GSO_TCP_FIXEDID_OUTER has been cleared.
+
+If the packet is forwarded into a tunnel mode SA with offload, this check
+just below fires:
+
+			if (skb->inner_protocol && x->props.mode == XFRM_MODE_TUNNEL)
+				return xfrm_output_gso(net, sk, skb);
+
+Then xfrm_output_gso()->skb_gso_segment(skb, 0)->inet_gso_segment() runs at
+encap_level 0, sees skb->encapsulation == 1, and takes the new else branch:
+
+	} else {
+		fixedid = !!(skb_shinfo(skb)->gso_type &
+			     SKB_GSO_TCP_FIXEDID_OUTER);
+	}
+
+That reads 0 for the only IPv4 header, even though SKB_GSO_TCP_FIXEDID is
+the flag that describes it. The segments get incrementing IDs although GRO
+recorded fixed ones.
+
+The baseline code was also wrong here, because it read the stale flag of
+the removed header. Is this a remaining variant of the "forwarded into an
+ESP tunnel mode SA with crypto offload" case that the commit message says
+is fixed?
 
 -- 
-Sabrina
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795284858.git.julius%40bairaktaris.de
