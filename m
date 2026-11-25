@@ -1,102 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795636667;
-	b=Rsj0Zq7dTYWH1QAbfWD+0K9e1Cf0YRvA4ZHqOqlEHHTOuHfSYODg2P7JTSI88J8QNHcm
-	 8zfA1GyBMmE+VnJW3XOnaowFkmYrRY2m9naQgqHJOVxVz1J6PooMmZyi7upxWwWxxMWEJ
-	 iV7AlQKiX4+wQhqBr72qCJ/80hCsQ6x/9AMboPshpZr2kLhSTSQJLSgfShy/Z8CQhfRJQ
-	 WI4N0oXgpf+Sc6EAaO0M8QHgFSKwTv8FWTAskyNPj3FZX5AwuWu55c7RNSgdy5ocB26+m
-	 YzypQZlmRpFD3MkVmbR4pyAsI5pc6ubXJobo58UP6BT1gjkKU15MV0jqGparGbvHpnw==
+	t=1795637053;
+	b=0pnU/a5IT3YkG/gCCkD6rXeHSBCRXcNUpBFbEa1dRLIKnfyrfLbUZajlgnHf32Ld1vmd
+	 f0uDjXPOrTu5r2VUtm6A5mJLO3Fe4h0Ss7nPg9/fEmKijeeAY8i5pnLxdDtZpGpyNV5kM
+	 d+A8rl5LdiKtpvUmdhvP0YAOuBQpWSgBmxjfR0nOWQGgNQ2t+J44Uc3s1ydvbmTvJZIvO
+	 K/D3YZpixrooiQnKvoCTDsus6An8UvZxhVOWTXjlKpga+mcv2Hp9iL7vsg/OZpG/z+3sa
+	 yz2CmM1wvaAl5Jj0KA4UeMkvsib4mXwLU/5BbYtC1LUVm3ALAmnv5rmLgXXf1hAuaQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795636667;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795637053;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=QSbicBCggixQqMOYfUZmOoYxybMhCFwsk9cNA7EU8U8=;
-	b=fvHIxSog4Ku1FwPzeAGwXCggJBCD4LqB9zPjncczOWPTGCTYd6P+H2wphEkOBmc/+eHs
-	 1LEGOlKBTjBVj/DD8zdOP2y116Bd0qp3hnxtPTXMb15LAQ4NhsICR0xQAHP/uUwk2cnRM
-	 5FQr8SN9eCswTaJqMN/A4V4UBM0Z27kbS9hS1sbwXXCebJiVYOYzu4Bd4+gTFXuEfoaXm
-	 QbXPm77EbH8/pXZRkbPNLzxvKxF0YG7LfUzDyCB1pc/2/+h5hBbLMRFOEQT879XHM8aw7
-	 V0p5b9jquvXT8LlqdjBsOImvmZT4rgD5PKc4W1OwBNoirUmkTQqYc/At8pPFrxK+l1A==
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
+	b=yYBBGjxkrpBbXS19IyfdqNOd3l6iwALoaZdQEsNfIjRYKE/ObDpzuaGlCxk5KOjiflNa
+	 LbfD/ENlNjCCKF1AO+Ud9VmkYhdrbXYStREiKkkOAFMW329tJYvA7ldgscS0MGLXwBZSL
+	 y8k4wf3D0tbjkGHdWdKs8AHyuVu0YARgWP5XmXJsHu4dlFR0wdnJsxbr6NVvjxLZaL0wR
+	 IFIf0c7E8CLmjReWpCE1CmAIKSxupVl2Rx4Aqdra5l83CfxILqtjfDAGM/xNCbJO3lfS2
+	 AU0AHofd6/0svpiBOaesSeV8z7c+gWKNrJzSIgkUXpT3NwP3WZ/Mr2YDl9WVZNeF+AQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=trailofbits.com;
-	spf=pass smtp.mailfrom=trailofbits.com;
-	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b="V/h5D4m9";
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=GSCAgotB;
+	arc=none smtp.remote-ip=209.85.215.227
+Received: from mail-pg1-f227.google.com (mail-pg1-f227.google.com [209.85.215.227])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FA76606A327
-	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 19:57:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FA76606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EA70606A33B
+	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 20:04:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EA70606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=V/h5D4m9
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-386bd881d39so5353219eec.1
-        for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 11:57:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=GSCAgotB
+Received: by mail-pg1-f227.google.com with SMTP id 41be03b00d2f7-cde84cb8803so1624346a12.1
+        for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 12:04:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1795636666; x=1796241466; darn=lists.linux.dev;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=QSbicBCggixQqMOYfUZmOoYxybMhCFwsk9cNA7EU8U8=;
-        b=V/h5D4m9LWZYVbPQL4hOzo3rSURV01oJDqF8b93c8FYFZ/tjW3IXMQH37NpBs37wNv
-         B/9cL0LI5xZbmujhZK5/4OracTA50qPkZ8CTvxISIJyUrD3o0Z0pX876xUv6VmMNXvOb
-         pPvLF/8syTfaUzhX+WB9uS/fkEBkn6xdQWNFucmsBp6KZAGmgrW2iyiFahp2R0a7flSV
-         q56+Le/+omv0DRw9qQuFN5jWI5U4Ec+q/tqPHo1CbbS9AEmQFGIgGvFAger5AQ8DrQcn
-         +Y1+JhxtTmFDKvBNlocG2wyoRkSXQ3VPvvhwKsqUynSIIoJXnDfEW0EVLLpvpegzxK5C
-         kPiQ==
+        d=andrii.net; s=gmail-2025; t=1795637052; x=1796241852; darn=lists.linux.dev;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
+        b=GSCAgotBLt7zwGD8KaJ70u3XWNha89MArmrkq24nSzKXOmV2Nb5RaLo9uzAfgOoYne
+         Ubz+GdWfZSlVV51j95t3Yf7nt9o87LL6LN9T8MDLFM9kfYsKVoIbszPhpOsBz4raTLsd
+         GzhirUCVZWjFNcZAYBkPocyjIU4BMm0Jif1X4/iXLsSymNfOilDCjfP7fwNQB3EDzH0u
+         rcI7f8ceYXbhZVmQCuGpd1Dz6AbYJkKSoZAwS4NiL2rOyZqFL1lEzHn5mxvJhyCAZhhT
+         lwifgPnKN2ZLav/0tgo8Qz8yZ3fYpwzpTk+TH2bg+j8AsipwWvpOYdsCygw69Pw0f1L/
+         6h8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795636666; x=1796241466;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QSbicBCggixQqMOYfUZmOoYxybMhCFwsk9cNA7EU8U8=;
-        b=Q51+5gTY16wXq7H39hrjtQYrh1pVdqdKgRPaUovi/AUZdpF51QHxe/+GYsifu7+aLE
-         ldDfFDJbLwecCwq7GEGovHw27EJ64/nAf/RpcZcVA+CEk8RtdPB19+ZFC7cDCq7eYJVa
-         FU1bp1DRnUb5rT/chXecVwPvxayxMnjhaGRQPy6NG8kCDkViJ+1vAvF223i8jBclKxMx
-         Biv3uMzlzIbgHvXV0HgNPJzgatR9UOdelETDH+5th95XkVjIqaOMhQB7aLSX+v44xADY
-         obbG4ja+wQxN4onx3PmcIGQ4hSF60b0U0vkxqsz3VAL5PHwdpu65+nH0HMZyRojYIH2d
-         Z9+Q==
-X-Forwarded-Encrypted: i=1; AL+hErEJVvuTK/gPbPvaF1CpPdBg34spxYw5z0T9E/w8Rofv5zgm9+EVzEXQHXkEumTcGJRdLHUb4A==@lists.linux.dev
-X-Gm-Message-State: APuU4Z9ePrZfyYnaBesi2HP6p0HDdKskg/fXv9teACkeuCSNY4mYnT54
-	roP7mcA32Ph32i1OQU18GyawuWItD+oPYSmlMZPg70eVo7sNOrgsAKjdY3bR47x+Zek=
-X-Gm-Gg: AZFdTZcjiu5DNIWeG5sW6RO/w/Bdr/X77Bnl/A/Tpfq/QoDArod+jd1Y2AngDpsxi+y
-	9fQaxeo81w1hof+vnvfaaMqFjDLmPEbm9e1TF7p4bSoMDLU6Zd0QXs15bPsaNo7+au5f1aWVZ2w
-	bJuDRNI3z6YY+Ih2O30z5KkakddacdQRZRa0t56br5FNlKC2i4MseyEmKERzUAyCunWl/iT+5Fq
-	7fc6YaobUaro4IqZ5ZULzdv2rLC46ni5PKfXs8rK1yyO5ByjN/NifbFl4pD7/rldnIToTDkl3qs
-	YK/r2UUI/C0E7EFpzx23v5FRMCUx8Bxtgccs2zcgUJq2vHVcG9ggrxw2NyupgnO5l41P+wah6YN
-	LyC+Xb1lqJeUjPx17Qvb3cTb1W4w2kIEzq7eCA/0zKgWZt/4/pJiDCvKt4L2xqS5A/N30OK+F5P
-	7o3S2/EcEwIeiDxTXPkEfd04Hfgpym/u93mI/iGgbEcXhetAyTL2XlPVlvkANzy478OpFpa1uZZ
-	RiQJFfJ7314BlETSRMI5zXmZYUjEs+xpcf96gxeDx98yt4U769Z+iSnPZafrC2o2ARsUA9ftiqf
-	mJSzm5cezW/LJJys0CyvVjfVrjUBbRfsX/y3ia2h3+5wuPKoSAXkuhoxNKD3JPzoCX69YJB5Xy4
-	AEPhQ0ke6toSd1zpmuSPh/WtQ4w==
-X-Received: by 2002:a05:693c:69d4:b0:382:90fb:4cad with SMTP id 5a478bee46e88-3856ca9db95mr17568429eec.2.1795636664223;
-        Wed, 25 Nov 2026 11:57:44 -0800 (PST)
-Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm59596522eec.14.2026.11.25.11.57.43
+        d=1e100.net; s=20260707; t=1795637052; x=1796241852;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
+        b=uL2b8TYgZ8JS25UWBrbQnJ2rTe+94w6JQcd/5wpvHfTQtcxOvuARViUZe8xfUReKWd
+         LJxoprdr775ZWIWYekLKCrGcaQaZeJvyneY1V41lFy126m1j0iRugLtNX0rR0cZP5Af8
+         6YoXm7b1kP+4ByJI312viPeAI1XpSErkpu6pmOHfcIAfizjd8nHKqymocrB7hQWAdBms
+         /HLTzZZ3313t71+w+8oujIXKZ+RGcQyURoapPt21IyP//C2r1vjGDSzvLR9Q6xxzbFt7
+         ap/QC44F5H3awnzQkIXgUMYHlw3OA6Rcnzjf2U4fTMMG33H6JmeiSmfsYNY4w0+FebWh
+         DX1Q==
+X-Forwarded-Encrypted: i=1; AL+hErHXFjBahYPo3wKxffiGs68NarLZMLnumbaE8rB0pwR4FmUCfKxQAey3dGG4UQACsNn0kC7MUg==@lists.linux.dev
+X-Gm-Message-State: APuU4Z9MJNg8EiOtVCfBP/4ImbERTpP2thBw+v6IPF2HhMXdF+M8IzXH
+	pthos8+M+12LqVwU8GBEIUHvM3TYiNnAykw3G4zxeHSeF2IhosuqxgVfIJztbX5KEpleF5JCSDb
+	7XzDpUjGxcs35tZpjN4xQMz2EX0j+NioIaa8cG/4m5qXgzUm506kL
+X-Gm-Gg: AZFdTZek9x+IkJt27PY42jPnXGp62FK8/xZZmhM/aVzqo4COrQScoSQWuj8b8qvNBas
+	Mf2QFSZ0JzRq7sPDoDE/N0QDqSBXmX0obNmCdjFoddnP5iei7GFPDUKgFqD2gtAevClBWWhSLB0
+	o/VGV3OM58j9cdoIWA1zvjiWQIZw6gazxG6vAo2STg7dbReoVX+m4pM31wRSxjQV770c4NZRSau
+	Eg+06tVYjvawQT+dq1Q4Oo1KI84ZVBcbuQr3JkyHmLrJJwiz/y9I7eYzL2qym0AQ5WZY+S0G4zL
+	1rpStYHTSu35PO8cbY3NL0T7FTOLbOA+g+kmqwYYeq+nHX5DIePwfln6cLGkn3KKlEJjF8nEjTk
+	18geHGyov3vPS9C0LAHcS6ov8rA8=
+X-Received: by 2002:a17:90b:4e83:b0:3a8:32f2:f4a5 with SMTP id 98e67ed59e1d1-3b41c956a0cmr18014294a91.53.1795637052486;
+        Wed, 25 Nov 2026 12:04:12 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41d224ba3sm7118846a91.1.2026.11.25.12.04.11
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 11:57:43 -0800 (PST)
-From: Artem Dinaburg <artem@trailofbits.com>
-To: stable@vger.kernel.org
-Cc: cratiu@nvidia.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	herbert@gondor.apana.org.au,
-	horms@kernel.org,
-	ipsec@lists.linux.dev,
-	kuba@kernel.org,
+        Wed, 25 Nov 2026 12:04:12 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	Dmitry Safonov <0x7f454c46@gmail.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
 	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	steffen.klassert@secunet.com
-Subject: [PATCH 6.18.y 3/5] xfrm: Don't clobber inner headers when already set
-Date: Wed, 25 Nov 2026 14:57:33 -0500
-Message-ID: <20261125195735.57472-4-artem@trailofbits.com>
-In-Reply-To: <20261125195735.57472-1-artem@trailofbits.com>
-References: <20261125195735.57472-1-artem@trailofbits.com>
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH ipsec] xfrm/compat: pass on the translated length of a socket policy
+Date: Wed, 25 Nov 2026 12:04:09 -0800
+Message-ID: <76b0ddfc-33ff-48a0-8113-db94076f2473@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
+References: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -106,115 +107,43 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 
-From: Cosmin Ratiu <cratiu@nvidia.com>
-Date: Wed, 22 Apr 2026 17:06:48 +0300
+The netdev AI review [1] raised two older issues, outside this patch.
+Adding Willem de Bruijn, whom I missed in the Cc.
 
-[ Upstream commit fa90a3145c0340c3f624206a81637c542254ea1d ]
+Sashiko (netdev AI review) wrote:
+> This is a pre-existing issue and was not introduced by this patch. Does
+> this translation also run for x32 tasks, whose layout already matches the
+> 64-bit one?
+[...]
+> Would compat_need_64bit_alignment_fixup() be the better gate here? On x86
+> it is in_ia32_syscall, and net/ethtool/ioctl.c already uses it.
 
-On VXLAN over IPsec egress, xfrm{4,6}_transport_output() blindly
-overwrite inner_transport_header (== the inner TCP header saved in VXLAN
-iptunnel_handle_offloads() -> skb_reset_inner_headers()) with the
-current transport_header (== the VXLAN outer UDP header set by
-udp_tunnel_xmit_skb()).
+Yes, confirmed on ipsec master with X86_X32_ABI=y: x32 requests are
+translated as i386 ones, so their SA and socket policy requests are
+refused and a NEWPOLICY loses its template, leaving its traffic in
+clear text. Gating on compat_need_64bit_alignment_fixup() fixes it; the
+fix will come with the other xfrm compat fixes. x32 readers of dumps
+and notifications still get the i386 layout, which needs a separate
+af_netlink change.
 
-This was a latent bug, harmless until commit [1] added a doff validation
-check in qdisc_pkt_len_segs_init() for encapsulated GSO packets. With
-the wrong inner_transport_header set by xfrm, qdisc_pkt_len_segs_init()
-interprets inner_transport_header as a TCP header, reads doff=0 from the
-upper byte of the VNI and drops the packet with DROP_REASON_SKB_BAD_GSO.
+Sashiko (netdev AI review) wrote:
+> This is a pre-existing issue, but should this translation be limited to
+> IP_XFRM_POLICY and IPV6_XFRM_POLICY?
+[...]
+> As a result, a compat task's PF_KEY socket policy shorter than 164 bytes
+> is refused before any key manager sees it:
+[...]
+> The gap came in with 96392ee5a13b. That commit replaced the
+> in_compat_syscall() -EOPNOTSUPP refusal for all optnames with the
+> xfrm-format translator. Could an optname check be added to this fix?
 
-Besides the use in GSO to determine the header size of segmented
-packets, inner_transport_header might be used by drivers to set up
-inner checksum offloading by pointing the HW to the inner transport
-header. A quick browse through available drivers shows that mlx5 uses
-skb->csum_start specifically for this scenario, while others either
-don't support VXLAN over IPsec crypto offload (ixgbe) or the HW is
-capable of parsing the packets itself (nfp, Chelsio).
+Yes, it should. I have that fix ready as a separate patch, which runs
+the translator only for IP_XFRM_POLICY and IPV6_XFRM_POLICY, and will
+post it with the other xfrm compat fixes rather than fold it in here,
+as it is a different bug.
 
-But in all cases, it is more correct to let the inner_transport_header
-point to the innermost header instead of overwriting it in xfrm.
+[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/5249741d-fa84-4d54-bf77-45f48dbbb169%40mid.andrii.net
 
-So fix this by guarding all four inner header save sites in
-xfrm_output.c (xfrm{4,6}_transport_output, xfrm{4,6}_tunnel_encap_add)
-with a check for skb->inner_protocol. When inner_protocol is set, a
-tunnel layer (VXLAN, Geneve, GRE, etc.) has already saved the correct
-inner header offsets and they must not be overwritten. When
-inner_protocol is zero, no prior tunnel encapsulation exists and xfrm
-must save the inner headers itself. The tunnel mode checks are only
-added for completion, since they aren't strictly required, as
-xfrm_output() forces software GSO in tunnel mode before encap.
-
-This makes the previously added test pass:
- # ./tools/testing/selftests/drivers/net/hw/ipsec_vxlan.py
- TAP version 13
- 1..4
- ok 1 ipsec_vxlan.test_vxlan_ipsec_crypto_offload.outer_v4_inner_v4
- ok 2 ipsec_vxlan.test_vxlan_ipsec_crypto_offload.outer_v4_inner_v6
- ok 3 ipsec_vxlan.test_vxlan_ipsec_crypto_offload.outer_v6_inner_v4
- ok 4 ipsec_vxlan.test_vxlan_ipsec_crypto_offload.outer_v6_inner_v6
- # Totals: pass:4 fail:0 xfail:0 xpass:0 skip:0 error:0
-
-[1] commit 7fb4c1967011 ("net: pull headers in qdisc_pkt_len_segs_init()")
-Fixes: f1bd7d659ef0 ("xfrm: Add encapsulation header offsets while SKB is not encrypted")
-Signed-off-by: Cosmin Ratiu <cratiu@nvidia.com>
-Signed-off-by: Steffen Klassert <steffen.klassert@secunet.com>
-Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
----
- net/xfrm/xfrm_output.c | 20 ++++++++++++++------
- 1 file changed, 14 insertions(+), 6 deletions(-)
-
-diff --git a/net/xfrm/xfrm_output.c b/net/xfrm/xfrm_output.c
-index 262eea7bdea3..433ce19c2900 100644
---- a/net/xfrm/xfrm_output.c
-+++ b/net/xfrm/xfrm_output.c
-@@ -67,7 +67,9 @@ static int xfrm4_transport_output(struct xfrm_state *x, struct sk_buff *skb)
- 	struct iphdr *iph = ip_hdr(skb);
- 	int ihl = iph->ihl * 4;
- 
--	skb_set_inner_transport_header(skb, skb_transport_offset(skb));
-+	if (!skb->inner_protocol)
-+		skb_set_inner_transport_header(skb,
-+					       skb_transport_offset(skb));
- 
- 	skb_set_network_header(skb, -x->props.header_len);
- 	skb->mac_header = skb->network_header +
-@@ -168,7 +170,9 @@ static int xfrm6_transport_output(struct xfrm_state *x, struct sk_buff *skb)
- 	int hdr_len;
- 
- 	iph = ipv6_hdr(skb);
--	skb_set_inner_transport_header(skb, skb_transport_offset(skb));
-+	if (!skb->inner_protocol)
-+		skb_set_inner_transport_header(skb,
-+					       skb_transport_offset(skb));
- 
- 	hdr_len = xfrm6_hdr_offset(x, skb, &prevhdr);
- 	if (hdr_len < 0)
-@@ -277,8 +281,10 @@ static int xfrm4_tunnel_encap_add(struct xfrm_state *x, struct sk_buff *skb)
- 	struct iphdr *top_iph;
- 	int flags;
- 
--	skb_set_inner_network_header(skb, skb_network_offset(skb));
--	skb_set_inner_transport_header(skb, skb_transport_offset(skb));
-+	if (!skb->inner_protocol) {
-+		skb_set_inner_network_header(skb, skb_network_offset(skb));
-+		skb_set_inner_transport_header(skb, skb_transport_offset(skb));
-+	}
- 
- 	skb_set_network_header(skb, -x->props.header_len);
- 	skb->mac_header = skb->network_header +
-@@ -322,8 +328,10 @@ static int xfrm6_tunnel_encap_add(struct xfrm_state *x, struct sk_buff *skb)
- 	struct ipv6hdr *top_iph;
- 	int dsfield;
- 
--	skb_set_inner_network_header(skb, skb_network_offset(skb));
--	skb_set_inner_transport_header(skb, skb_transport_offset(skb));
-+	if (!skb->inner_protocol) {
-+		skb_set_inner_network_header(skb, skb_network_offset(skb));
-+		skb_set_inner_transport_header(skb, skb_transport_offset(skb));
-+	}
- 
- 	skb_set_network_header(skb, -x->props.header_len);
- 	skb->mac_header = skb->network_header +
+Andrii Tereshchenko
