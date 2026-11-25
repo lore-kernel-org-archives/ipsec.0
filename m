@@ -1,102 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795574558;
-	b=1vfku0zrC9HT1pvfIIPbgnGiuplVX15KaSHF0uAU49WP5z4O+bhIp2871TFiQM9FU5tE
-	 ukw9adjzkW7PCkfzQ2+GGsyrhf9NSa3Dje2M/EW6uGJ/4VRdBGZs4XFv9daoOpOXAwGdk
-	 1HczOt4Rkg71NeOU2eMIgxEVBj6ghHZtd3EwzH7NXWCs3vwDMWXGPJ8Yrtdy6b6sJSH6x
-	 xzSA3nXek3dnB5/IKznWvtIsd4jo32onL/2DCBidITkdxtR+QQDqSqCodRXGHY7eT0FaW
-	 SfI9DkG2InVjPWH8kPdTCT50Sh5nj8e5PI5+YIpkt6jA2T+GAHaUgEgddpaFAf9+uVQ==
+	t=1795585121;
+	b=WX8p5aeO3xmjxRN7ZY9aVOOTtvHWfeMKcxtmj7EjOt3ihfHRE3s3WdwiGJ3pdW41GOp+
+	 UIgv1tAvcNjUzcgBhj8n080e9Xgcw0yFW9qxMOefzfSqsC8mG3tWRNIlmlkCsvoSh2A5V
+	 TgLAic4Oin4Fje2MMbV0LnaABDeK0Q60svPeePO4EA2J/zbc00xjBlZe7ISJL54/TmZ49
+	 EMDcBbr1apC2MBUnJ9XkKKW3MTVKQfoM66EbCde6GiZ5nwV8kVbUxK3yjEpmqYCKcOMWn
+	 h4qkEKpwrpfTutdcz6ltV/vFd7niBX8wmmSU05bndgnbAaFkpF219vkFKSkx6tSq0aw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795574558;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585121;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=mEExPnF37SF6L15+U7oygTLDkR+EbGh7oqFgruuLRMI=;
-	b=Zi/ePWIMUe+J7bcN63nj3pnhE/N/fuZ6G9dFjUojcd9PO/97qaAwS1fdDjAC2mAb107J
-	 XAT/H4dW0284ScarHarPxNnZuN/Jopi6kF9sbo+9LceJ4kAO3SPApUEMjOO02bfuVT3Up
-	 c3udsrBo/WHsKNxstRA0cIMOn45y83PGPoTwyqbqDh/8k73GidFwokBCzpyfFxOTfyw5a
-	 pkjoLpe5sroaF9GoQjZFIeUB3UaB/sZ+vA8jOAJOzLVAoFZL1GgPyyMXaR9uoZtQBZaqs
-	 SExm83QjEnRqt0M8vPra73dT47xlqWwDnCdD07OoTwkiRf72FC01D+Y1IvPfpRzw/2w==
+	bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+	b=Mv5hHeSHoqww/BSlm351MhUnYsLC9sqhcW3cOXMSYeHUBNasr++Ewd8racVRWN4KErgR
+	 4zz4s3jKJ9kXN/0opJkf7whZRlp8id479/JQqiIgCPwHml+u/TtScGVDUbwkcgjczpuzM
+	 WrYfmb5FkGNdA2nUIbA76RHj3rMVMIrhBFZmbT7lw+g0BQQraTZN3KtiFIZ2r+0ABkcqp
+	 8X5M/S5cj7/PJagc5+AyoFFBIiPI6a/PBLeC0L1zGpGfg4FNHK5LefmHSgvGRl6frUaMt
+	 kYUy+DrvIEpWVo+rSUeL8h2mdKzP9a23dq6D1riOojkEJ+/uJNcxJ4L+xBO38MJpfbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MxCGV5b3;
-	arc=none smtp.remote-ip=209.85.215.173
-Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=Yi2F2czJ;
+	arc=none smtp.remote-ip=209.85.217.99
+Received: from mail-vs1-f99.google.com (mail-vs1-f99.google.com [209.85.217.99])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3CA6606A693
-	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 02:42:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3CA6606A693
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C377D606A323
+	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 05:38:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C377D606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MxCGV5b3
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdadf7e248aso2104398a12.3
-        for <ipsec@lists.linux.dev>; Tue, 24 Nov 2026 18:42:37 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=Yi2F2czJ
+Received: by mail-vs1-f99.google.com with SMTP id ada2fe7eead31-77bf892b496so1927390137.0
+        for <ipsec@lists.linux.dev>; Tue, 24 Nov 2026 21:38:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795574557; x=1796179357; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mEExPnF37SF6L15+U7oygTLDkR+EbGh7oqFgruuLRMI=;
-        b=MxCGV5b3NnkdyGriA33iRnhIiWqwf/MgHAWcyDP8DbMXhnqVWNXFD5lpqU96i3ZKcb
-         /vOPPRDw2ShtdZmseciOvUlXz0GG3MG82MNMK7+gFJhLFIyGFZPK/fetw6ke2Ahcs6mS
-         rDmWG5BkrFQnq5jLYrAZI8P4zAark9cjUfWro6yBb1FIR8w59M3zgQ95D1YHR+nDxKdx
-         fcez5/x6uaHPioY/oZlkpxukyK1heg6FsKmhgO43G2VyVgGL0TCQ121sb+/GvXvsuacb
-         oHv2XysPaTQ/S0g8ERusGqSdoi05aSsyEN8zIuJlKPvozjz4XGmagKjaqxsvyJjtyvLd
-         jkkw==
+        d=andrii.net; s=gmail-2025; t=1795585119; x=1796189919; darn=lists.linux.dev;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+        b=Yi2F2czJJgFjGOJGGMZql+lp0Hu66OsE7dqLHEM52dOJySmPkPNCAG2zodohvrCqlU
+         8qoRWUHUjDSp5JQeJIw6g6Y5FBGIjkCEQZXOgu7cXmYq+MYcuH3vF4mVpzWMjazRs+9G
+         laGPId6aywtoqT41c5ZomDhxa8/8qCEVTU2v5dfCrvqlHjItBwxqGZ8lEdwSZxnwCPXN
+         ZQczTdDhXNVCVRKeU9lrtlgKdBgU6MB2ixd4OcoIhDH0zhq+8GbI+BfyHW8K4LXym5IP
+         LlTA8NhUVT3X5GYZ3jBAggze9tvjj3LggGeB85cwsrY/ls+TsHaypOT3MwQ5INmF5FBH
+         FTqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795574557; x=1796179357;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mEExPnF37SF6L15+U7oygTLDkR+EbGh7oqFgruuLRMI=;
-        b=PP5XdqXiO3HHgeueiatilVfzbbMNXlfin9s4QVd7CEU24dM8O3JHOpZW1/uLxvamBs
-         veAojdFLDCfkCUI6yagzk5DPKebCkWyjOm6G+9+SspPwrLWSovS0wLP4/grfU1OvXoXg
-         JF+ToqV5qm3YVxnzGYtORZIYcKB6tdKEFdqCH+Pj7FCipdbO65IcAqe3dIE5IpF3KeKX
-         S7Yk6i2cwgMKkynGpoQnbcGrvPTYwycEIccVzD/ZPXulhUcvSWOZJcpD90H0J3LHLhfz
-         F8TQGhbGC56mWTal2zRUV27jra29Pp4NktGxh21ShM6jvgIuHLk3yJGu6cOoMuBw3KH7
-         8TPA==
-X-Forwarded-Encrypted: i=1; AL+hErGz4XqFeuNbAsxy6/2DbrWvO2wwKjhbOwDLbKhXXGXE8KPfWt5b3vTdyiPuxbbuwcWcyS0EHw==@lists.linux.dev
-X-Gm-Message-State: APuU4Z+Yj31G7+8DN1bXgoSWj2AZdxN7YZWjp3wF5yGM7SKzZZqE085m
-	e6tV+WlDJ0VJs6FD7UKqab/cSkMNPZ8P6wEnOmqwYSbqjFrxP8Kgl0zp
-X-Gm-Gg: AZFdTZeFtS4szuf5bdJhJjc0eTpLa6XRlM9bj+UVyYvrUwpUMWdP+MurDkJgCjBSdtH
-	v5skCYE8HdSglzIeZmLLWmggNThT4Ro/L3saLlGqNvLYq9+3CWTbeOGeNSFEUzod1Hbc/XG6F+I
-	kxPGFWsOqE5r62mkMZJ1UMDKjrl4UibtunHyf1B3wEa7Tg+YPduGLJQAMW31mrKpRktrBQOCdrf
-	EWDcMmTiWupQmExQgrVHM7vdGdnr8bSv8SUbo0frrQSBTtTyIxoDhH2sOEEsIDrp9glojwZi28a
-	3RNZfIlFKuBaeAmdwaQKkB+d8iIEUtv/Ic0xgF2zTplCzzEFqL40TZlAvo80dfJ50bjgtuIEKqw
-	nyUKO90jDHC1Ta6qITmOXDOx3JQ96s6hV7CKdmNT9anhAQaDEzeMu1Zrxy+dpxiDeruDa+odYtA
-	RJBd8tz7w2pwg3I4mxRHslrdiYqQuTCE3oqe0lh+laDL/xSgEYo1hsfdFFRm9EoFn2qc/xCBQa6
-	XFQMSbdoyDsIZlhqznmQyNC3Lm4zFM7mocetqwH0UHKB2IHhZ9BN5JGUdpCI2VZZrfSLAjgpVLM
-	S0OTQxtaesSOORw7QksXiJzi6jk/etb3kPqF53eK+mwkRoFWxTat0V08aqtNl3EX9L4=
-X-Received: by 2002:a17:90b:3f43:b0:3b4:e97:22ec with SMTP id 98e67ed59e1d1-3b41c931cfcmr16259721a91.35.1795574556864;
-        Tue, 24 Nov 2026 18:42:36 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a33fsm25727086a91.6.2026.11.24.18.42.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:42:35 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
+        d=1e100.net; s=20260707; t=1795585119; x=1796189919;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+        b=2kFJzshcpD/Ne1bB/zQg6Nj5UpXXON6glmtxmurgX4RFxV5opLYthBg/dMHlZcvNv1
+         tOAtYcNfkdeLjrKt1/03d0Y7qNiqlI0A8zDhcYExeDwHjJx5zHbmM6fc9Y5+jcmQaDhe
+         lNhKU1AxcXMVUo4+TP+smIwBxDyrmDJ6H1vvYFHKjwlfHAaSQppUK7FiKMEdBLj8ekFj
+         VJfWgCoLRA1WRC5awpsN4NqH/rKK088MVqa2EN98imxHkddgAe5OuVjJN5tjq4e4Eqon
+         Tnxt+ExEm9TfUXiJlk4TQAUyGvObIIOJjuw/+Dx73ypOkTZBPUeESUSnPjtEYM/bk45+
+         l65Q==
+X-Forwarded-Encrypted: i=1; AL+hErH5tPsoa8sV5BoYfiNe/R5E/3itz2n94eqoG0RAOIyuxlKUB5SCG9xstdh5cY5vtb8h24wd+Q==@lists.linux.dev
+X-Gm-Message-State: APuU4Z/CoAzbMmwf0qugkyVod/J17PkXAV4Oq01lPk3XzWejMGQy73FE
+	rO5comWfeyUB/+zJ9ex1+m7X7qu7PLjeHZakw0lNSiyJcvGHiZ204hdlQ3OP7TWTDMw5gDXzhlO
+	npCIzT8ININGCpomtcWYvb9+tJSZXKyX7sktjnmeRF7WA8bB49d9z
+X-Gm-Gg: AZFdTZdKIRPtO4aoJ7iKdmnXwgXt7s9G7RoF9EOGKM5HUgtfB3sk2Qcm8L7h+9to9XQ
+	IHEL5rnyz3YepREroIgqhR4iAaj85aO7s8C69+NsuiB/g0rW5Or0S1W8GHv3fsKwx56L8LbZwe+
+	aYOHv8h0b1RYw4TQTbWz/kPuynjn1UcgIyyx2EsGNGJjz99q2Oiv1I9NM8lRqP6xXmvZK7juJ6p
+	VXvO1ToAIEtBuEzMmDJ1zRq2cxI/MAoJIGyG2WVaJkTc+S0ZyHZ1DMQbWy34YFctlPDu2Gwz/QK
+	rAfy8bX1t3I9X+1SW810+lT1Ftyy+FOEhVBaxNLSAYkReMvltO83rbpcj27tDlv+KWHmMGddNXZ
+	f6XObMlHFf9E+IheQulyik0h4WII=
+X-Received: by 2002:a05:6102:4485:b0:7a6:cd7e:72db with SMTP id ada2fe7eead31-7d73962b3c7mr8485110137.26.1795585119506;
+        Tue, 24 Nov 2026 21:38:39 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-99e6e0fe353sm1684066241.6.2026.11.24.21.38.38
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 21:38:39 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
 To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	Florian Westphal <fw@strlen.de>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Hui Peng <benquike@gmail.com>,
+	Willem de Bruijn <willemb@google.com>,
 	netdev@vger.kernel.org,
 	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH ipsec v2 2/2] xfrm: refuse modes that AH and ESP do not support
-Date: Wed, 25 Nov 2026 11:42:28 +0900
-Message-ID: <e5abf3005007d9bf3eab4b640d513856f8eacf6c.1795573672.git.kyuwoncho18@gmail.com>
-In-Reply-To: <cover.1795573672.git.kyuwoncho18@gmail.com>
-References: <cover.1795573672.git.kyuwoncho18@gmail.com>
+	linux-kernel@vger.kernel.org,
+	syzkaller@googlegroups.com
+Subject: [PATCH ipsec] xfrm: policy: avoid an undefined shift when testing the auth algorithm
+Date: Tue, 24 Nov 2026 21:38:35 -0800
+Message-ID: <928a3d63-eb17-4192-8952-a9a74a89c5f9@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -108,104 +104,72 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ah6_init_state() refuses any mode but transport, tunnel and BEET, but
-ah_init_state(), esp_init_state() and esp6_init_state() accept any mode
-and only adjust header_len for the ones they know. For ESP over IPv6,
-a state in route optimization mode then reaches the WARN_ON_ONCE()s for
-unknown modes in xfrm_state_mtu() and xfrm_inner_mode_input(), as long
-as verify_newsa_info() lets the mode through. Over IPv4 there is no
-route optimization mode, and __xfrm_init_state() refuses it before the
-type is set up.
+xfrm_state_ok() tests the template's 32-bit aalgos mask with
+1 << x->props.aalgo, but digest_null's ID, SADB_X_AALG_NULL, is 251.
+A digest_null SA checked against a template that does not allow all
+algorithms then triggers a UBSAN shift-out-of-bounds report, which
+gets in the way of running with CONFIG_UBSAN_SHIFT.
 
-Make these functions refuse the modes they do not support, as
-ah6_init_state() does, so that each type checks its own modes. ESP
-keeps IP-TFS.
+Fix this by treating an ID that does not fit in the mask as not set,
+as aalg_tmpl_set() in af_key.c does.
 
-Fixes: c2d305e51038 ("xfrm: remove input indirection from xfrm_mode")
-Fixes: c7b37c769d2a ("xfrm: remove get_mtu indirection from xfrm_type")
-Suggested-by: Sabrina Dubroca <sd@queasysnail.net>
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+Made with an AI coding assistant, reviewed by the submitter.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
 ---
- net/ipv4/ah4.c  | 11 ++++++++++-
- net/ipv4/esp4.c | 18 +++++++++++++++---
- net/ipv6/esp6.c |  6 +++++-
- 3 files changed, 30 insertions(+), 5 deletions(-)
+Found with syzkaller (our own run, not syzbot).
+Validated: reproduced on ipsec master with CONFIG_UBSAN_SHIFT, without
+kernel changes or fault injection:
 
-diff --git a/net/ipv4/ah4.c b/net/ipv4/ah4.c
-index 6fd642d2278d..32094169718c 100644
---- a/net/ipv4/ah4.c
-+++ b/net/ipv4/ah4.c
-@@ -535,8 +535,17 @@ static int ah_init_state(struct xfrm_state *x, struct netlink_ext_ack *extack)
- 	else
- 		x->props.header_len = XFRM_ALIGN8(sizeof(struct ip_auth_hdr) +
- 						  ahp->icv_trunc_len);
--	if (x->props.mode == XFRM_MODE_TUNNEL)
-+	switch (x->props.mode) {
-+	case XFRM_MODE_BEET:
-+	case XFRM_MODE_TRANSPORT:
-+		break;
-+	case XFRM_MODE_TUNNEL:
- 		x->props.header_len += sizeof(struct iphdr);
-+		break;
-+	default:
-+		NL_SET_ERR_MSG(extack, "Invalid mode requested for AH");
-+		goto error;
-+	}
- 	x->data = ahp;
- 
- 	return 0;
-diff --git a/net/ipv4/esp4.c b/net/ipv4/esp4.c
-index 111bea0bd260..1bb7c4b24cc6 100644
---- a/net/ipv4/esp4.c
-+++ b/net/ipv4/esp4.c
-@@ -1148,10 +1148,22 @@ static int esp_init_state(struct xfrm_state *x, struct netlink_ext_ack *extack)
- 
- 	x->props.header_len = sizeof(struct ip_esp_hdr) +
- 			      crypto_aead_ivsize(aead);
--	if (x->props.mode == XFRM_MODE_TUNNEL)
-+	switch (x->props.mode) {
-+	case XFRM_MODE_BEET:
-+		if (x->sel.family != AF_INET6)
-+			x->props.header_len += IPV4_BEET_PHMAXLEN;
-+		break;
-+	case XFRM_MODE_TRANSPORT:
-+	case XFRM_MODE_IPTFS:
-+		break;
-+	case XFRM_MODE_TUNNEL:
- 		x->props.header_len += sizeof(struct iphdr);
--	else if (x->props.mode == XFRM_MODE_BEET && x->sel.family != AF_INET6)
--		x->props.header_len += IPV4_BEET_PHMAXLEN;
-+		break;
-+	default:
-+		NL_SET_ERR_MSG(extack, "Invalid mode requested for ESP");
-+		err = -EINVAL;
-+		goto error;
-+	}
- 	if (x->encap) {
- 		struct xfrm_encap_tmpl *encap = x->encap;
- 
-diff --git a/net/ipv6/esp6.c b/net/ipv6/esp6.c
-index b287c807b018..ced910d44b47 100644
---- a/net/ipv6/esp6.c
-+++ b/net/ipv6/esp6.c
-@@ -1192,12 +1192,16 @@ static int esp6_init_state(struct xfrm_state *x, struct netlink_ext_ack *extack)
- 			x->props.header_len += IPV4_BEET_PHMAXLEN +
- 					       (sizeof(struct ipv6hdr) - sizeof(struct iphdr));
- 		break;
--	default:
- 	case XFRM_MODE_TRANSPORT:
-+	case XFRM_MODE_IPTFS:
- 		break;
- 	case XFRM_MODE_TUNNEL:
- 		x->props.header_len += sizeof(struct ipv6hdr);
- 		break;
-+	default:
-+		NL_SET_ERR_MSG(extack, "Invalid mode requested for ESP");
-+		err = -EINVAL;
-+		goto error;
- 	}
- 
- 	if (x->encap) {
+  UBSAN: shift-out-of-bounds in net/xfrm/xfrm_policy.c:3399:39
+  shift exponent 251 is too large for 32-bit type 'int'
+
+Tested: with the patch the reproducer runs without a report and the
+packet is still refused (XfrmInTmplMismatch); with a template that
+allows all algorithms it is still delivered.
+
+No functional change is intended beyond the UBSAN report, and this is
+not a security fix.
+
+History, from the pre-git tree [1]:
+- 6c55c29fabc2 ("[IPSEC]: Add transform engine and AH
+  implementation.", 2002) wrote the test, against a single algos mask;
+  4a618fbe0113 ("[NET]: IPSEC updates.", 2002) split it into aalgos.
+- 3bab27b68626 ("[IPSEC]: Clean up key manager algorithm handling.",
+  2003) added digest_null and SADB_X_AALG_NULL = 251, a KAME value
+  (Jun-ichiro itojun Hagino, tech-net, 2000-07-16 [2]).
+- af_key.c guarded its copy of the test in f398035f2dec ("[IPSEC]:
+  Avoid undefined shift operation when testing algorithm ID", 2007).
+
+Until now the result for ID 251 depended on the CPU: x86 and arm64
+mask the shift count and test bit 27; 32-bit ARM, PowerPC and s390
+give 0, which this patch makes the rule everywhere. ealgos is not
+tested here, so SERPENT (252) and TWOFISH (253) don't hit this.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/tglx/history.git
+[2] https://mail-index.netbsd.org/tech-net/2000/07/16/0000.html
+
+ net/xfrm/xfrm_policy.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+index d2e938d4db9aa..b980d915a24a6 100644
+--- a/net/xfrm/xfrm_policy.c
++++ b/net/xfrm/xfrm_policy.c
+@@ -3396,7 +3396,9 @@ xfrm_state_ok(const struct xfrm_tmpl *tmpl, const struct xfrm_state *x,
+ 		(x->id.spi == tmpl->id.spi || !tmpl->id.spi) &&
+ 		(x->props.reqid == tmpl->reqid || !tmpl->reqid) &&
+ 		x->props.mode == tmpl->mode &&
+-		(tmpl->allalgs || (tmpl->aalgos & (1<<x->props.aalgo)) ||
++		(tmpl->allalgs ||
++		 (x->props.aalgo < BITS_PER_TYPE(tmpl->aalgos) &&
++		  (tmpl->aalgos & (1U << x->props.aalgo))) ||
+ 		 !(xfrm_id_proto_match(tmpl->id.proto, IPSEC_PROTO_ANY))) &&
+ 		!(x->props.mode != XFRM_MODE_TRANSPORT &&
+ 		  xfrm_state_addr_cmp(tmpl, x, family)) &&
+
+base-commit: b88c75488ecc768acadb14e980bbfa087b1dbf38
 -- 
-2.43.0
+2.53.0
 
