@@ -1,103 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.227
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795637053;
-	b=0pnU/a5IT3YkG/gCCkD6rXeHSBCRXcNUpBFbEa1dRLIKnfyrfLbUZajlgnHf32Ld1vmd
-	 f0uDjXPOrTu5r2VUtm6A5mJLO3Fe4h0Ss7nPg9/fEmKijeeAY8i5pnLxdDtZpGpyNV5kM
-	 d+A8rl5LdiKtpvUmdhvP0YAOuBQpWSgBmxjfR0nOWQGgNQ2t+J44Uc3s1ydvbmTvJZIvO
-	 K/D3YZpixrooiQnKvoCTDsus6An8UvZxhVOWTXjlKpga+mcv2Hp9iL7vsg/OZpG/z+3sa
-	 yz2CmM1wvaAl5Jj0KA4UeMkvsib4mXwLU/5BbYtC1LUVm3ALAmnv5rmLgXXf1hAuaQA==
+	t=1795683469;
+	b=xrm38qbJz5+wmeMONHuJVcxqTQ8tDM/WMUZG4oHGNASUu5ybX1ULnIzSGIvjAb+0XDJx
+	 hy9xi4chYGJgAmUnS6SqGRDhG/WYnK5s2TNyjCyuM6l6qa9LcskYyIfo/6i4gAmaMDuIm
+	 HhuywxmZxNtvVTfL6nma3LiVmJ/t2L0TErRT4wnxLAEIMVaR6boQThukBFTnNK/0RYk2M
+	 T9X7YDH+uNCDrFZ585CxPQjLNM+xZBcsp2ywNQRpLidkWI1Tar0w+xmnlV3aFfn4g/Eo0
+	 Kygqqzn28+BFavPM9//FFOHls7ynJ2PK5S8aOt7lE3SRpVtu5HXE0KKmINgP6DmiUqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795637053;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
-	b=yYBBGjxkrpBbXS19IyfdqNOd3l6iwALoaZdQEsNfIjRYKE/ObDpzuaGlCxk5KOjiflNa
-	 LbfD/ENlNjCCKF1AO+Ud9VmkYhdrbXYStREiKkkOAFMW329tJYvA7ldgscS0MGLXwBZSL
-	 y8k4wf3D0tbjkGHdWdKs8AHyuVu0YARgWP5XmXJsHu4dlFR0wdnJsxbr6NVvjxLZaL0wR
-	 IFIf0c7E8CLmjReWpCE1CmAIKSxupVl2Rx4Aqdra5l83CfxILqtjfDAGM/xNCbJO3lfS2
-	 AU0AHofd6/0svpiBOaesSeV8z7c+gWKNrJzSIgkUXpT3NwP3WZ/Mr2YDl9WVZNeF+AQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683469;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=AdLL3Q53BHJLoBt9CSRYGYry3kTUEfgH4omIXprvDe8=;
+	b=JWtUobpQt0oW1JRVWdcC6S6Ce6xtDLsekih+rd+Dhb9ZGu1l+gXuHyfiP8HamF4x/Qk/
+	 zvl+nccZHY9SOYJ50QxevSD9zkfDZQdNZdsz6V26YRD0FQHQjsIo69hUtmk8WDt5gh4Il
+	 ///tV5Ewvr5mvawE/lTU3Ygrlo31fdH+yTiO8oXi+GcU+51HcfPKwf6A8s6+kmJvSzW/G
+	 jTBSUoza/1Qh+bQ+caZp/A/RT2wPF4ScMDJ1dMORogmoXCibBkV88z4soANRnADKNefGi
+	 7TnRooHrM4wy8/I+v2bFZN9CNjRZNcI5qb+lfvz4tNmy/w2WC4L2DJkdZkmg3Bb/DAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=GSCAgotB;
-	arc=none smtp.remote-ip=209.85.215.227
-Received: from mail-pg1-f227.google.com (mail-pg1-f227.google.com [209.85.215.227])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=uG0UZuWs;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EA70606A33B
-	for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 20:04:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EA70606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7C6F606A32C
+	for <ipsec@lists.linux.dev>; Thu, 26 Nov 2026 08:57:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7C6F606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=GSCAgotB
-Received: by mail-pg1-f227.google.com with SMTP id 41be03b00d2f7-cde84cb8803so1624346a12.1
-        for <ipsec@lists.linux.dev>; Wed, 25 Nov 2026 12:04:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795637052; x=1796241852; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
-        b=GSCAgotBLt7zwGD8KaJ70u3XWNha89MArmrkq24nSzKXOmV2Nb5RaLo9uzAfgOoYne
-         Ubz+GdWfZSlVV51j95t3Yf7nt9o87LL6LN9T8MDLFM9kfYsKVoIbszPhpOsBz4raTLsd
-         GzhirUCVZWjFNcZAYBkPocyjIU4BMm0Jif1X4/iXLsSymNfOilDCjfP7fwNQB3EDzH0u
-         rcI7f8ceYXbhZVmQCuGpd1Dz6AbYJkKSoZAwS4NiL2rOyZqFL1lEzHn5mxvJhyCAZhhT
-         lwifgPnKN2ZLav/0tgo8Qz8yZ3fYpwzpTk+TH2bg+j8AsipwWvpOYdsCygw69Pw0f1L/
-         6h8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795637052; x=1796241852;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
-        b=uL2b8TYgZ8JS25UWBrbQnJ2rTe+94w6JQcd/5wpvHfTQtcxOvuARViUZe8xfUReKWd
-         LJxoprdr775ZWIWYekLKCrGcaQaZeJvyneY1V41lFy126m1j0iRugLtNX0rR0cZP5Af8
-         6YoXm7b1kP+4ByJI312viPeAI1XpSErkpu6pmOHfcIAfizjd8nHKqymocrB7hQWAdBms
-         /HLTzZZ3313t71+w+8oujIXKZ+RGcQyURoapPt21IyP//C2r1vjGDSzvLR9Q6xxzbFt7
-         ap/QC44F5H3awnzQkIXgUMYHlw3OA6Rcnzjf2U4fTMMG33H6JmeiSmfsYNY4w0+FebWh
-         DX1Q==
-X-Forwarded-Encrypted: i=1; AL+hErHXFjBahYPo3wKxffiGs68NarLZMLnumbaE8rB0pwR4FmUCfKxQAey3dGG4UQACsNn0kC7MUg==@lists.linux.dev
-X-Gm-Message-State: APuU4Z9MJNg8EiOtVCfBP/4ImbERTpP2thBw+v6IPF2HhMXdF+M8IzXH
-	pthos8+M+12LqVwU8GBEIUHvM3TYiNnAykw3G4zxeHSeF2IhosuqxgVfIJztbX5KEpleF5JCSDb
-	7XzDpUjGxcs35tZpjN4xQMz2EX0j+NioIaa8cG/4m5qXgzUm506kL
-X-Gm-Gg: AZFdTZek9x+IkJt27PY42jPnXGp62FK8/xZZmhM/aVzqo4COrQScoSQWuj8b8qvNBas
-	Mf2QFSZ0JzRq7sPDoDE/N0QDqSBXmX0obNmCdjFoddnP5iei7GFPDUKgFqD2gtAevClBWWhSLB0
-	o/VGV3OM58j9cdoIWA1zvjiWQIZw6gazxG6vAo2STg7dbReoVX+m4pM31wRSxjQV770c4NZRSau
-	Eg+06tVYjvawQT+dq1Q4Oo1KI84ZVBcbuQr3JkyHmLrJJwiz/y9I7eYzL2qym0AQ5WZY+S0G4zL
-	1rpStYHTSu35PO8cbY3NL0T7FTOLbOA+g+kmqwYYeq+nHX5DIePwfln6cLGkn3KKlEJjF8nEjTk
-	18geHGyov3vPS9C0LAHcS6ov8rA8=
-X-Received: by 2002:a17:90b:4e83:b0:3a8:32f2:f4a5 with SMTP id 98e67ed59e1d1-3b41c956a0cmr18014294a91.53.1795637052486;
-        Wed, 25 Nov 2026 12:04:12 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41d224ba3sm7118846a91.1.2026.11.25.12.04.11
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 12:04:12 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Dmitry Safonov <0x7f454c46@gmail.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH ipsec] xfrm/compat: pass on the translated length of a socket policy
-Date: Wed, 25 Nov 2026 12:04:09 -0800
-Message-ID: <76b0ddfc-33ff-48a0-8113-db94076f2473@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
-References: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=uG0UZuWs
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id B5A8620758;
+	Thu, 26 Nov 2026 09:57:46 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 8zdpgIyEFP4v; Thu, 26 Nov 2026 09:57:46 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 21FB7206B1;
+	Thu, 26 Nov 2026 09:57:46 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 21FB7206B1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795683466;
+	bh=AdLL3Q53BHJLoBt9CSRYGYry3kTUEfgH4omIXprvDe8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=uG0UZuWs5XmZi7MZQ9zamgII2bTngTWGFGOex3D+bxcFooMsSC2G7ZIWNUzyzJ11I
+	 ld5z8ORp7SGRslMa8exrbAfRu6oUk8FRwWLaBAwkNr8WyJF+sue/wOhUiMpYFPdPRX
+	 C+0Wx2BBJ8Wb4/IHgchCz0RJPJHYBAnpvkHE9grcVUGmpj8n6W5YWOVzvK7r9R6dQ/
+	 mbXWyYf0lhLQ/IrpJWg7sq3PWBK+M6zzRPvanbcgMbM76UCflduxpdtQ3yXco/DhaG
+	 20RNmFoUiEUZINEuwLVHB5+97N19q+LQXRtw5bKtzHrxzcIFxiFTiNbRQ1oW2IL5eM
+	 LaOVOkNS5nFUA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
+ 2026 09:57:45 +0100
+Received: (nullmailer pid 2021184 invoked by uid 1000);
+	Thu, 26 Nov 2026 08:57:45 -0000
+Date: Thu, 26 Nov 2026 09:57:45 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn
+	<willemb@google.com>, Simon Horman <horms@kernel.org>, Kuniyuki Iwashima
+	<kuniyu@google.com>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH ipsec v2 1/1] xfrm: free the policies already cloned when
+ a socket clone fails
+Message-ID: <awf0ibmT7f-IzSup@gauss4>
+References: <179540803323.3139700.5340002553684152759@gmail.com>
+ <179540803323.3139700.15088508372382876389@gmail.com>
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -107,43 +85,53 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <179540803323.3139700.15088508372382876389@gmail.com>
+X-ClientProxiedBy: EXCH-01.secunet.de (10.32.0.171) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-The netdev AI review [1] raised two older issues, outside this patch.
-Adding Willem de Bruijn, whom I missed in the Cc.
+On Mon, Nov 23, 2026 at 01:29:42PM +0900, Kyuwon Cho wrote:
+> __xfrm_sk_clone_policy() clones the parent's socket policies one
+> direction at a time and returns -ENOMEM at the first failure. If the
+> policy for the second direction cannot be cloned, the clone of the
+> first one is already set in the new socket and linked on
+> net->xfrm.policy_all. sk_clone() then frees the new socket without
+> xfrm_sk_free_policy(), and the policy is leaked until the network
+> namespace goes away:
+> 
+>   WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300
+>   Call Trace:
+>    xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
+>    ops_undo_list (net/core/net_namespace.c:253)
+>    cleanup_net (net/core/net_namespace.c:713)
+> 
+> Delete the policies cloned so far before returning the error.
+> xfrm_sk_clone_policy() clears the new socket's slots before cloning,
+> so a slot that is set holds one of these clones.
+> 
+> Fixes: d188ba86dd07 ("xfrm: add rcu protection to sk->sk_policy[]")
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> ---
+>  net/xfrm/xfrm_policy.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+> index cea6842e6454..dba1851f0b3d 100644
+> --- a/net/xfrm/xfrm_policy.c
+> +++ b/net/xfrm/xfrm_policy.c
+> @@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
+>  			rcu_assign_pointer(sk->sk_policy[i], np);
+>  		}
+>  	}
+> +	while (unlikely(ret) && i--) {
+> +		np = rcu_dereference(sk->sk_policy[i]);
+> +		if (np) {
+> +			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
+> +			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
+> +		}
+> +	}
 
-Sashiko (netdev AI review) wrote:
-> This is a pre-existing issue and was not introduced by this patch. Does
-> this translation also run for x32 tasks, whose layout already matches the
-> 64-bit one?
-[...]
-> Would compat_need_64bit_alignment_fixup() be the better gate here? On x86
-> it is in_ia32_syscall, and net/ethtool/ioctl.c already uses it.
-
-Yes, confirmed on ipsec master with X86_X32_ABI=y: x32 requests are
-translated as i386 ones, so their SA and socket policy requests are
-refused and a NEWPOLICY loses its template, leaving its traffic in
-clear text. Gating on compat_need_64bit_alignment_fixup() fixes it; the
-fix will come with the other xfrm compat fixes. x32 readers of dumps
-and notifications still get the i386 layout, which needs a separate
-af_netlink change.
-
-Sashiko (netdev AI review) wrote:
-> This is a pre-existing issue, but should this translation be limited to
-> IP_XFRM_POLICY and IPV6_XFRM_POLICY?
-[...]
-> As a result, a compat task's PF_KEY socket policy shorter than 164 bytes
-> is refused before any key manager sees it:
-[...]
-> The gap came in with 96392ee5a13b. That commit replaced the
-> in_compat_syscall() -EOPNOTSUPP refusal for all optnames with the
-> xfrm-format translator. Could an optname check be added to this fix?
-
-Yes, it should. I have that fix ready as a separate patch, which runs
-the translator only for IP_XFRM_POLICY and IPV6_XFRM_POLICY, and will
-post it with the other xfrm compat fixes rather than fold it in here,
-as it is a different bug.
-
-[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/5249741d-fa84-4d54-bf77-45f48dbbb169%40mid.andrii.net
-
-Andrii Tereshchenko
+Do you really need an unroll loop here? This function clones
+at most two policies. If the second fails, just delete the
+first one.
