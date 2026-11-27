@@ -1,80 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771495;
-	b=GZClLX5ARtzzAlxTTt54YdP0+ltQIqfl8D/Idy7HmG86+fVDUMXtB6u0bwQcMWt+9Qec
-	 8G4AStxRGmp0z4la4hDuqaG9xtApwp5My3dNoil9lRpsexar7d3XK9hsiRwYydJ3U0MbE
-	 LYMDaV5eS3G02Q3tfa2KJXGy+EhfmU1CeV7onez/zHvR6+cp4a1gRdqAX+DaFAb+vtPNb
-	 2ELq3S+O63PVKrslSbvymRMtJK3PaxYiuh9+3d9g3iADOXDLzxclMlIaD7WWleIT47f2F
-	 Z8X7TSvasbFqjIUW7wQmay6BNIrN+ln4ZwVdR88gnGyoh9uaXFPM0vUXcLcROYIlcog==
+	t=1795777443;
+	b=FHmkKPxkT+D5FYttlgpvnmIPnO+3AORTg6ErwD6FSaLcisDGD8ID1fXa6pNErXgtoTQ3
+	 qkxKftbKwUGGJaTeELQqxxe+RGB9uen14mPIIXUlorsOEhMOMkHHwbNT+ZzbWBSRj4T35
+	 nnljr0S8R97Ba1dIrLDza/U8DLzfIBrCF8hJlzv7tddFpy+BYxdl764yimnn1jDBxD2M5
+	 wXCE0Q4kcqS37BGJrO1Pc7Q1zBy1pCk+WpThXaAL/PT2WEKmSTQhaJ+a/hpOKEUc1YYCj
+	 H9MJqGAMj3U+DvzFO5veuWPJSsR7ii+PTcPbh5X9gy4fEPwkIVVECokubNr+1m7iuwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771495;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=ffjaXrQgekHgaiAXYlHWxAd1hg/vdm54u7R2y3uB1e8=;
-	b=VCqvrcPG9ZnrJ0Zo2S9UHvHMZ5cJfJgU/2ImAda1tAgf4hm8h5aOflE7Q95KP8diYpOS
-	 UF26K55qzF7LMNZEoI+iliU4QFmsoR3iXceokUwk/cmCgCLXIYss6OXQIBfDOs6f/0kAM
-	 0QmDnvfu9WGPBz4u0QvQ7IqY/vSzD47WoCLDYC/rGLnm4pU1A7l1QXXLVKP0t2qvTt9K7
-	 fw8xVg4q41CMZVnkzEYWoKFILEXwT0WAOgEsgqYmtHMLQPcOgdcmWHDuI/kEmjyjgMdJ3
-	 1rEACmBz6SXhjZtLds1CKxPctcyolpYmsm7IGgyAZ8VZ/9NPzmeLAUSObuTy7lSEXNg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777443;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
+	b=gc0TMqMQzM/0pGFMxGwBW3ZUWytWLUmxT7Ow/vZLhZMWqsMm6V4y7eJVqHtsyxEmPadT
+	 7csMPzf5z1VOymg7kq2SsFaTIJLXmIWjWlIsUUGRBmFcvClzVYDuKaoUsPeHJJ2p11gnT
+	 OFK+sMobmDg3JesR2ftkKuQi7ptF/koQ35MLPdEwCSOellwmDKDP0VFw67CxGo1MV7BAq
+	 +aDX2tcKxcjkk+xpHA5Zewj86IfP8i42P4WmTeQ9Ft5AnY+9v30OzpIhZnKPRhfppIi4k
+	 3ZZh7qPKbAmU43uLW+/TpoG5YdL/FWeYjBNC7fbwE6iLy4SIqistzmYwaVSQ+wSmZow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=GtuuVy1j;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=Jvfi5yse;
+	arc=none smtp.remote-ip=74.125.82.227
+Received: from mail-dy1-f227.google.com (mail-dy1-f227.google.com [74.125.82.227])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B00F8606A323
-	for <ipsec@lists.linux.dev>; Fri, 27 Nov 2026 09:24:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B00F8606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBB9A606A31C
+	for <ipsec@lists.linux.dev>; Fri, 27 Nov 2026 11:04:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBB9A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=GtuuVy1j
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 5E1FC208A6;
-	Fri, 27 Nov 2026 10:24:53 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id UrWwbOnHPHgB; Fri, 27 Nov 2026 10:24:52 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id D500120894;
-	Fri, 27 Nov 2026 10:24:52 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com D500120894
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795771492;
-	bh=ffjaXrQgekHgaiAXYlHWxAd1hg/vdm54u7R2y3uB1e8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=GtuuVy1jYqkTjFISKIRbvwGvu4BScdqaj10HE6PHMbaUe02lCFRgQzaoo2cZFlDdX
-	 lypl3Y3ZJ6oybq1sp5bBH3/UkZv40suipixwn3ZPLWRzl0OMYz9fJx9W7qebpH8Q2D
-	 V3eY+TP8StHFO645IWuEN8DY0WrvuUBWNaxrVvThK0hpZgICoE7YxYIjGCxRpBsIRt
-	 J+mi0H4/603PexmVaTH+VSyGM24npjUtrYIPX4Du/4eu06mD1cN2o4jtTBj7NLhfWe
-	 QfhWV0PaOosm8Yam9GrBMfSV72gA/tvYKVi5SO2Fqh+A58A7+ZF7qkcpNTRVTW+jNv
-	 CF/VHq0iOz4tg==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 27 Nov
- 2026 10:24:52 +0100
-Received: (nullmailer pid 3468826 invoked by uid 1000);
-	Fri, 27 Nov 2026 09:24:52 -0000
-Date: Fri, 27 Nov 2026 10:24:51 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Andrii Tereshchenko <opensource@andrii.net>
-CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>, Dmitry Safonov <0x7f454c46@gmail.com>, Sabrina Dubroca
-	<sd@queasysnail.net>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
-Subject: Re: [PATCH ipsec] xfrm/compat: pass on the translated length of a
- socket policy
-Message-ID: <awlMY_jXPtnF8D2W@gauss4>
-References: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
+	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=Jvfi5yse
+Received: by mail-dy1-f227.google.com with SMTP id 5a478bee46e88-386c71feeeaso4459324eec.0
+        for <ipsec@lists.linux.dev>; Fri, 27 Nov 2026 03:04:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=andrii.net; s=gmail-2025; t=1795777441; x=1796382241; darn=lists.linux.dev;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
+        b=Jvfi5yseozKbD86HLJYWEaboDklU/sdzhS9yNKvd8NUMgAGRBKgZ2CHDDxKESnv7LA
+         IvZm4l31OJal+rbRZTSVPAoJxbCrJ0kLYMGiP2YZ+ydemCDU4yyPBStRFP2MqEyC4kJv
+         TUFQSQTh9DsoPhaRj7DBVxaIFYVhOEEcm3ddjtZ8NVn6I8CRHRGJmnoxVWUeXLFgBNJO
+         E+ESDjNthPW8MIfkBg6WKKpvnY8kBGukd1gpal4n2XjE/KxbX919wbqQXb87p11aw68R
+         zAmxMkFlYM/Kgc+iqGvAbBXsqAXdCQjjgpmFQ6a1Wo7mHqZ6fUeTbSFTwR4/BBgaZaNj
+         Qm/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795777441; x=1796382241;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
+        b=x/CwLz8ZeKAR+/bd4AXqLvmO9uVeNgUs7/TPr/woFAul1K1qSW+6B5jlzGaTtA4j/t
+         LbwSQQgNTAgm0gxcT0snajwZo4bSgeDkXmLbQwER7ralWLIVQPQ4f5bRuPmZhQ+tovGT
+         CjCYjKVOXffasLKDET5nmfek9G8qrNW0fHYqTQPzjHGUFWfXKUhe3mjtzV2IPQqtmRIl
+         wgSCS9liNmdA4nl/MAq3tfVqtTxLYqn6g3sdum+XzUE/r24hfG5NDxkDBi5i14XVWlZi
+         Jwgu7oWGCTtgoVOP5qPqUoAAwuc/GKfU7KeH15MBgKzUVavYd5fdpVlOC1YnCk7V4uQp
+         vQIw==
+X-Forwarded-Encrypted: i=1; AL+hErHdrIvV/QOAb/3IGUHaYtE5cNgAyVAZWJhPaYBD5Sgkscd+ld3ADVCR/SL7Rc26Z2miILMbEQ==@lists.linux.dev
+X-Gm-Message-State: APuU4Z9F1aDh0e8NyCEidDPtMPNFY6SQVaZTGrvrC8yxKKU9+4AVk5a4
+	Rgx/vtEV8wCQmMDIy4KSOi78nnqeeOQPgd3uAWqySbXZeab9uy3gR/ndJ/UvYZDAHTWDpp9pTgn
+	SO1GqIknmhX2kdvBQjltdr2V+ijjfKsAG9e8BMvJ0ukauFp0CtGnI
+X-Gm-Gg: AZFdTZfmOwyA5NjuXtVoLVosPneXoCs7poap9fVOodQHlezxhiBOFGekT5kEFcD3ev2
+	bOqepO6rcfbQwOE7evWDBWAoCbmizBxVtMEmSS+09GP6cfqoUp6kESaNqFkk6N683O+8Zp0SV97
+	OO8+UqnXHXVll7b8+fa8LPoSBvUuDCHZnUPGmoUCJJXt9KdTo06yRe9jVORYdh+tdt097Q4my6b
+	GkOk7UGenlWxm9xrLSDKAwx8Z52FCKoBdQb9DF2+Oja+wB7a8s45qHDi5Ausgcq5SiVD5kqLUSl
+	jbqfxM2l2r1LOC+L6Vg93uIO0unDBRrYUmTpUnvx5P3nZFpqVfmzNGDbrvsU3IFztQArsuswc7N
+	VdAXcJFAbKtcgwDO7ZltwJ2qLwdA=
+X-Received: by 2002:a05:7300:ce8f:b0:375:7be3:1bbd with SMTP id 5a478bee46e88-38570b336f4mr21662778eec.23.1795777440698;
+        Fri, 27 Nov 2026 03:04:00 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-385677c0c07sm3922451eec.19.2026.11.27.03.03.59
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 27 Nov 2026 03:04:00 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Christian Hopps <chopps@labn.net>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH ipsec] xfrm: iptfs: reserve room for the outer MAC header in new inner skbs
+Date: Fri, 27 Nov 2026 03:03:55 -0800
+Message-ID: <a502a95c-de83-4f8d-986e-80f804ebe76c@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -84,22 +102,65 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
-X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
- (10.32.0.171)
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 07:29:46PM -0800, Andrii Tereshchenko wrote:
-> xfrm_user_policy() compiles a 32-bit task's translated socket policy
-> with the untranslated length, 4 bytes short, so the policy loses its
-> last template: an ESP-required socket policy then sends in clear
-> text. Have the translator return the translated length.
-> 
-> Made with an AI coding assistant, reviewed by the submitter.
-> 
-> Fixes: 96392ee5a13b ("xfrm/compat: Translate 32-bit user_policy from sockptr")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+__input_process_payload() copies outer MAC headers into skbs with up
+to 80 bytes of headroom. Longer headers (NBMA GRE) wrap the 16-bit
+offset, and the copy lands far past skb->head; reserve room for mac_len.
 
-Applied, thanks a lot!
+  BUG: KASAN: slab-use-after-free in __input_process_payload.isra.0+0x51c/0x1c70
+
+The patch was written with an AI coding assistant and reviewed by the
+submitter.
+
+Fixes: 6c82d2433671 ("xfrm: iptfs: add basic receive packet (tunnel egress) handling")
+Link: https://lore.kernel.org/netdev/179524501671.3135.15869590714107061136@kernel.org/
+Cc: stable@vger.kernel.org
+Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+---
+netdev's AI review of Piyus Kedia's "xfrm: do not write the ethernet
+header when the mac header is unset" pointed out this write (Link:
+above). 7a505bb0168a ("net: clear skb->mac_len in
+skb_unset_mac_header()") does not cover it: here the MAC header is set.
+
+Found independently by an AI code review agent. Reproduced on ipsec
+master without kernel changes or fault injection. With this patch the
+reproducer passes, two boots each way, with panic_on_warn=1 and no
+KASAN report. A reproducer is available to the maintainers on request.
+Not tested: an architecture where L1_CACHE_BYTES is larger than 64.
+
+ net/xfrm/xfrm_iptfs.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
+index 3fff835497b9..fe54979116de 100644
+--- a/net/xfrm/xfrm_iptfs.c
++++ b/net/xfrm/xfrm_iptfs.c
+@@ -242,7 +242,9 @@ static u64 __esp_seq(struct sk_buff *skb)
+  *
+  * When @l3resv is false, resv is XFRM_IPTFS_MIN_L2HEADROOM which arranges for
+  * `skb->data - 16`  which is a good guess for good cache alignment (placing the
+- * to be pushed L2 header at the start of a cacheline.
++ * to be pushed L2 header at the start of a cacheline. If @tpl's MAC header
++ * is longer, as with NBMA GRE, resv is its length rounded up, so the
++ * arrangement holds: it is copied in front of the inner packet.
+  *
+  * Otherwise, @l3resv is true and resv is set to the correct reserved space for
+  * dst->dev plus the calculated L3 overhead for the xfrm dst or
+@@ -263,6 +265,11 @@ static struct sk_buff *iptfs_alloc_skb(struct sk_buff *tpl, u32 len, bool l3resv
+ 
+ 	if (!l3resv) {
+ 		resv = XFRM_IPTFS_MIN_L2HEADROOM;
++		/* A longer MAC header needs room too; round up to keep
++		 * the cacheline arrangement.
++		 */
++		if (unlikely(tpl->mac_len > resv))
++			resv += ALIGN(tpl->mac_len - resv, L1_CACHE_BYTES);
+ 	} else {
+ 		struct dst_entry *dst = skb_dst(tpl);
+ 
+
+base-commit: 2803867cf3defa294710088a4663b434e12b5e93
+-- 
+2.53.0
+
