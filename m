@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858585;
-	b=N4bwSCuqwqpX7rirybIY2XT9zAjz/a3ZuAjHbti5r+WVlQu8wjGPjxhmILMZL6CqZXgr
-	 MziTukCiSTfTPfYjIdatTlR1gkOgI0x6jlq6QHU3S+JFadVLRR2XbPJyUDN/RB3ZuyjhO
-	 McukYiQPhBip7XM1EhjPBTY+Wrfeh7cfpwvIWKR6hXVBL+qhaO5WB17A7iJbBO2W0f2uB
-	 XL9P6BWTQSzFU61sxmIpsN1HU13A3vlWUyVXFX/epjeL0sKWG/uTX4DFPRgWIEyL3wJGZ
-	 HlZKmAErjBEc9p3i3P1gZIdPotA/Hbw12KuRpjxwl/pKF1IJIcEdiPFd4PUeM7rx7cg==
+	t=1795858587;
+	b=qaC6qu31aNN0YPttU9bsXZTv/Hdc6Oy/uMbQ3oQA4yDZdfk+06FsCipYUBF1PNXNDJGy
+	 METkjfwUThRXiRFAkZYQNi+R/xoPj79xASblNLmxGj3ccflyZ54KOXfYbWs8sHdrrJcId
+	 WMlK6ltjJxGhVw47m6D8o4QoKwse78BHF0wlv3/UQuakhpw4BUK5hPGKY4wrd2fx+xgWx
+	 +tfaH1qWuo/jqDnrTUssOAGB45lxIa2YjXLJ2B3xSBNH2jntMygPptxyQXHPXf8bQMJea
+	 TuXZjRgpTAb8YHvbdBHtP4pDpYqMe78rGPAe9W1I9awPaWOU2zcW4yJCFzUTCqVlfgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858585;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858587;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=5JniJf8Ax7BNNR4S3q+B4C5imeatJRVSpHhz/GWQ5Q0=;
-	b=MePOSWnbU3fbikQLZO6FPztj+GTN+b+R+NJi9Znn1lfh1dLEBBKqcEtvXfIbM6dLzMVp
-	 /yY6+96ElXKYV9T7Zj5YtFvF+SGiSldkIut8ucGOMXAk2zGOJeDq0hFDuiwVwL/t6bcxh
-	 eKstZsa2OddvvHUxDCjIYdXUJpchKqWgrZvljl1kwg7qcUT0w/K72aKdN4fj7BGIw09hl
-	 BAQ7QsTvilbPT1kLkyhoWkBYtCNFvqk9apkwJa/ZnejhillELFMDmZ5CBVc8uNIH84XFm
-	 u9rBkcFqUIg0DIpV4eEfdi6AQmqR4C2fe6p6yyLtipu9xIwj7Q5ogcHZiypAXKtGxIw==
+	bh=DVKtRB77pjKumLl0InNIzwfOdZ0b+h+a09XoRP57V3Q=;
+	b=s/SW89tSixlQ/AgAsUblyHL6wPKQmkU1o0LhdSDt08rSAGrLwhKZjsW1759bExErEBSx
+	 pRKFVGNQMuVidZYhWo5dWmUQL2Ae9AM/jI7iV3nfI+9RaiF6kF5l48kqmeXQi50G74i11
+	 x7td9pMLo4epIS29hXrLZmWQHl3oiTyHunsPQSOnMNnshNxT1bmW/qUcD3TfwEdPkfj17
+	 otCx7zPa+fKEqX5spMrJsQtistABrDMgyHXuSuW8GENZbCO1pFu8dvyOGjgvU2h89rKge
+	 zOUzGOopc/bDjQ6KU1ZaYV0zd4g/IaTdixbt7MVOwrKixFJmUT1QMaf0OBf+SpCbB1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CGVw6ZfB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e099H928;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9554B606A31C;
-	Sat, 28 Nov 2026 09:36:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5123B606A32C;
+	Sat, 28 Nov 2026 09:36:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CGVw6ZfB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 643381F000C1;
-	Sat, 28 Nov 2026 09:36:24 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e099H928
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C832F1F00898;
+	Sat, 28 Nov 2026 09:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795858585;
-	bh=5JniJf8Ax7BNNR4S3q+B4C5imeatJRVSpHhz/GWQ5Q0=;
+	s=k20260515; t=1795858586;
+	bh=DVKtRB77pjKumLl0InNIzwfOdZ0b+h+a09XoRP57V3Q=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CGVw6ZfBv+6FT53Y59tjpqNcX0JfKdKXv9Yd4CkX0T3aI3N/zEKZdP6tOHuKGD+fn
-	 P4fvObFNCcrO0XTqPfg36cSfvMp5YwNNB6qvOTmiXEAPozr95aLErcwveCn6hvRYhZ
-	 Xz1F+N/LOEiIM5XCH++Y7fE0KE4DyTl2aOSPEgr7BteS+piY2mwUzDF6P1yQu+5Mvg
-	 6+WTqa9hHX+tmBN6JYhiLlYlvxyxPG920QiMQ4tBOfVjjWATuMD/U6qjas3l3JM4nZ
-	 g+N0KxMaEqr7eoGeI4c1qy7n3mB5MmKScbvxcpbwrjQoVOeCoAAGBurqSMEpHPPout
-	 BeYnoISg2NCIA==
+	b=e099H928jPFmoT7jqR3wrxa76wXy7PWyyLoc1j71uvisiJy1MxuLKx5ntf9l0Ng/C
+	 ckk/zIKeZR1qpgbA4JpysmKonK8ggAHz4JYG39A1B/hYLH20czOt0S01Z47Ywqs7RC
+	 0WeJHg/RgAGFapL2FQx18xgcwR4LND/DvlSOyac99Oj9M7h6e6A36e5jiz6bGzZNDM
+	 tPP6JeFPhl5giT8zlJHg26QAdDU5HxhjIoxFtw4sRNb8ivuqDymvUAhr9qtFBwaklU
+	 94i/fEo8+8lMJApsv+zE72vlGjbny23XsEgkhKzST+TCJkAkrYmjVJsJiQb0y/oESc
+	 uz3XmqRt4R//g==
 Subject:
- Re: [PATCH net 1/2] ipv4: route: fix use-after-free in ip_route_output_flow()
+ Re: [PATCH net 2/2] xfrm: fix use-after-free in xfrm_lookup_with_ifid()
 From: netdev-bot+sashiko@kernel.org
 To: n0ps1edzz@gmail.com
 Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
@@ -49,10 +49,10 @@ Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  horms@kernel.org, willemb@google.com, liuhangbin@gmail.com,
  ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 09:36:23 +0000
-Message-ID: <179585858395.3135.17395458916030659399@kernel.org>
-In-Reply-To: <71e47f31ab9eac91c07bc3b9535c87ef3723b961.1795769101.git.n0ps1edzz@gmail.com>
-References: <71e47f31ab9eac91c07bc3b9535c87ef3723b961.1795769101.git.n0ps1edzz@gmail.com>
+Date: Sat, 28 Nov 2026 09:36:25 +0000
+Message-ID: <179585858536.3135.14235570619606863005@kernel.org>
+In-Reply-To: <624bf99e815ca1a98d13ef06684c86148166fe9b.1795769101.git.n0ps1edzz@gmail.com>
+References: <624bf99e815ca1a98d13ef06684c86148166fe9b.1795769101.git.n0ps1edzz@gmail.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -66,10 +66,10 @@ List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 2 · Medium: 0 · Low: 1
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -77,191 +77,122 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The fix does not work as submitted, because the RCU grace period
-  it depends on is missing.
-- [High] The fix leaves the same use-after-free in the code that runs
-  right after it on the same UDP send path.
-- [Low] ipv4: route: Fixes trailer cites wrong commit for
-  ip_route_output_flow()
+- [High] The patch does not fix the use-after-free it claims to fix.
 
 --
 
-ipv4: route: fix use-after-free in ip_route_output_flow()
+xfrm: fix use-after-free in xfrm_lookup_with_ifid()
 
-The patch changes how ip_route_output_flow() reads the output device. It
-now reads it through dst_dev_rcu() inside an RCU read-side critical
-section, not as a plain rt->dst.dev->ifindex load. The commit message
-says this depends on a separate fix that makes netdev_run_todo() wait
-for RCU readers after flushing routes.
+This patch changes the no-policy path of xfrm_lookup_with_ifid(). It now
+reads the device of dst_orig through dst_dev_rcu() inside an RCU read-side
+critical section, instead of dereferencing dst_orig->dev directly. The
+commit message says this depends on a netdev_run_todo() change that waits
+for RCU readers.
 
-> diff --git a/net/ipv4/route.c b/net/ipv4/route.c
-> index cd69242afab07..b16a9d05f2217 100644
-> --- a/net/ipv4/route.c
-> +++ b/net/ipv4/route.c
-> @@ -2982,7 +2982,9 @@ struct rtable *ip_route_output_flow(struct net *net, struct flowi4 *flp4,
->  		return rt;
+Link: https://lore.kernel.org/netdev/20260908224901.1591334-1-kuba@kernel.org/
+
+> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+> index cea6842e6454d..eafd090e3aebc 100644
+> --- a/net/xfrm/xfrm_policy.c
+> +++ b/net/xfrm/xfrm_policy.c
+
+[ ... ]
+
+> @@ -3312,7 +3314,12 @@ struct dst_entry *xfrm_lookup_with_ifid(struct net *net,
+>  	return dst;
 >  
->  	if (flp4->flowi4_proto) {
-> -		flp4->flowi4_oif = rt->dst.dev->ifindex;
-> +		rcu_read_lock();
-> +		flp4->flowi4_oif = dst_dev_rcu(&rt->dst)->ifindex;
-> +		rcu_read_unlock();
-
-[Severity: Low]
-Is 95c47f9cf5e0 the right commit for the Fixes tag? When that commit
-landed, ip_route_output_flow() did not read rt->dst.dev at all.
-ip_route_output_key_hash_rcu() filled in the output interface with
-fl4->flowi4_oif = dev_out->ifindex, and ip_route_output_key_hash()
-still held rcu_read_lock() at that point.
-
-Commit 2fbc6e89b2f1 ("ipv4: Update exception handling for multipath
-routes via same device") removed that assignment. It came back in
-commit 874fb9e2ca94 ("ipv4: Restore flowi4_oif update before call to
-xfrm_lookup_route"). That commit added the flp4->flowi4_oif =
-rt->dst.dev->ifindex load to ip_route_output_flow(), which runs after
-__ip_route_output_key() has already dropped the RCU read lock. That is
-the line this patch changes.
-
-The Fixes tag decides which stable branches pick this up. Pointing at
-the 2017 commit could send the patch to trees where this line does not
-exist.
-
-Should the tag name 874fb9e2ca94 instead? If the teardown window also
-depends on ca6854799069 and f12d2907992d, should those be listed too?
+>  nopol:
+> -	if ((!dst_orig->dev || !(dst_orig->dev->flags & IFF_LOOPBACK)) &&
+> +	rcu_read_lock();
+> +	dev = dst_dev_rcu(dst_orig);
+> +	is_loopback = dev && (dev->flags & IFF_LOOPBACK);
+> +	rcu_read_unlock();
 
 [Severity: High]
-Does this rcu_read_lock() section protect the old net_device in this
-tree? It only helps if the code that frees the device waits for a grace
-period after rt->dst.dev_rcu is switched to blackhole_netdev. I could
-not find such a wait.
+In this tree, does this RCU section close the race?
 
-unregister_netdevice_many_notify() sets dev->dismantle before the
-NETDEV_UNREGISTER notifiers run. So rt_flush_dev(dev), called from
-fib_netdev_event(), returns early:
+The commit message says:
 
-net/ipv4/route.c:rt_flush_dev() {
-	if (dev && dev->dismantle)
-		return;
-	...
-}
+  This requires netdev_run_todo() to wait for RCU readers after flushing
+  routes; that fix is a prerequisite of this patch.
 
-The flush that does the work happens later, in netdev_run_todo(), after
-its only rcu_barrier():
+That change isn't in this tree. Neither this patch nor the earlier
+"ipv4: route: fix use-after-free in ip_route_output_flow()" touches
+net/core/. The only rcu_barrier() in netdev_run_todo() still runs before
+the route flush, and nothing waits for readers after the flush:
 
 net/core/dev.c:netdev_run_todo() {
-	...
-	/* Wait for rcu callbacks to finish before next phase */
+    ...
 	if (!list_empty(&list))
 		rcu_barrier();
-	...
+    ...
 	if (!list_empty(&list)) {
 		rt_flush_dev(NULL);
 		rt6_uncached_list_flush_dev(NULL);
 	}
-	...
+
+	cnt = 0;
+	while (!list_empty(&list)) {
+		struct net *net;
+
+		dev = netdev_wait_allrefs_any(&list);
+    ...
 }
 
-rt_flush_dev(NULL) publishes blackhole_netdev and drops the old device
-reference right away:
+rt_flush_dev() and rt6_uncached_list_flush_dev() call
+rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev). They then drop the
+old device reference at once through netdev_ref_replace().
 
-	rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev);
-	netdev_ref_replace(rt_dev, blackhole_netdev,
-			   &rt->dst.dev_tracker, GFP_ATOMIC);
+netdev_wait_allrefs_any() returns immediately when netdev_refcnt_read(dev)
+is 1. The device is then released through kobject_put() and
+netdev_release(), which calls kvfree(dev) without waiting for an RCU grace
+period.
 
-If that was the last extra reference, netdev_wait_allrefs_any() takes
-its fast path without any RCU wait:
+The only grace period on the free path is the synchronize_net() in
+netdev_napi_exit(). It is skipped when napi_list is empty, which is the
+case for the dummy device used in the reproducer.
 
-	list_for_each_entry(dev, list, todo_list)
-		if (netdev_refcnt_read(dev) == 1)
-			return dev;
+If dst_orig is an uncached output route, can this sequence still happen?
 
-The device then reaches netdev_release() in net/core/net-sysfs.c, which
-frees it synchronously:
+CPU A
+xfrm_lookup_with_ifid()
+    rcu_read_lock();
+    dev = dst_dev_rcu(dst_orig);
+    <preempted under CONFIG_PREEMPT_RCU>
 
-	/* no need to wait for rcu grace period:
-	 * device is dead and about to be freed.
-	 */
-	kfree(rcu_access_pointer(dev->ifalias));
-	kvfree(dev);
+CPU B
+netdev_run_todo()
+    rt_flush_dev(NULL)
+        rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev);
+        netdev_ref_replace(...);
+    netdev_wait_allrefs_any()        <-- refcnt is 1, returns at once
+    kobject_put(&dev->dev.kobj)
+        netdev_release()
+            kvfree(dev);
 
-Wouldn't this interleaving still produce the KASAN report?
+CPU A
+    is_loopback = dev && (dev->flags & IFF_LOOPBACK);   <-- freed dev
 
-CPU0                                  CPU1
-ip_route_output_flow()
-  rcu_read_lock()
-  dev = dst_dev_rcu(&rt->dst)
-                                      netdev_run_todo()
-                                        rt_flush_dev(NULL)
-                                        netdev_wait_allrefs_any()
-                                        ...
-                                        netdev_release()
-                                          kvfree(dev)
-  dev->ifindex   <-- freed
-  rcu_read_unlock()
+As far as I can tell, this makes the window smaller but doesn't close it.
+That would need a synchronize_rcu() or synchronize_net() in
+netdev_run_todo() after the flush and before the devices are freed.
 
-The commit message says:
+The commit message doesn't give a SHA, Link or Depends-on for the
+prerequisite, and the patch is tagged Cc: stable with Fixes: 2d151d39073a.
+Could the prerequisite be named explicitly, or sent in the same series as
+this patch? Otherwise a stable backport could pick up this patch without
+it.
 
-    This requires netdev_run_todo() to wait for RCU readers
-    after flushing routes; that fix is a prerequisite of this patch.
+The commit message also names dst_dev_put() as the writer:
 
-That change does not seem to be in the tree or in this series, and the
-message gives no commit ID or link for it. The other patch in the
-series, "xfrm: fix use-after-free in xfrm_lookup_with_ifid()", only
-touches net/xfrm/xfrm_policy.c and relies on the same missing wait.
+  dst_dev_put() can replace a dst's device with the blackhole device and
+  drop the reference to the original device.
 
-Could the prerequisite be added to this series or named explicitly? One
-option is a synchronize_net() after the rt_flush_dev(NULL) /
-rt6_uncached_list_flush_dev(NULL) block and before
-netdev_wait_allrefs_any().
-
-About the Fixes tag: commit ca6854799069 ("ipv4: Batch rt_flush_dev() in
-netdev_run_todo().") and commit f12d2907992d ("ipv6: Batch
-rt6_uncached_list_flush_dev() in netdev_run_todo().") moved the flush
-into netdev_run_todo(), after the rcu_barrier(). Before that, it ran from
-the notifier, ahead of a synchronize_net(). Those commits look like the
-likely origin of the window, but the Fixes tag only names 95c47f9cf5e0.
-
-With Cc: stable and no dependency note, would a stable backport of this
-patch alone change anything?
-
->  		rt = dst_rtable(xfrm_lookup_route(net, &rt->dst,
->  						  flowi4_to_flowi(flp4),
->  						  sk, 0));
-
-[Severity: High]
-If a referenced rtable does not keep rt->dst.dev alive, isn't the same
-race still open on this send path right after ip_route_output_flow()
-returns?
-
-udp_sendmsg() passes the same rt to ip_make_skb() without
-rcu_read_lock(). That path then reads the device through the plain
-pointer:
-
-udp_sendmsg()
-  ip_route_output_flow()
-  ip_make_skb()
-    ip_setup_cork()
-      cork->fragsize = ip_sk_use_pmtu(sk) ?
-		 dst4_mtu(&rt->dst) : READ_ONCE(rt->dst.dev->mtu);
-    __ip_append_data()
-      hh_len = LL_RESERVED_SPACE(rt->dst.dev);
-      ... rt->dst.dev->features ...
-
-__ip_append_data() also reads rt->dst.dev->features in several other
-places. raw_send_hdrinc() in net/ipv4/raw.c follows the same pattern:
-
-	if (length > rt->dst.dev->mtu) {
-	...
-	hlen = LL_RESERVED_SPACE(rt->dst.dev);
-	tlen = rt->dst.dev->needed_tailroom;
-
-These loads run after the ifindex read and are not inside any RCU
-section. Even with the prerequisite grace period in place, can the
-"UDP sends raced with dummy-device teardown" reproducer still reach a
-freed net_device here?
-
-Should these sites get the same RCU treatment? Or should teardown keep
-the device alive while dst references to it still exist?
+The dst_dev_put() calls made from NETDEV_UNREGISTER notifiers are followed
+by synchronize_net() in unregister_netdevice_many_notify(). The pointer
+swap with no grace period after it seems to be the rt_flush_dev(NULL) and
+rt6_uncached_list_flush_dev(NULL) calls in netdev_run_todo(). Would it be
+more accurate to describe those calls instead?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795769101.git.n0ps1edzz%40gmail.com
