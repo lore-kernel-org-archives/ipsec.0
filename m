@@ -1,98 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.228
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795818730;
-	b=EezAXH8I5M08SOrzO2mJomuX3264Z8SflDQCBHWs5Kuj6VaLSKnI8tGHVZDykt41cnHR
-	 G2vg8SW1zYKT0fyo7IyvE2NiJPaGRWORPyaedL3wTw6zHzI30u4X4Tnb6HSWB34RcVOP8
-	 oaxIQY0RlmD1iqYY7Pba+gqZr66UOJqNNFeGZinRp1v7ogN0wd2x7PDax52sZ/wWeWZEx
-	 lm0rytacVkvxZ7q0HGZKNHxEdYcacpdVp1evtSLbColugBj7FKVZ0Ti28CMO8mrLP2yov
-	 o2Sx9Zt8AnbRTFhPbPvcFEIp0MXK59ItN6YPTznPn6ky+M4h5VRsNzeJgavLqelolxg==
+	t=1795833190;
+	b=jYSfMbnkihzlVjd2a4UiqehlUaWR/Yk81NeMZ7IF+OoxOOT6kVCJc17FjeJDKN9Egvpl
+	 VyWPRrC338ynAMN8nqDibKzoul3e5qVR/L7yNARTdQLWmmY8BMYXzX9RcQggwrOGi5cFb
+	 j9uI5D++bni1mg+hb7H8kfexumCd2dq8xojjNtlw8BsMqfx4UTIHHMy0+mypMJy45to2V
+	 igu7zmr1wB7h9PBlc6vLhIouj8MvzDHvwGAbBytwqSEf4JyyeUyNz00iIqPhqg9C2RJVn
+	 C97ysNxy8GmpUcVBJ7OledCwkezjdk02b1VevhqUN/ZBnTvmHYjRvC+ohz55q8Tatug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795818730;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-	b=hEUlo/DI5Mv/qjoT2ZbnjE2xmdK3IZRKAmEKqfLmI1ohyFuHojSYO3gwZl3eam8h7LC9
-	 ma6Ew8BBddgufwrnzMS7Rv5s5vIb8YEJvbqvCiOk1YiYit325r5FLuC73kFmakcmTJp1b
-	 i2C7lHgnCTAsq3a9s6ohXQlhCQgmUbO5kinHXBA4ZCZBHBxXdCkAjo943f/mKDG3kKcRz
-	 xjRxjKW8TRT/hhSaoWAy76mXxQNlJMKL64hrw8cTHjhz6OtKK5atEeX1UJp8vQ3zDZuJG
-	 i3in68a+97RTFJ5/OXTJI73xmdjvHS0Od3hATSt/j4HPMAi6CHorP1amg26Jpfr6EjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795833190;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=dZtUYIjpYRuYtYubv0Jwi31UC+Fx/anAY3sZfAURRWM=;
+	b=Ru9pQmR4p41y0xuds57Hg9mLWfGuuucVeFVdnthDqHxSVupgZeK92SmWDqy+1ndpf4my
+	 Akq7B97YlGRoeh5DWUpVXnDLrxaI7TNh1lZNXZ/N2AhR9oQTNvPrzoMtNTKUOfu8AKMJO
+	 UqwyhIwL/5jISgGAjoS7esW/1RrhEYJx7K+KH5b/7zS6o3sNqYNji0/JK+8WheHw8/KBe
+	 l54y/nSyBpgmNOUwGZ0H6qOwqQjXVg4GYeB1HjG+L4wsnrMkfhrc5PwrI0/Q18BvG5Ec+
+	 l92ol9cX+f5Z7+0ik3wr4zIvw5COkhuE2Hy3Xvh47OnsOTD+EndV6sGx6YD/NkzB4wA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=pBVCTkpH;
-	arc=none smtp.remote-ip=209.85.215.228
-Received: from mail-pg1-f228.google.com (mail-pg1-f228.google.com [209.85.215.228])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c995K2yE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABA7D606A324
-	for <ipsec@lists.linux.dev>; Fri, 27 Nov 2026 22:32:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABA7D606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93BCF606A31C;
+	Sat, 28 Nov 2026 02:33:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=pBVCTkpH
-Received: by mail-pg1-f228.google.com with SMTP id 41be03b00d2f7-cd6acc50b8dso4363370a12.3
-        for <ipsec@lists.linux.dev>; Fri, 27 Nov 2026 14:32:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795818729; x=1796423529; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-        b=pBVCTkpHmanhIfHl/jYbsY+Sa2I8hjbpXCoHk1uF6wjdNGNU17CF+1UeuMGOzTkauV
-         2dYiDHEchlrMUT7KTI5Q+QT7lRAyFayIPjna31rvUvS++g6svfw/lGGRExysO+/6mOOy
-         u0keI7ypVyRisxK0oa1vKUpOcirE2C0DtPsiz9/QW4nbmepSwNCwGZqTTjeO42NS8Zu5
-         t/uKebDDPPn+R88cMm4i0F0tgzbyBIBMkJr0eYr3VK249EBb1A55q8ZWlTFPUbIo+o5V
-         jye86UFIweIDDvKJ1PsPeGN3rDMHYbOYXL5L/7oksj6xnyuoKlFvK9fMMBhIRjwgEJex
-         iapQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795818729; x=1796423529;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-        b=0/tp/wF7YKPSUCN5ThnmPPZrss8OejnUC3+vv1ecQzY6QB1NLkmN3TuyEX3q3FyWsP
-         nI8+9aBRMM/W6kUbDEV0xuPUU2c/UTilUkj1GNGO3+V9xforYlPsKxX2XpsiW/FlKbvm
-         z6c5nqfBYZmi8fPBf3a07Hmc+8ZUL8aixkdXae+mzwF1fHXEcbYfte/5aYtKDDOk2QsN
-         kewYVzfRGDAFQrTNMcU38KTwyy0p7x55VFwSOAvxXTa6ETieVmJYUdfRvm+BVpA6S5e0
-         2kc50xpdOLfhthv70uyOb4OECkYy9s+P5pEEyStlGKZsqeJdD2aQGRjwZ8HWOtlnJYjd
-         qjcw==
-X-Forwarded-Encrypted: i=1; AL+hErEEyG/aTXn9VXu4kK5EGk4nybtcD6Dvn0i9Qr80Z9wBWs25tDspeXnCiKM1rgXXtPV3ZsfN6w==@lists.linux.dev
-X-Gm-Message-State: APuU4Z9Kyanyke7JCwoMAVlwNwYZ735ErkHzftub8B2E74XsIiHDw2NI
-	4leCGzb9slwUWANwHEpn0fIuPyeIiAt/8S4SbwEEC07lMrllGwAMz8r0iwgEOPTXUjtt4nqO6HK
-	blbSyaBGGSjNJ3kjxZadIghzpxug8J/e6hritcP40MO1EIajGg2Kh
-X-Gm-Gg: AZFdTZeU8ZV3r60Z+SvyMBUbPcjstznxhneImrLjdRjvqvH7HWNBEPgQUGSp1LAvpbE
-	dzSTn7IuMw7Ee16vQD0Wiqqk/wLj4nttyiP84Fs7aA/HLN6pVcB5faXOqDa6A1PUoSYftgAKXkC
-	8sFn+DvQb04D0pD19e9LvIvaYo8G7XrYynwmLt1YoVqh8hck7HmlZ62gMKqw+JSWKQkHvca4lel
-	+tsiRF3QhW13CfCq4gWTYhc7OGtCNw613cwROYPmcrC+cXbkuXdPI3oSIqERUcZPmJHEiV1nFAG
-	Qee7cL7PMAXkS2flTeNEzoHSJuQ8nz2m+4bcliHiKJ3T0qLkRziuYAdLbpnMG9xr9az9SZpv/Mu
-	gnWpMUWckHwdEcIW4TIkcuYn0O4U=
-X-Received: by 2002:a17:90b:2cce:b0:3b0:9a1b:b709 with SMTP id 98e67ed59e1d1-3b41c95f64dmr26944682a91.54.1795818728866;
-        Fri, 27 Nov 2026 14:32:08 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4d00c6137sm8742684a91.5.2026.11.27.14.32.08
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 14:32:08 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Hopps <chopps@labn.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH ipsec] xfrm: iptfs: give a runt-started inner packet a MAC header
-Date: Fri, 27 Nov 2026 14:32:05 -0800
-Message-ID: <e7d0ab12-61be-4ba7-9a2d-4a71ca73dc4e@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c995K2yE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833F21F00893;
+	Sat, 28 Nov 2026 02:33:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795833190;
+	bh=dZtUYIjpYRuYtYubv0Jwi31UC+Fx/anAY3sZfAURRWM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=c995K2yEiIpJAEwJA7zHogV1tavP+UUaW1/U6rK+7ids96B431mvzdo7J09qsADqw
+	 +QHdlSnWL0vi3cHuLxctp7sUdi7t1j6Hiy0WSaKtJLfFfFERJ8AAxnMZiWXtY4snJ0
+	 0/I8BK+c6cY5/2+KaPQPeiYUOEGBuJsX1R8++uFpfJOsFwYHTJdPjLX2RCUW6F72Wq
+	 XRfELKjEBgcooaGryLyZnlbhU/dhp13TBOnlRoJu1NzHIgXgOsqaJH8F/tUNM/dP3Y
+	 lqv9AFbdXjE7cG8niQI/fkiDfsIo3Ft7a58nm0sO8DDI2CSZRZywLPYSihkvxtJZDR
+	 CKxhm480tfQdQ==
+Subject: Re: [PATCH ipsec-next v3 1/2] xfrm: add ARIA CBC and CTR support
+From: netdev-bot+sashiko@kernel.org
+To: his1415@pribit.com
+Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, sd@queasysnail.net, netdev@vger.kernel.org,
+ ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
+Date: Sat, 28 Nov 2026 02:33:09 +0000
+Message-ID: <179583318907.3135.10318607077166814978@kernel.org>
+In-Reply-To: <20261127020448.55891-2-his1415@pribit.com>
+References: <20261127020448.55891-2-his1415@pribit.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: ipsec@lists.linux.dev
 List-Id: <ipsec.lists.linux.dev>
 List-Post: <mailto:ipsec@lists.linux.dev>
@@ -102,78 +63,136 @@ List-Unsubscribe: <mailto:ipsec+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:ipsec+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-When an inner packet's IP header is split across two outer packets (a
-runt, which RFC 9347 allows), iptfs_reassem_cont() allocates the skb
-for the rest but never sets its MAC header. Any packet socket on the
-device then pushes back toward the unset header and panics:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-  skbuff: skb_under_panic: text:ffffffff82071ea5 len:-65455 put:-65455
-   skb_push+0x53/0x60
-   tpacket_rcv+0x91f/0xee0
-   netif_receive_skb_list_internal+0x49b/0x10e0
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-An unprivileged user can set the whole thing up (both tunnel ends and
-the capture in its own namespaces). With GRO on the ingress device,
-gro_list_prepare() reads past the head the same way, with no socket
-at all. Rebuild the MAC header from the outer packet.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The patch was written with an AI coding assistant and reviewed by the
-submitter.
+- [High] The new ealg_list entries for "cbc(aria)" and
+  "rfc3686(ctr(aria))" in net/xfrm/xfrm_algo.c have no .desc block, so…
+- [Low] This patch makes "rfc3686(ctr(aria))" selectable as an ESP
+  encryption algorithm, but crypto/testmgr.c's alg_test_descs[] has no…
 
-Fixes: 075694765446 ("xfrm: iptfs: handle received fragmented inner packets")
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
----
-Found by an AI code review agent while testing an unlocked runt state.
-Validated with a shell + Python (cryptography) + C netlink reproducer,
-no kernel changes or fault injection; a sender without the SA's keys
-cannot reach it (ESP drops forged runts). Tested: the reproducer
-panics unmodified kernels, as root and as an unprivileged uid, and
-passes with the fix, with well-formed frames; KASAN and lockdep
-builds, panic_on_warn=1 on the fixed kernel. GRO evidence (no packet
-socket needed), on f0e68014f4ac: IPv6 ESP-in-UDP with runts through
-GRO + rx-gro-list at ingress triggers KASAN slab reports in
-dev_gro_receive() (read of size 8); the same traffic with runts=0 is
-clean, and the fixed stack forwards everything with no report. Also
-reproduced with the sender on one host and a KASAN victim on another,
-needing only CONFIG_XFRM_IPTFS (the xfrm_iptfs module, or built in);
-present since v6.14. A reproducer is available to the maintainers on
-request. Depends-on
-note: this copy relies on C1
-([PATCH ipsec] xfrm: iptfs: reserve room for the outer MAC header in
-new inner skbs, patchwork 15029420, posted 11-27) for long MAC headers.
-
- net/xfrm/xfrm_iptfs.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 3fff835497b9..28b9fa109251 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -845,6 +845,20 @@ static u32 iptfs_reassem_cont(struct xfrm_iptfs_data *xtfs, u64 seq,
- 		}
- 		xtfs->ra_newskb = newskb;
- 
-+		/* Rebuild the mac header from the outer packet, as
-+		 * __input_process_payload() does for the skbs it allocates;
-+		 * packet taps push back to it on receive.
-+		 */
-+		if (skb_mac_header_was_set(skb)) {
-+			skb_set_mac_header(newskb, -skb->mac_len);
-+			memcpy(skb_mac_header(newskb), skb_mac_header(skb),
-+			       skb->mac_len);
-+			if (skb->mac_len)
-+				eth_hdr(newskb)->h_proto =
-+					(xtfs->ra_runt[0] >> 4) == 6 ?
-+					htons(ETH_P_IPV6) : htons(ETH_P_IP);
-+		}
-+
- 		/* Copy the runt data into the buffer, but leave data
- 		 * pointers the same as normal non-runt case. The extra `rrem`
- 		 * recopied bytes are basically cacheline free. Allows using
-
-base-commit: 1213df0bc5993e479706c5eba5830243d778f164
 --
-2.53.0
+
+xfrm: add ARIA CBC and CTR support
+
+This commit adds XFRM ealg_list descriptors for cbc(aria) and
+rfc3686(ctr(aria)), so ARIA can be selected as an ESP encryption
+algorithm. Neither entry is exposed through PF_KEY.
+
+> diff --git a/net/xfrm/xfrm_algo.c b/net/xfrm/xfrm_algo.c
+> index 70434495f23f5..98ef2c48982a2 100644
+> --- a/net/xfrm/xfrm_algo.c
+> +++ b/net/xfrm/xfrm_algo.c
+> @@ -512,6 +512,32 @@ static struct xfrm_algo_desc ealg_list[] = {
+>  		.sadb_alg_maxbits = 256
+>  	}
+>  },
+> +{
+> +	.name = "cbc(aria)",
+> +
+> +	.uinfo = {
+> +		.encr = {
+> +			.geniv = "echainiv",
+> +			.blockbits = 128,
+> +			.defkeybits = 128,
+> +		}
+> +	},
+> +
+> +	.pfkey_supported = 0,
+> +},
+
+[Severity: High]
+
+Neither this entry nor the rfc3686(ctr(aria)) entry below has a .desc
+block, so desc.sadb_alg_id is 0 (SADB_EALG_NONE). Before this patch,
+every ealg_list entry had a non-zero sadb_alg_id. Even ecb(cipher_null)
+uses SADB_EALG_NULL.
+
+attach_one_algo() in net/xfrm/xfrm_user.c copies that value into the
+state:
+
+    x->props.ealgo = algo->desc.sadb_alg_id;
+
+An ESP SA using either ARIA mode therefore ends up with props.ealgo == 0,
+x->ealg set and x->aead == NULL.
+
+Can this cause a NULL cipher to be programmed when the SA is offloaded
+to an nfp device? Here is the encryption switch in
+nfp_net_xfrm_add_state() in drivers/net/ethernet/netronome/nfp/crypto/ipsec.c:
+
+	switch (x->props.ealgo) {
+	case SADB_EALG_NONE:
+		...
+		if (x->aead && !strcmp(x->aead->alg_name, "rfc7539esp(chacha20,poly1305)")) {
+			...
+			break;
+		}
+		fallthrough;
+	case SADB_EALG_NULL:
+		cfg->ctrl_word.cimode = NFP_IPSEC_CIMODE_CBC;
+		cfg->ctrl_word.cipher = NFP_IPSEC_CIPHER_NULL;
+		break;
+
+x->aead is NULL here, so control falls through to SADB_EALG_NULL. Next,
+the if (x->ealg) block copies the ARIA key into cfg->ciph_key. The SA is
+sent to the NIC and the function returns success. xfrm_dev_state_add()
+does not check the algorithm itself.
+
+So an SA set up with something like "enc 'cbc(aria)' ... auth
+'hmac(sha256)' ... offload dev <nfp> dir out" would be accepted for
+crypto offload. The hardware would then apply a NULL cipher and send
+the ESP payloads in plaintext. Inbound ARIA-encrypted traffic would be
+passed up as if it had already been decrypted.
+
+Until now, only AH or the chacha20-poly1305 AEAD reached the
+SADB_EALG_NONE fallthrough in that driver. The follow-up "xfrm: add ARIA
+GCM support" adds only aead_list entries, so the issue remains at the
+end of the series.
+
+Should nfp_net_xfrm_add_state() reject SADB_EALG_NONE when x->ealg is
+set, or should these descriptors be identified some other way, so that
+the offload path does not treat them as NULL encryption?
+
+> +{
+> +	.name = "rfc3686(ctr(aria))",
+
+[Severity: Low]
+
+Is a testmgr entry missing for this construction? alg_test_descs[] in
+crypto/testmgr.c has entries for cbc(aria), ctr(aria), ecb(aria) and
+gcm(aria), but none for rfc3686(ctr(aria)). The rfc3686(ctr(aes)) mode
+that XFRM already exposes has one, using aes_ctr_rfc3686_tv_template.
+
+When ESP instantiates this transform, alg_test() takes the notest path
+and logs:
+
+    alg: No test for rfc3686(ctr(aria)) (...)
+
+As a result, no known-answer test covers the RFC3686 nonce/IV/counter
+block layout combined with ARIA. Could test vectors be added for it?
+
+> +
+> +	.uinfo = {
+> +		.encr = {
+> +			.geniv = "seqiv",
+> +			.blockbits = 128,
+> +			.defkeybits = 160, /* 128-bit key + 32-bit nonce */
+> +		}
+> +	},
+> +
+> +	.pfkey_supported = 0,
+> +},
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127020448.55891-1-his1415%40pribit.com
